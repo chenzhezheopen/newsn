@@ -1,0 +1,752 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+    
+    <title>下拉刷新，上拉加载</title>
+	
+	
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/all.css"/>
+	<link rel="stylesheet" type="text/css" href="css/top.css"/>
+	<link rel="stylesheet" type="text/css" href="LCalendar/css/LCalendar.css" />
+	<link rel="stylesheet" type="text/css" href="LCalendar/css/mobileSelect.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/iscroll-probe.js"></script>
+	<style type="text/css">
+		input{
+			-webkit-user-select:auto;
+			-webkit-appearance:textfield;
+			/*-webkit-tap-highlight-color:none;*/
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+		}
+		a:active{
+			background: none;
+			
+		}
+		*{
+			padding: 0;
+			margin: 0;
+			font-weight: initial;
+		}
+		.font-co{
+			color: #F6F7FB;
+		}
+		html,body{
+			height: 100%;
+			background: #F6F7FB;
+			/*overflow-y: hidden;*/
+			overflow: hidden;
+			font-family:"微软雅黑";
+    		-webkit-font-smoothing: antialiased;
+		}
+		
+		body:before {
+			    content: ' ';
+			    position: fixed;
+			    z-index: -1;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0%;
+			    width: 100%;
+			    background: #F6F7FB;
+			    background-size: cover;
+			    padding-bottom: .5rem;
+			}
+			.aui-flex-box{
+				width: 94%;
+				margin-left: 3%;
+			}
+			.aui-flex-info{
+				width: 100%;
+				border-radius: 3px;
+				background:#EFF8FF;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-top: 10px;
+			}
+			.aui-flex-info>div{
+				width: 50%;
+				padding: 15px 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+			}
+			.aui-flex-info>div>p:first-child{
+				font-size: 14px;
+			}
+			.aui-flex-info>div>p:last-child{
+				font-size: 24px;
+				font-weight:bold;
+			}
+			.aui-flex-info p{
+				margin: 10px 0;
+				color:#3093F0;
+				white-space: nowrap;
+			}
+			
+			
+			.aui-flex-list{
+				width: 100%;
+				display: flex;
+				margin-top: 10px;
+				
+				padding: 10px 0;
+			}
+			.aui-flex-list>div{
+				width: 50%;
+				position: relative;
+				padding: 0 3%;
+			}
+			.aui-flex-list>div>div{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-bottom: 5px;
+			}
+			/*.aui-flex-list>div:first-child{
+				margin-left: 3%;
+			}*/
+			.aui-flex-list>div:first-child:before{
+				content: '';
+				width: 1px;
+				height: calc(100% - 10px);
+				top: 2.5px;
+				right: 0%;
+				position: absolute;
+				background: #000000;
+			}
+			.aui-flex-list>div>div>a:first-child{
+				font-size: 14px;
+				color: #000000;
+				flex: 1;
+			}
+			.aui-flex-list>div>div>a:last-child{
+				font-size: 14px;
+				color: #000000;
+			}
+			.aui-contain{
+				width: 100%;
+				background: #ffffff;
+				margin-top: 10px;
+				padding: 10px 0;
+			}
+			
+
+			
+			
+			/*时间选择*/
+			.aui-check-time{
+				width: 100%;
+				padding:10px 3%; 
+				background: #ffffff;
+				justify-content: flex-start;
+				box-sizing: border-box;
+			}
+			.aui-check-time>*{
+				margin-right: 9px;
+			}
+			.time-check{
+				justify-content: flex-start; 
+				width: 33%; 
+				height: 20px;
+				background: #F6F7FB;
+				border-radius: 2px;
+				position: relative;
+			}
+			.time-check>input{
+				border: none;
+				outline: none;
+				
+				height: 100%;
+				width: 100%;
+				background: none;
+			}
+			.time-check:before{
+				content: '';
+				width: 20px;
+				height: 20px;
+				top:0;
+				right: 1px;
+				position: absolute;
+				background: url(images/iconfont/rl.png) no-repeat;
+				background-size: 20px 20px;
+			}
+			/*.page0{
+				z-index: 55;
+			}*/
+			.page0 , .page1 , .page2{
+				width: 100%;
+				/*position: absolute;*/
+			}
+			.page1 , .page2{
+				display: none;
+				/*z-index: -55;*/
+			}
+			
+			.aui-detail::-webkit-scrollbar{
+				display: none;
+			}
+			.aui-detail{
+				bottom: 0;
+				width: 100%;
+				position: relative;
+			}
+	</style>
+	
+    <style> 
+        body{ background:#F6F7FB; display:flex; flex-direction:column; }
+        .header, .footer{ line-height:1.2rem; background:none; text-align:center; font-size:.533333rem; color:#fff; }
+        #wrapper{ flex:1; overflow:hidden; }
+        .pullDown{ position:absolute; top:-20px; left:0; width:100%; z-index:100; font-size: 14px; color: #000000;}
+        .pullUp{ position:absolute; bottom:-20px left:0; width:100%; z-index:100; font-size: 14px;color: #000000;}
+        li{ line-height:.46875rem; padding:.3125rem; color:#000; }
+    </style>
+	
+	
+    <script>
+    </script>
+	
+</head>
+<body>
+    <div class="header">
+    </div>
+
+    <div id="wrapper">
+        <div style="text-align: center;">
+            <p class="pullDown">下拉刷新...</p>
+            <section class="aui-detail">
+		
+				<!--开始按天查询-->
+				<div class="page0">
+					<div class="flex aui-check-time">
+						<a style="white-space: nowrap; font-size: 12px;">查询</a>
+						<div class="time-check"><input type="text" value="开始时间" readonly="readonly" class="flex start-time " id="jz_date"/></div>
+						<a style="font-size: 12px;">至</a>
+						<div class="time-check"><input type="text" value="结束时间" readonly="readonly" class="flex end-time " id="car_date"/></div>
+					</div>
+					<div class="aui-contain">
+					<div class="aui-flex-box">
+						<div>
+							<a class="font16">2019-11-27</a>
+							<i class="icon icon-xyb" style="float: right;"></i>
+							<a class="font16" style="float: right;margin-right: 15px;">查看详情</a>
+						</div>
+						<div class="aui-flex-info">
+							<div>
+								<p>交易金额</p>
+								<p>23435.00元</p>
+							</div>
+							<div>
+								<p>收益</p>
+								<p>18.74元</p>
+							</div>
+						</div>
+					</div>
+					<div class="aui-flex-list">
+							<div>
+								<div>
+									<a>渠道</a>
+									<a>0人</a>
+								</div>
+								<div>
+									<a>终端绑定</a>
+									<a>0台</a>
+								</div>
+								<div>
+									<a>上级扣款</a>
+									<a>0.00元</a>
+								</div>
+							</div>
+							<div>
+								<div>
+									<a>返现</a>
+									<a>0.00元</a>
+								</div>
+								<div>
+									<a>分润</a>
+									<a>18.74元</a>
+								</div>
+								<div>
+									<a>下级代扣</a>
+									<a>0.00元</a>
+								</div>
+							</div>
+						</div>
+				</div>
+				
+					<div class="aui-contain">
+						<div class="aui-flex-box">
+							<div>
+								<a class="font16">2019-11-26</a>
+								<i class="icon icon-xyb" style="float: right;"></i>
+								<a class="font16" style="float: right;margin-right: 15px;">查看详情</a>
+							</div>
+							<div class="aui-flex-info">
+								<div>
+									<p>交易金额</p>
+									<p>23435.00万元</p>
+								</div>
+								<div>
+									<p>收益</p>
+									<p>18.74元</p>
+								</div>
+							</div>
+						</div>
+						<div class="aui-flex-list">
+								<div>
+									<div>
+										<a>渠道</a>
+										<a>0人</a>
+									</div>
+									<div>
+										<a>终端绑定</a>
+										<a>5台</a>
+									</div>
+									<div>
+										<a>上级扣款</a>
+										<a>0.00元</a>
+									</div>
+								</div>
+								<div>
+									<div>
+										<a>返现</a>
+										<a>980.00元</a>
+									</div>
+									<div>
+										<a>分润</a>
+										<a>4293.43元</a>
+									</div>
+									<div>
+										<a>下级代扣</a>
+										<a>0.00元</a>
+									</div>
+								</div>
+							</div>
+					</div>
+					
+					<div class="aui-contain">
+						<div class="aui-flex-box">
+							<div>
+								<a class="font16">2019-11-25</a>
+								<i class="icon icon-xyb" style="float: right;"></i>
+								<a class="font16" style="float: right;margin-right: 15px;">查看详情</a>
+							</div>
+							<div class="aui-flex-info">
+								<div>
+									<p>交易金额</p>
+									<p>3034.08万元</p>
+								</div>
+								<div>
+									<p>收益</p>
+									<p>55059.17元</p>
+								</div>
+							</div>
+						</div>
+						<div class="aui-flex-list">
+								<div>
+									<div>
+										<a>渠道</a>
+										<a>0人</a>
+									</div>
+									<div>
+										<a>终端绑定</a>
+										<a>316台</a>
+									</div>
+									<div>
+										<a>上级扣款</a>
+										<a>0.00元</a>
+									</div>
+								</div>
+								<div>
+									<div>
+										<a>返现</a>
+										<a>31108.00元</a>
+									</div>
+									<div>
+										<a>分润</a>
+										<a>23951.17元</a>
+									</div>
+									<div>
+										<a>下级代扣</a>
+										<a>0.00元</a>
+									</div>
+								</div>
+						</div>
+					</div>
+				</div>
+				<!--按天查询结束开始按月查询-->
+				<div class="page1">
+					<div class="aui-contain">
+					<div class="aui-flex-box">
+						<div>
+							<a class="font16">2019-11(不含今日)</a>
+							<i class="icon icon-xyb" style="float: right;"></i>
+							<a class="font16" style="float: right;margin-right: 15px;">查看详情</a>
+						</div>
+						<div class="aui-flex-info">
+							<div>
+								<p>交易金额</p>
+								<p>23435.00元</p>
+							</div>
+							<div>
+								<p>收益</p>
+								<p>18.74元</p>
+							</div>
+						</div>
+					</div>
+					<div class="aui-flex-list">
+							<div>
+								<div>
+									<a>渠道</a>
+									<a>0人</a>
+								</div>
+								<div>
+									<a>终端绑定</a>
+									<a>0台</a>
+								</div>
+								<div>
+									<a>上级扣款</a>
+									<a>0.00元</a>
+								</div>
+							</div>
+							<div>
+								<div>
+									<a>返现</a>
+									<a>0.00元</a>
+								</div>
+								<div>
+									<a>分润</a>
+									<a>18.74元</a>
+								</div>
+								<div>
+									<a>下级代扣</a>
+									<a>0.00元</a>
+								</div>
+							</div>
+						</div>
+				</div>
+				
+					<div class="aui-contain">
+						<div class="aui-flex-box">
+							<div>
+								<a class="font16">2019-10</a>
+								<i class="icon icon-xyb" style="float: right;"></i>
+								<a class="font16" style="float: right;margin-right: 15px;">查看详情</a>
+							</div>
+							<div class="aui-flex-info">
+								<div>
+									<p>交易金额</p>
+									<p>23435.00万元</p>
+								</div>
+								<div>
+									<p>收益</p>
+									<p>18.74元</p>
+								</div>
+							</div>
+						</div>
+						<div class="aui-flex-list">
+								<div>
+									<div>
+										<a>渠道</a>
+										<a>0人</a>
+									</div>
+									<div>
+										<a>终端绑定</a>
+										<a>5台</a>
+									</div>
+									<div>
+										<a>上级扣款</a>
+										<a>0.00元</a>
+									</div>
+								</div>
+								<div>
+									<div>
+										<a>返现</a>
+										<a>980.00元</a>
+									</div>
+									<div>
+										<a>分润</a>
+										<a>4293.43元</a>
+									</div>
+									<div>
+										<a>下级代扣</a>
+										<a>0.00元</a>
+									</div>
+								</div>
+							</div>
+					</div>
+					
+					<div class="aui-contain">
+						<div class="aui-flex-box">
+							<div>
+								<a class="font16">2019-9</a>
+								<i class="icon icon-xyb" style="float: right;"></i>
+								<a class="font16" style="float: right;margin-right: 15px;">查看详情</a>
+							</div>
+							<div class="aui-flex-info">
+								<div>
+									<p>交易金额</p>
+									<p>3034.08万元</p>
+								</div>
+								<div>
+									<p>收益</p>
+									<p>55059.17元</p>
+								</div>
+							</div>
+						</div>
+						<div class="aui-flex-list">
+								<div>
+									<div>
+										<a>渠道</a>
+										<a>0人</a>
+									</div>
+									<div>
+										<a>终端绑定</a>
+										<a>316台</a>
+									</div>
+									<div>
+										<a>上级扣款</a>
+										<a>0.00元</a>
+									</div>
+								</div>
+								<div>
+									<div>
+										<a>返现</a>
+										<a>31108.00元</a>
+									</div>
+									<div>
+										<a>分润</a>
+										<a>23951.17元</a>
+									</div>
+									<div>
+										<a>下级代扣</a>
+										<a>0.00元</a>
+									</div>
+								</div>
+						</div>
+					</div>
+				</div>
+				<!--按月查询结束开始查询所有-->
+				<div class="page2">
+					<div class="aui-contain">
+						<div class="aui-flex-box">
+							<div>
+								<a class="font16">累计数据(不含今日)</a>
+								<i class="icon icon-xyb" style="float: right;"></i>
+								<a class="font16" style="float: right;margin-right: 15px;">查看详情</a>
+							</div>
+							<div class="aui-flex-info">
+								<div>
+									<p>交易金额</p>
+									<p>23435.00元</p>
+								</div>
+								<div>
+									<p>收益</p>
+									<p>18.74元</p>
+								</div>
+							</div>
+						</div>
+						<div class="aui-flex-list">
+							<div>
+								<div>
+									<a>渠道</a>
+									<a>0人</a>
+								</div>
+								<div>
+									<a>终端绑定</a>
+									<a>0台</a>
+								</div>
+								<div>
+									<a>上级扣款</a>
+									<a>0.00元</a>
+								</div>
+							</div>
+							<div>
+								<div>
+									<a>返现</a>
+									<a>0.00元</a>
+								</div>
+								<div>
+									<a>分润</a>
+									<a>18.74元</a>
+								</div>
+								<div>
+									<a>下级代扣</a>
+									<a>0.00元</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--查询所有结束-->
+			</section>
+            <p class="pullUp">上拉加载...</p>
+        </div>
+    </div>
+
+    <div class="footer">
+    </div>
+
+    <script>
+        var myScroll;
+        myScroll = new IScroll('#wrapper', {
+            probeType: 2,
+            fadeScrollbars: false
+        });
+
+        var pullDown = 1;     // 下拉刷新避免多次执行
+        var pullUp = 1;       // 上拉加载避免多次执行
+        var downHeight = $(".pullDown").height();
+        var upHeight = $(".pullUp").height();
+
+        myScroll.on('scroll', function(){
+            var y = myScroll.y;
+            
+            // 下拉加载
+            if(y >= downHeight && pullDown){
+                $(".pullDown").addClass("refresh").html("松开刷新...");
+               
+                pullDown = 0;
+            }    
+            if(y <= downHeight && y >= 0 && !pullDown){
+                $(".pullDown").removeClass("refresh").html("下拉刷新...");
+                pullDown = 1;
+                myScroll.minScrollY = 0;
+            }
+
+            // 上拉刷新
+            var maxHeight = myScroll.maxScrollY;
+            if(y < (maxHeight - upHeight) && pullUp){
+                $(".pullUp").addClass("loading").html("松开加载...");
+                myScroll.maxScrollY = maxHeight - upHeight;
+                pullUp = 0;
+            }
+            if(y > maxHeight && y < (maxHeight + upHeight) && !pullUp){
+                $(".pullUp").removeClass("loading").html("上拉加载...");
+                myScroll.maxScrollY = maxHeight + upHeight;
+                pullUp = 1;
+            }
+        });
+
+        myScroll.on('scrollEnd', function(){
+        	
+            if($(".pullDown").hasClass("refresh")){
+                $(".pullDown").text("正在刷新...");
+                common.loadingShow();
+                setTimeout(function(){
+                    location.reload();
+                }, 2000);
+                
+            }
+
+            if($(".pullUp").hasClass("loading")){
+                $(".pullUp").text("正在加载...");
+                setTimeout(function(){
+                    add();
+                    myScroll.refresh();
+                }, 1000);
+            }
+        });
+
+        myScroll.on('refresh', function(){
+            $(".pullUp").removeClass("loading").html("上拉加载...");
+            pullUp = 1;
+        });
+
+
+
+    </script>
+    <script src="LCalendar/js/LCalendar.js"></script><!--日期控件-->
+<script src="LCalendar/js/mobileSelect.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var id = 0;
+			$(".data-chart").click(function(){
+				$(".data-detail").removeClass("fff")
+				$(".data-detail").addClass("fontmainc")
+				$(this).removeClass("fontmainc")
+				$(this).addClass("fff")
+				$(".lan").animate({left:"51%"},100)
+				
+				$(".aui-detail").css("display","none")
+				$("#myframe").css("display","block")
+				$("#myframe").attr("src","detail2.html")
+			})
+			$(".data-detail").click(function(){
+				$(this).removeClass("fontmainc")
+				$(this).addClass("fff")
+				$(".data-chart").removeClass("fff")
+				$(".data-chart").addClass("fontmainc")
+				$(".lan").animate({left:"-1%"},100)
+				
+				$(".aui-detail").css("display","block")
+				$("#myframe").css("display","none")
+				$("#myframe").attr("src","")
+			})
+			
+			
+			
+			$(".aui-data-title>div",parent.document).click(function(){
+				$("div[class*=page]").css("display","none")
+				$(".page"+$(this).index()+"").css("display","block")
+				$(".aui-data-title>div>*",parent.document).removeClass("aui-title-active fontmainc") 
+				$(this).find("a").addClass("aui-title-active fontmainc")
+				
+				$('.aui-detail').animate({scrollTop:10},0);
+				$('.aui-detail').animate({scrollTop:10},0);
+			})
+			
+			
+			$(".lcalendar_finish").click(function(){
+				$(".aui-navBar-fixed").css("position","fixed !important")
+			})
+		})
+	</script>
+	<script type="text/javascript">
+		var calendar = new lCalendar();
+			calendar.init({
+				'trigger': '#jz_date',
+				'type': 'date',
+				'minDate':'2015-1-1',//最小日期 注意：该值会覆盖标签内定义的日期范围
+    			'maxDate':'2020-12-31'//最大日期 注意：该值会覆盖标签内定义的日
+			});
+		var calendar = new lCalendar();
+			calendar.init({
+				'trigger': '#car_date',
+				'type': 'date',
+				'minDate':'2015-1-1',//最小日期 注意：该值会覆盖标签内定义的日期范围
+    			'maxDate':'2020-12-31'//最大日期 注意：该值会覆盖标签内定义的日
+			});
+		//时间选择
+		var numArr1=['10时','11时','12时','13时','14时','15时','16时','17时','18时'];
+		var numArr2=['01分','02分','03分','04分','05分','06分','07分','08分','09分','10分','11分','12分','13分','14分','15分','16分','17分','18分','19分','20分','21分','22分','23分','24分','25分','26分','27分','28分','29分','30分','31分','32分','33分','34分','35分','36分','37分','38分','39分','40分','41分','42分','43分','44分','45分','46分','47分','48分','49分','50分','51分','52分','53分','54分','55分','56分','57分','58分','59分','60分'];
+		var mobileSelect3 = new MobileSelect({
+			trigger: '#car_houer_date',
+			title: '选择时间',
+			wheels: [
+						{data: numArr1},
+						{data: numArr2},
+					],
+			position:[0, 0, 0],
+			//transitionEnd:function(indexArr, data){
+			//    console.log(data);
+			//},
+			callback:function(indexArr, data){
+				//$("#trigger3").html("ccccccccccccccccccccc");
+				
+			}
+		});
+</script>
+</body>
+</html>

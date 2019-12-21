@@ -1,0 +1,450 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>卡联盟</title>
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link rel="stylesheet" type="text/css" href="css/mui.css"/>
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<style type="text/css">
+		body,html{
+			height: 100%;
+			overflow-y: hidden;
+		}
+		.aui-flex img{
+			width: 1.5rem;
+			display: initial;
+			margin-right: 10px;
+		}
+		.const{
+			position: absolute;
+			height: 18px;
+			width: 18px;
+			border-radius: 9px;
+			background: red;
+			top: -10%;
+			right: 10%;
+			overflow: hidden;
+			font-size: 10px;
+			text-align: center;
+			color: #ffffff;
+			line-height: 18px;
+		}
+		.add-aui-fixed{
+			position: fixed;
+		    background: #ffffff;
+		    width: 100%;
+		    z-index: 9999;
+		}
+		
+		.aui-scrollView{
+			overflow-y: visible; 
+     		overflow-x: visible;
+     		}
+     		.mui-content{
+     			top: 44px;
+     		}
+     		.mui-scroll>div:nth-child(1){
+     			background: none !important;
+     		}
+     		.mui-scroll{
+     			background: #ffffff;
+     		}
+     		
+     		.aui-flex-one{
+     			margin-top: 0 !important;
+ 				margin-bottom: 0 !important;   
+ 				padding-top: 0 !important;
+ 				padding-bottom: 0 !important;		
+ 			}
+		</style>
+</head>
+<body>
+	
+	
+	<div class="aui-flex add-aui-fixed">
+			<div class="aui-flex-boa" style="flex: 1;">
+				<h1>OEM系统</h1>
+			</div>
+			<div>
+				<img src="image/tz.png" onclick="location.href='system.html'"/>
+				<img src="image/ej.png"/>
+				<a href="message.html" style="display: inline-block; position: relative;">
+					<img src="image/xx.png"/>
+					<div class="const">
+						1
+					</div>
+				</a>
+			</div>
+		</div>
+<section class="aui-flexView" >
+    	
+	<section class="aui-scrollView mui-content mui-scroll-wrapper" style="position: relative;">
+		<div class="mui-scroll">
+	    <div style="position: absolute;width: 100px;height: 100px;top: -100px;background: red;z-index: 99999999;">
+		
+		</div>
+		<!--图片轮播  -->
+		<!--<div class="m-slider" data-ydui-slider>
+			<div class="slider-wrapper">
+				<div class="slider-item">
+					<a href="javascript:;">
+						<img src="images/banner.jpg" alt="">
+					</a>
+				</div>
+				<div class="slider-item">
+					<a href="javascript:;">
+						<img src="images/banner.jpg" alt="">
+					</a>
+				</div>
+				
+			</div>
+			<div class="slider-pagination"></div>
+		</div>-->
+		<div class="aui-card-show" style="margin-top:10px;padding: 5px 0;background: #3480fa;background: linear-gradient(to bottom right, #5e97f4, #3480fa);">
+			    <div class="aui-flex aui-flex-one" style="padding-top: 5px !important;">
+					<div class="aui-flex-box" style="padding-right:1.2rem;text-align: left;">
+						<h3 style="font-size: 20px;">张三</h3>
+					</div>
+					<div onclick="javascript:location.href='reword.html'" class="aui-arrow1"style="background: #ffffff;">
+	                    <p style="color:#3480fa;margin-bottom: 0px;">￥收益明细</p>
+	                </div>
+			    </div>
+			<div class="aui-flex aui-flex-one" style="margin: 10px 0;">
+			    <div class="aui-flex-box">
+					<h1>今日交易量（元）</h1>
+					<h2 style="color:#fff;font-size: 30px;font-weight: bold;">16889900.00</h2>
+				</div>
+			</div>
+			<div class="aui-flex aui-flex-one">
+				<div class="aui-flex-box" style="padding-right:1.2rem;text-align: left;">
+					<h1>今日收益（元） </h1>
+					<h2 style="color:#fff">20.0</h2>
+				</div>
+				
+				<div class="aui-flex-box"style="text-align: right;">
+					<h1>今日激活量（台）</h1>
+					<h2 style="color:#fff">1</h2>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="aui-palace aui-palace-one">
+			<a href="shangwu.html" class="aui-palace-grid shangwu">
+				<div class="aui-palace-grid-icon">
+					<img src="images/iconfont/sw.png" alt="">
+				</div>
+				<div class="aui-palace-grid-text">
+					<h2>商务管理</h2>
+				</div>
+			</a>
+			<a href="withhold.html" class="aui-palace-grid withhold">
+				<div class="aui-palace-grid-icon">
+					<img src="images/iconfont/qd.png" alt="">
+				</div>
+				<div class="aui-palace-grid-text">
+					<h2>代扣货款</h2>
+				</div>
+			</a>
+			<a href="withhold.html" class="aui-palace-grid withhold">
+				<div class="aui-palace-grid-icon">
+					<img src="images/nav-012.png" alt="">
+				</div>
+				<div class="aui-palace-grid-text">
+					<h2>商户信息</h2>
+				</div>
+			</a>
+			<a href="staff-message.html" class="aui-palace-grid staff-message">
+				<div class="aui-palace-grid-icon">
+					<img src="images/iconfont/yggl.png" alt="">
+				</div>
+				<div class="aui-palace-grid-text">
+					<h2>员工管理</h2>
+				</div>
+			</a>
+			<a href="javascript:;" class="aui-palace-grid">
+				<div class="aui-palace-grid-icon">
+					<img src="images/nav-002.png" alt="">
+				</div>
+				<div class="aui-palace-grid-text">
+					<h2>机具购买</h2>
+				</div>
+			</a>
+			<a  class="aui-palace-grid qrcode">
+				<div class="aui-palace-grid-icon">
+					<img src="images/nav-013.png" alt="">
+				</div>
+				<div class="aui-palace-grid-text">
+					<h2>盟友邀请</h2>
+				</div>
+			</a>
+			<a href="javascript:;" class="aui-palace-grid">
+				<div class="aui-palace-grid-icon">
+					<img src="images/nav-014.png" alt="">
+				</div>
+				<div class="aui-palace-grid-text">
+					<h2>机器激活</h2>
+				</div>
+			</a>
+			<a href="deal-service.html" class="aui-palace-grid deal-service">
+				<div class="aui-palace-grid-icon">
+					<img src="images/iconfont/jycx.png" alt="">
+				</div>
+				<div class="aui-palace-grid-text">
+					<h2>交易查询</h2>
+				</div>
+			</a>
+			<a href="reword.html" class="aui-palace-grid reword">
+				<div class="aui-palace-grid-icon">
+					<img src="images/nav-015.png" alt="">
+				</div>
+				<div class="aui-palace-grid-text">
+					<h2>收益明细</h2>
+				</div>
+			</a>
+			<a href="pho.html" class="aui-palace-grid pho">
+				<div class="aui-palace-grid-icon">
+					<img src="images/nav-016.png" alt="">
+				</div>
+				<div class="aui-palace-grid-text">
+					<h2>盟友通讯</h2>
+				</div>
+			</a>
+			<a href="terminal.html" class="aui-palace-grid terminal">
+				<div class="aui-palace-grid-icon">
+					<img src="images/nav-016.png" alt="">
+				</div>
+				<div class="aui-palace-grid-text">
+					<h2>终端管理</h2>
+				</div>
+			</a>
+			<a href="javascript:;" class="aui-palace-grid">
+				<div class="aui-palace-grid-icon">
+					<img src="images/nav-017.png" alt="">
+				</div>
+				<div class="aui-palace-grid-text">
+					<h2>盟友升级</h2>
+				</div>
+			</a>
+			<a href="javascript:;" class="aui-palace-grid">
+				<div class="aui-palace-grid-icon">
+					<img src="images/nav-019.png" alt="">
+				</div>
+				<div class="aui-palace-grid-text">
+					<h2>在线客服</h2>
+				</div>
+			</a>
+		</div>
+		<div class="divHeight"></div>
+		<!--<div class="aui-flex aui-flex-two">
+			<div class="aui-flex-box chang1">
+				<div class="aui-palace">
+					<div class="aui-palace-grid">
+						<div class="aui-palace-grid-icon">
+							<img src="images/icon-fl1.png" alt="">
+						</div>
+						<div class="aui-palace-grid-text">
+							<h3>机具</h3>
+						</div>
+					</div>
+					<div class="aui-palace-grid">
+						<div class="aui-palace-grid-icon" style="width:auto">
+							<h3>激活<i>8</i>台</h3>
+						</div>
+						<div class="aui-palace-grid-text">
+							<button>8/10</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="aui-flex-box chang2">
+				<div class="aui-palace">
+					<div class="aui-palace-grid">
+						<div class="aui-palace-grid-icon">
+							<img src="images/icon-fl2.png" alt="">
+						</div>
+						<div class="aui-palace-grid-text">
+							<h3>分润</h3>
+						</div>
+					</div>
+					<div class="aui-palace-grid">
+						<div class="aui-palace-grid-icon" style="width:auto">
+							<h3><i>10</i>元</h3>
+						</div>
+						<div class="aui-palace-grid-text">
+							<button>提现</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>-->
+		<div class="m-slider" data-ydui-slider style="margin-top:10px;">
+			<div class="slider-wrapper">
+				<div class="slider-item">
+					<a href="javascript:;">
+						<img src="images/5.jpg" alt="">
+					</a>
+				</div>
+				<div class="slider-item">
+					<a href="javascript:;">
+						<img src="images/5.jpg" alt="">
+					</a>
+				</div>
+				
+			</div>
+			<div class="slider-pagination" style="bottom: 0.2rem;"></div>
+		</div>
+		
+		<div class="aui-flex aui-flex-two">
+			<div class="aui-flex-box chang3">
+				<div class="aui-palace">
+					<div class="aui-palace-grid">
+						<div class="aui-palace-grid-icon">
+							<img src="images/icon-fl3.png" alt="">
+						</div>
+						<div class="aui-palace-grid-text">
+							<h3>用户</h3>
+						</div>
+					</div>
+					<div class="aui-palace-grid">
+						<div class="aui-palace-grid-icon" style="width:auto">
+							<h3>200（个）</h3>
+						</div>
+						<div class="aui-palace-grid-text">
+							<button>明细</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="aui-flex-box chang4">
+				<div class="aui-palace">
+					<div class="aui-palace-grid">
+						<div class="aui-palace-grid-icon">
+							<img src="images/icon-fl4.png" alt="">
+						</div>
+						<div class="aui-palace-grid-text">
+							<h3>分享</h3>
+						</div>
+					</div>
+					<div class="aui-palace-grid">
+						<div class="aui-palace-grid-icon" style="width:auto">
+							<h3>分享赚钱</h3>
+						</div>
+						<div class="aui-palace-grid-text">
+							<button>赚钱</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="aui-parent-ad">
+			<img src="images/ad-004.jpg" alt="">
+			<p style="text-align:center;font-size:12px;margin-top:10px;">我是有底线的！</p>
+		</div>
+		
+		<div style="height:53px;"></div>
+        <div class="divHeight"></div>
+	</div>
+	</section>
+	<footer class="aui-footer aui-footer-fixed">
+
+		<a href="index.html" class="aui-tabBar-item ">
+                <span class="aui-tabBar-item-icon">
+                    <i class="icon icon-ions"></i>
+                </span>
+			<span class="aui-tabBar-item-text" style="color: #3480fa;">首页</span>
+		</a>
+		<a href="mengyou.html" class="aui-tabBar-item ">
+                <span class="aui-tabBar-item-icon">
+                    <i class="icon icon-info"></i>
+                </span>
+			<span class="aui-tabBar-item-text">盟友</span>
+		</a>
+		<a href="jus.html" class="aui-tabBar-item ">
+                <span class="aui-tabBar-item-icon">
+                    <i class="icon icon-shouyi"></i>
+                </span>
+			<span class="aui-tabBar-item-text">收益</span>
+		</a>
+		<a href="home.html" class="aui-tabBar-item ">
+                <span class="aui-tabBar-item-icon">
+                    <i class="icon icon-mine"></i>
+                </span>
+			<span class="aui-tabBar-item-text">我的</span>
+		</a>
+	</footer>
+</section>
+</body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/slider.js"></script>
+<script type="text/javascript" src="js/mui.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".aui-arrow1").on("tap",function(){
+			console.log("Aaaaaaa")
+			location.href='reword.html'
+		})
+		$(".reword").on("tap",function(){
+			console.log("Aaaaaaa")
+			location.href='reword.html'
+		})
+		$(".qrcode").on("tap",function(){
+			location.href="qrcode.html"
+		})
+		$(".withhold").on("tap",function(){
+			location.href="withhold.html"
+		})
+		$(".shangwu").on("tap",function(){
+			location.href="shangwu.html"
+		})
+		$(".staff-message").on("tap",function(){
+			location.href="staff-message.html"
+		})
+		$(".deal-service").on("tap",function(){
+			location.href="deal-service.html"
+		})
+		$(".pho").on("tap",function(){
+			location.href="pho.html"
+		})
+		$(".terminal").on("tap",function(){
+			location.href="terminal.html"
+		})
+		$(window).scroll(function(e){
+			console.log($(window).scrollTop())
+			if($(window).scrollTop()>50){
+				$(".add-aui-fixed").css("border-bottom",".1px #818085 solid")
+			}
+			if($(window).scrollTop()<=0){
+				$(".add-aui-fixed").css("border-bottom","none")
+			}
+			
+		})
+		mui.init({
+			  pullRefresh : {
+			    container:".mui-content",//下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等
+			    down : {
+			      height:50,//可选,默认50.触发下拉刷新拖动距离,
+			      auto: true,//可选,默认false.首次加载自动下拉刷新一次
+			      contentdown : "下拉可以刷新",//可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容
+			      contentover : "释放立即刷新",//可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容
+			      contentrefresh : "正在刷新...",//可选，正在刷新状态时，下拉刷新控件上显示的标题内容
+			      callback :callfunction //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+			    }
+			  }
+			});
+			function callfunction(){
+//				$(".mui-pull-loading").css("display","none")
+				window.setTimeout(function(){
+//					mui.toast('')
+					mui(".mui-content").pullRefresh().endPulldownToRefresh()
+				},500)
+				
+			}
+	})
+</script>
+</html>

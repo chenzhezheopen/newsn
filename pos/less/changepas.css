@@ -1,0 +1,78 @@
+body,
+html {
+  background: #edf1f4;
+}
+section {
+  width: 100%;
+}
+.input-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  width: 100%;
+  padding: 7px 0;
+  border-bottom: 1px #c8c8c8 solid;
+}
+.input-container a {
+  margin-right: 8px;
+  font-size: 14px;
+  color: #000000;
+  white-space: nowrap;
+}
+.input-container input[type="text"] {
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: flex-start;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  margin: 0 !important;
+  width: calc(100% - 80px) !important;
+  padding: 2px 0 !important;
+}
+.input-container input[type="button"] {
+  background: #2C98FB;
+  color: #ffffff;
+  border: none;
+  height: 22px;
+  border-radius: 11px;
+  outline: none;
+  font-size: 12px;
+  margin: 0 !important;
+  padding: 4px 10px !important;
+}
+.from-menu {
+  width: 100%;
+  background: #ffffff;
+  padding: 0 2%;
+}
+.from-menu .input-container:last-child {
+  border-bottom: none;
+}
+.sublim-btn {
+  width: 90%;
+  margin: 20px 0% 0 5%;
+  height: 40px;
+  font-size: 16px;
+  background: #dcdcdc !important;
+  border-radius: 5px;
+  color: #ffffff !important;
+  border: none !important;
+}

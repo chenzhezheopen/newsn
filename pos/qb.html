@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>收支明细</title>
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link href="css/recomment/style.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="css/bottom.css"/>
+	<link rel="stylesheet" type="text/css" href="css/all.css"/>
+	<link rel="stylesheet" type="text/css" href="css/top.css"/>
+	<link rel="stylesheet" type="text/css" href="css/mui.css"/>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<style type="text/css">
+		input{
+			-webkit-user-select:auto;
+			-webkit-appearance:textfield;
+			/*-webkit-tap-highlight-color:none;*/
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+		}
+		a:active{
+			background: none;
+			
+		}
+		*{
+			padding: 0;
+			margin: 0;
+			font-weight: initial;
+		}
+		html,body{
+			
+			overflow-x: hidden;
+			font-family:"微软雅黑";
+    		-webkit-font-smoothing: antialiased;
+		}
+		
+		body:before {
+			    content: ' ';
+			    position: fixed;
+			    z-index: -1;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0%;
+			    width: 100%;
+			    background: #ffffff;
+			    background-size: cover;
+			    padding-bottom: .5rem;
+			}
+		.aui-scrollView{
+			position: absolute;
+			top: 0%;
+			left: 0%;
+			background: #2C98FB;
+			width: 100%;
+			/*height: 33%;*/
+		}
+		
+		.icon-return{
+			background: url(images/iconfont/return.png);
+		}
+		.icon-share{
+			background: url(images/iconfont/search.png);
+		}
+		
+		
+		
+		.scrolltab-title{
+			width: 100%;
+			background: #ffffff;
+		}
+		.scrolltab-box{
+			width: 100%;
+			padding: 3px 3% 5px 3%;
+			border-bottom: .1px #ccc solid;
+		}
+		.scrolltab-box>div{
+			width: 96%;
+		}
+		.scrolltab-list{
+			margin: 7px 0;
+			display: flex;
+			align-items: center;
+		}
+		.scrolltab-list>*:first-child{
+			flex: 1;
+		}
+		.scrolltab-list *:first-child{
+			font-size: 14px;
+			font-weight: 500;
+		}
+		.scrolltab-list *:last-child{
+			font-size: 14px;
+			font-weight: 500;
+			color: #2C98FB;
+		}
+		.scrolltab-lable{
+			margin: 5px 0;
+			display: flex;
+			align-items: center;
+		}
+		
+		.scrolltab-lable *:nth-child(2){
+			color: #444444;
+			font-size: 12px;
+			font-weight: 100;
+		}
+		.scrolltab-lable>*:first-child{
+			flex: 1;
+			color: #73de73;
+			font-size: 12px;
+		}
+		.vis-item1{
+			display: none;
+		}
+		.vis-item2{
+			display: none;
+		}
+		/*.aui-detail::-webkit-scrollbar{
+			display: none;
+		}*/
+		.aui-detail{
+			/*overflow-y:scroll ;
+			overflow-x: hidden;*/
+			/*-webkit-overflow-scrolling: touch;*/
+			/*position: absolute;*/
+			/*bottom: 0;*/
+			width: 100%;
+			/*height: 67%;*/
+			
+		}
+		.cont{
+			height: 44px;
+		}
+		
+		
+		/*mui*/
+		.mui-content{
+			top: 44px;
+		}
+	</style>
+</head>
+<body>
+	
+<!--<div style="position: fixed;width: 100%;height: 100%;top: 0%;left: 0%;">-->
+
+
+		<header class="aui-navBar aui-navBar-fixed" id="nav-wrap">
+			<a class="aui-navBar-item" >
+				<img src="images/iconfont/return.png" onclick="javascript:history.back(-1);" style="width: 20px;"/>
+			</a>
+			<div class="aui-center">
+				<span class="aui-center-title" style="color: #ffffff;font-size: 1rem;font-weight: bold;">钱包流水</span>
+			</div>
+			<a class="aui-navBar-item" href="sublim2.html" data-ydui-actionsheet="{target:'#actionSheet',closeElement:'#cancel'}">
+				<img src="images/iconfont/search.png" class="aui-navBar-item2" style="width: 20px;"/>
+			</a>
+		</header>
+		<div class="cont">
+		
+		</div>
+	
+	<section class="aui-detail mui-content mui-scroll-wrapper" style="background: #ffffff;bottom: 0;flex: 1;">
+		
+		<div class="scrolltab-title vis-item0 mui-scroll">
+			<div class="scrolltab-box">
+				<div class="scrolltab-list">
+					<h1>收益(瑞银信pro)</h1>
+					<h2>+7.99元</h2>
+				</div>
+				<div class=" scrolltab-lable">
+					<h1>已到账</h1>
+					<h2>2017-11-25 14:53:34</h2>
+				</div>
+			</div>
+			<div class="scrolltab-box">
+				<div class="scrolltab-list">
+					<h1>收益(快钱)</h1>
+					<h2>+7.99元</h2>
+				</div>
+				<div class=" scrolltab-lable">
+					<h1>已到账</h1>
+					<h2>2017-11-25 14:53:34</h2>
+				</div>
+			</div>
+			<div class="scrolltab-box">
+				<div class="scrolltab-list">
+					<h1>收益(银盛)</h1>
+					<h2>+7.99元</h2>
+				</div>
+				<div class=" scrolltab-lable">
+					<h1>已到账</h1>
+					<h2>2017-11-25 14:53:34</h2>
+				</div>
+			</div>
+			<div class="scrolltab-box">
+				<div class="scrolltab-list">
+					<h1>收益(瑞银信pro)</h1>
+					<h2>+7.99元</h2>
+				</div>
+				<div class=" scrolltab-lable">
+					<h1>已到账</h1>
+					<h2>2017-11-25 14:53:34</h2>
+				</div>
+			</div>
+			<div class="scrolltab-box">
+				<div class="scrolltab-list">
+					<h1>收益(快钱)</h1>
+					<h2>+7.99元</h2>
+				</div>
+				<div class=" scrolltab-lable">
+					<h1>已到账</h1>
+					<h2>2017-11-25 14:53:34</h2>
+				</div>
+			</div>
+			<div class="scrolltab-box">
+				<div class="scrolltab-list">
+					<h1>收益(银盛)</h1>
+					<h2>+7.99元</h2>
+				</div>
+				<div class=" scrolltab-lable">
+					<h1>已到账</h1>
+					<h2>2017-11-25 14:53:34</h2>
+				</div>
+			</div>
+			<div class="scrolltab-box">
+				<div class="scrolltab-list">
+					<h1>收益(瑞银信pro)</h1>
+					<h2>+7.99元</h2>
+				</div>
+				<div class=" scrolltab-lable">
+					<h1>已到账</h1>
+					<h2>2017-11-25 14:53:34</h2>
+				</div>
+			</div>
+			<div class="scrolltab-box">
+				<div class="scrolltab-list">
+					<h1>收益(快钱)</h1>
+					<h2>+7.99元</h2>
+				</div>
+				<div class=" scrolltab-lable">
+					<h1>已到账</h1>
+					<h2>2017-11-25 14:53:34</h2>
+				</div>
+			</div>
+			<div class="scrolltab-box">
+				<div class="scrolltab-list">
+					<h1>收益(银盛)</h1>
+					<h2>+7.99元</h2>
+				</div>
+				<div class=" scrolltab-lable">
+					<h1>已到账</h1>
+					<h2>2017-11-25 14:53:34</h2>
+				</div>
+			</div>
+			<div class="scrolltab-box">
+				<div class="scrolltab-list">
+					<h1>收益(瑞银信pro)</h1>
+					<h2>+7.99元</h2>
+				</div>
+				<div class=" scrolltab-lable">
+					<h1>已到账</h1>
+					<h2>2017-11-25 14:53:34</h2>
+				</div>
+			</div>
+			<div class="scrolltab-box">
+				<div class="scrolltab-list">
+					<h1>收益(快钱)</h1>
+					<h2>+7.99元</h2>
+				</div>
+				<div class=" scrolltab-lable">
+					<h1>已到账</h1>
+					<h2>2017-11-25 14:53:34</h2>
+				</div>
+			</div>
+			<div class="scrolltab-box">
+				<div class="scrolltab-list">
+					<h1>收益(银盛)</h1>
+					<h2>+7.99元</h2>
+				</div>
+				<div class=" scrolltab-lable">
+					<h1>已到账</h1>
+					<h2>2017-11-25 14:53:34</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+<!--</div>-->
+<script type="text/javascript" src="js/mui.js"></script>
+<script type="text/javascript">
+	mui(".mui-content").pullRefresh({
+		down:{
+			auto:true,
+			callback:fun1
+		},
+		up:{
+			callback:fun2
+		}
+	})
+	function fun1(){
+		window.setTimeout(function(){
+			mui(".mui-content").pullRefresh().endPulldownToRefresh()
+		},500)
+	}
+	function fun2(){
+		window.setTimeout(function(){
+			mui(".mui-content").pullRefresh().endPullupToRefresh()
+		},500)
+	}
+</script>
+<style type="text/css">
+	.flex{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 30px;
+		width: 100%;
+	}
+</style>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<meta content="telephone=no" name="format-detection" />
+		<title></title>
+		<link href="css/recomment/style.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="css/all.css"/>
+		<link rel="stylesheet" type="text/css" href="css/top.css"/>
+		<script type="text/javascript" src="js/jquery.1.7.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery.qrcode.min.js"></script>
+		<script type="text/javascript" src="js/html2canvas.js"></script>
+		<style type="text/css">
+			canvas{
+				border: none;
+				margin-top: 30px;
+			}
+			body,html{
+				overflow-x: hidden;
+				background: #516CF9;
+			}
+			.aui-top-fold{
+				height: 5px;
+				border-top-left-radius: 5px;
+				border-top-right-radius: 5px;
+			}
+			.aui-top{
+				margin-top: 5%;
+				flex-direction: column;
+			}
+			.aui-contain{
+				background: none;
+			}
+			/*海报顶部*/
+			.aui-top-canvas{
+				border-top-left-radius: 5px;
+				border-top-right-radius: 5px;
+				text-align: center;
+				padding: 30px 0 10px 0;
+				position: relative;
+				box-sizing: border-box;
+			}
+			.aui-top-canvas:before{
+				content: '';
+				width: 7px;
+				height: 7px;
+				bottom: 0;
+				left: 0;
+				border-top-right-radius:  7px;
+				background: #516CF9;
+				position: absolute;
+				z-index: 100;
+			}
+			.aui-top-canvas:after{
+				content: '';
+				width: 7px;
+				height: 7px;
+				bottom: 0;
+				right: 0;
+				border-top-left-radius:  7px;
+				background: #516CF9;
+				position: absolute;
+				z-index: 100;
+			}
+			
+			/*海报中部*/
+			.aui-top-canvas-body{
+				text-align: center;
+				padding: 10px 0 10px 0;
+				position: relative;
+				border-top: 1px #000000 dashed;
+			}
+			.bottom-left{
+				width: 7px;
+				height: 7px;
+				bottom: 0;
+				left: 0;
+				border-top-right-radius:  7px;
+				background: #516CF9;
+				position: absolute;
+			}
+			.bottom-right{
+				content: '';
+				width: 7px;
+				height: 7px;
+				bottom: 0;
+				right: 0;
+				border-top-left-radius:  7px;
+				background: #516CF9;
+				position: absolute;
+			}
+			.top-left{
+				width: 7px;
+				height: 7px;
+				top: -1px;
+				left: 0;
+				border-bottom-right-radius:  7px;
+				background: #516CF9;
+				position: absolute;
+			}
+			.top-right{
+				content: '';
+				width: 7px;
+				height: 7px;
+				top: -1px;
+				right: 0;
+				border-bottom-left-radius:  7px;
+				background: #516CF9;
+				position: absolute;
+			}
+			.z100{
+				z-index: 100;
+			}
+			#qrcode canvas{
+				margin-top: 0;
+			}
+			
+			/*海报底部*/
+			.aui-top-canvas-foot{
+				border-top: 1px #000000 dashed;
+				text-align: center;
+				padding: 30px 0 10px 0;
+				position: relative;
+				box-sizing: border-box;
+				border-bottom-left-radius: 5px;
+				border-bottom-right-radius: 5px;
+			}
+
+			.aui-bottom-fold{
+				height: 5px;
+				border-bottom-left-radius: 5px;
+				border-bottom-right-radius: 5px;
+			}
+			/*分享*/
+			.share{
+				width: 70%;
+				margin-left: 15%; 
+				height: 25px;
+				border-radius: 12.5px;
+				background: #576DFE;
+				color: #ffffff;
+			}
+			#qrcode{
+				width: 85px;
+				height: 85px;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="aui-navBar aui-navBar-fixed" id="nav-wrap">
+			<a class="aui-navBar-item" >
+				<img src="images/iconfont/return.png" onclick="javascript:history.back(-1);" style="width: 20px;"/>
+			</a>
+			<div class="aui-center">
+				<span class="aui-center-title" style="color: #ffffff;font-size: 1rem;font-weight: bold;">瑞e推广</span>
+			</div>
+			<a class="aui-navBar-item"  data-ydui-actionsheet="{target:'#actionSheet',closeElement:'#cancel'}">
+				<!--<img src="images/iconfont/search.png" class="aui-navBar-item2" style="width: 20px;"/>-->
+			</a>
+		</header>
+		<div style="height: 44px;">
+			
+		</div>
+		<section class="aui-contain" style="width: 100%;margin-top: 30px; background: #516CF9;">
+			<div class="flex aui-top" style="width: 94%;margin-left: 3%;">
+				<div class="aui-top-fold" style="width: 85%;background:#70B3F9 ;"></div>
+				<div class="aui-top-fold" style="width: calc(85% + 5px);background: #98C7FB;"></div>
+				<div class="aui-top-canvas" style="width: calc(85% + 10px);background: #ffffff;">
+					<h2 class="font16" style="">瑞银信集团旗下信贷平台</h2>
+				</div>
+				<div class="aui-top-canvas-body flex" style="width: calc(85% + 10px);background: #ffffff;flex-direction: column;">
+					<h2 class="font14">您的邀请码</h2>
+					<h2 class="font14 code" style="color: red;">6091582743</h2>
+					<div style="padding: 10px;border: 5px #F7F7F8 solid;">
+						<div id="qrcode"></div>
+					</div>
+					<h2 class="font12" style="color: rgba(0,0,0,.4);">分享二维码至微信，被邀用户扫描二维码</h2>
+					<h2 class="font12" style="color: rgba(0,0,0,.4);">注册并登录瑞e生活，您即可领取奖励</h2>
+					<a href="#" class="font12" style="text-decoration: underline; color: blue;">详细说明>></a>
+					<div class="top-left z100"></div>
+					<div class="top-right z100"></div>
+					<div class="bottom-left z100"></div>
+					<div class="bottom-right z100"></div>
+				</div>
+				<div class="aui-top-canvas-foot" style="width: calc(85% + 10px);background: #ffffff;">
+					<div class="flex share">
+						立即分享
+					</div>
+					<div class="top-left z100"></div>
+					<div class="top-right z100"></div>
+				</div>
+				<div class="aui-bottom-fold" style="width: calc(85% + 5px);background:#70B3F9 ;"></div>
+				<div class="aui-bottom-fold" style="width:85% ;background: #98C7FB;"></div>
+			</div>
+		</section>
+		<img src="" id="result" style="width: 100%; margin-top: 30px;"/>
+	<script type="text/javascript">
+		window.setInterval(function(){
+			$(".code").text( Math.floor(Math.random()*(100000000)))
+		},100)
+		$("#qrcode").qrcode({
+		      render: "canvas", //设置渲染方式，有table和canvas，使用canvas方式渲染性能相对来说比较好
+		      text: "hello world", //扫描二维码后显示的内容,可以直接填一个网址，扫描二维码后自动跳向该链接
+		      width: "80", // //二维码的宽度
+		      height: "80", //二维码的高度
+		      background: "#ffffff", //二维码的后景色
+		      foreground: "#000000", //二维码的前景色
+		      src: "https://www.baidu.com" //二维码中间的图片
+	   });
+		$(".share").click(function(){
+			 html2canvas(document.querySelector(".aui-contain")).then(canvas => {
+			 			canvas.setAttribute("class","hello")
+					    var image = new Image();
+						image.src = canvas.toDataURL("image/png");
+						$("#result").attr("src",image.src)
+					    $(".aui-contain").css("display","none")
+				});
+		})
+	</script>
+	</body>
+</html>

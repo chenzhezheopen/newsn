@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0"/>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/all.css"/>
+		<link rel="stylesheet" type="text/css" href="css/top.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="less/changepas.css"/>
+		<style type="text/css">
+			.input-container>a:nth-child(1) {
+			     width: 70px !important; 
+			}
+			.sublim-btn{
+				background: #2C98FB !important;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<header class="aui-navBar aui-navBar-fixed" id="nav-wrap">
+				<a class="aui-navBar-item" >
+					<img src="images/iconfont/return.png" onclick="javascript:history.back(-1);" style="width: 20px;"/>
+				</a>
+				<div class="aui-center">
+					<span class="aui-center-title" style="color: #ffffff;font-size: 1rem;font-weight: bold;">消息</span>
+				</div>
+				<a class="aui-navBar-item" data-ydui-actionsheet="{target:'#actionSheet',closeElement:'#cancel'}">
+				</a>
+			</header>
+			<div style="height: 44px;"></div>
+			<section style="margin-top: 15px;">
+				<div class="from-menu">
+					<div class="input-container">
+						<a href="">收货人</a>
+						<input type="text" placeholder="输入收货人" />
+						<img src="image/QQ.png" style="width: 20px;"/>
+					</div>
+					<div class="input-container">
+						<a href="">手机号</a>
+						<input type="text" placeholder="输入手机号" />
+					</div>
+					<div class="input-container">
+						<a href="">所在区域</a>
+						<input type="text" placeholder="省 市" />
+						<img src="image/QQ.png" style="width: 20px;"/>
+					</div>
+					<div class="input-container">
+						<a href="">详情地址</a>
+						<input type="text" placeholder="输入详情地址" />
+					</div>
+				</div>
+				<input type="button" class="sublim-btn" value="保存" />
+			</section>
+		</section>
+	</body>
+</html>

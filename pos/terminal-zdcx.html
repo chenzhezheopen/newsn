@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0"/>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/all.css"/>
+		<link rel="stylesheet" type="text/css" href="css/top.css"/>
+		<link rel="stylesheet" type="text/css" href="less/message.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.picker.css"/>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			body:before {
+			    content: ' ';
+			    position: fixed;
+			    z-index: -1;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0%;
+			    width: 100%;
+			    background: #EDF1F4;
+			    background-size: cover;
+			    padding-bottom: .5rem;
+			}
+			
+			/*.mui-pull-caption {  
+                background-image: url(image/5-121204193R0.gif);  
+                background-size: contain;  
+                background-repeat: no-repeat;  
+                background-position: center;  
+                width: 144px;  
+                height: 31px;  
+                font-size: 0px;  
+            }  */
+           .home-top-my-info .home-top-go {
+			     width: auto ; 
+			}
+		</style>
+	</head>
+	<body>
+			
+		
+			    	<header class="aui-navBar aui-navBar-fixed" id="nav-wrap">
+						<a class="aui-navBar-item" >
+							<img src="images/iconfont/return.png" onclick="javascript:history.back(-1);" style="width: 20px;"/>
+						</a>
+						<div class="aui-center">
+							<span class="aui-center-title" style="color: #ffffff;font-size: 1rem;font-weight: bold;">终端查询</span>
+						</div>
+						<a class="aui-navBar-item" data-ydui-actionsheet="{target:'#actionSheet',closeElement:'#cancel'}">
+						</a>
+					</header>
+					<div style="height: 95px;     background: #edf1f4;"></div>
+					<section class="home">
+						<div class="title">
+							<div class="commonality-btn bottom">我的终端</div>
+							<div class="private-btn">下级终端</div>
+						</div>
+						
+						<div class="mui-content mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<section class="commonality ">
+									<div class="home-top-my-info">
+										<div class="home-company-info">
+											<ul>
+												<li>瑞银信Pro交易激活版</li>
+												<li>8870101402747004</li>
+											</ul>
+										</div>
+										<div class="home-top-go">
+											<a>已达标</a>
+										</div>
+									</div>
+									<div class="home-top-my-info">
+										<div class="home-company-info">
+											<ul>
+												<li>瑞银信Pro交易激活版</li>
+												<li>8870101402747004</li>
+											</ul>
+										</div>
+										<div class="home-top-go">
+											<a>已达标</a>
+										</div>
+									</div>
+									<div class="home-top-my-info">
+											<div class="home-company-info">
+												<ul>
+													<li>瑞银信Pro交易激活版</li>
+													<li>8870101402747004</li>
+												</ul>
+											</div>
+											<div class="home-top-go">
+												<a>已达标</a>
+											</div>
+										</div>
+										<div class="home-top-my-info">
+											<div class="home-company-info">
+												<ul>
+													<li>瑞银信Pro交易激活版</li>
+													<li>8870101402747004</li>
+												</ul>
+											</div>
+											<div class="home-top-go">
+												<a>已达标</a>
+											</div>
+										</div>
+								</section>
+								
+								<!--<div id="demo1" class="mui-progressbar">
+									<span></span>
+								</div>
+								
+								<button type="button" data-loading-icon="mui-spinner mui-spinner-custom" class="mui-btn mui-btn-primary">确认</button>
+								 <ul class="mui-table-view"> 
+							        <li class="mui-table-view-cell mui-collapse">
+							            <a class="mui-navigate-right" href="#">面板1</a>
+							            <div class="mui-collapse-content">
+							                <p>面板1子内容</p>
+							            </div>
+							        </li>
+							        
+							    </ul>-->
+								
+								<section class="private" style="display: none;">
+									<div class="home-top-my-info">
+											<div class="home-company-info">
+												<ul>
+													<li>瑞银信Pro交易激活版</li>
+													<li>8870101402747004</li>
+												</ul>
+											</div>
+											<div class="home-top-go">
+												<a>已达标</a>
+											</div>
+										</div>
+										<div class="home-top-my-info">
+											<div class="home-company-info">
+												<ul>
+													<li>瑞银信Pro交易激活版</li>
+													<li>8870101402747004</li>
+												</ul>
+											</div>
+											<div class="home-top-go">
+												<a>已达标</a>
+											</div>
+										</div>
+										<div class="home-top-my-info">
+											<div class="home-company-info">
+												<ul>
+													<li>瑞银信Pro交易激活版</li>
+													<li>8870101402747004</li>
+												</ul>
+											</div>
+											<div class="home-top-go">
+												<a>已达标</a>
+											</div>
+										</div>
+								</section>
+							</div>
+							
+						</div>
+		</section>
+		<script type="text/javascript" src="js/jquery.1.7.2.min.js"></script>
+		<script type="text/javascript" src="js/mui.js"></script>
+		<script type="text/javascript" src="js/mui.picker.js"></script>
+		<script type="text/javascript">
+mui(document.body).on('tap', '.mui-btn', function(e) {
+    mui(this).button('loading');
+    setTimeout(function() {
+        mui(this).button('reset');
+    }.bind(this), 1000);
+});
+</script>
+		<script type="text/javascript">
+			
+			$(function(){
+//				var i = 0 ;
+//				mui("#demo1").progressbar({progress:0}).show();
+//				window.setInterval(function(){
+//					i++
+//					mui("#demo1").progressbar().setProgress(i);
+//				},50)
+//				
+				$(".private-btn").click(function(){
+					console.log("Aaa")
+					$(".title>div").removeClass("bottom")
+					$(this).addClass("bottom")
+					$(".mui-scroll>section").css("display","none")
+					$(".private").css("display","block")
+					mui('.mui-content').pullRefresh().pulldownLoading();
+//					mask.show();
+//					window.setTimeout(function(){
+//						mask.close()
+//					},1000)
+				})
+				$(".commonality-btn").click(function(){
+					console.log("Aaa")
+					$(".title>div").removeClass("bottom")
+					$(this).addClass("bottom")
+					$(".mui-scroll>section").css("display","none")
+					$(".commonality").css("display","block")
+					mui('.mui-content').pullRefresh().pulldownLoading();
+					
+				})
+			})
+			mui.init({
+			  pullRefresh : {
+			    container:".mui-content",//下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等
+			    down : {
+			      height:100,//可选,默认50.触发下拉刷新拖动距离,
+			      auto: true,//可选,默认false.首次加载自动下拉刷新一次
+			      contentdown : "<div style='color:blue;'>上拉刷新</div>",//可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容
+			      contentover : "释放立即刷新",//可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容
+			      contentrefresh : "正在刷新...",//可选，正在刷新状态时，下拉刷新控件上显示的标题内容
+			      callback :callfunction //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+			    }
+			  }
+			});
+			
+			mui.init({
+			  pullRefresh : {
+			    container:".mui-content",//待刷新区域标识，querySelector能定位的css选择器均可，比如：id、.class等
+			    up : {
+			      height:50,//可选.默认50.触发上拉加载拖动距离
+			      auto:true,//可选,默认false.自动上拉加载一次
+			      contentdown : "<div style='color:red;>aaaaaaaaaaa</div>",//可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容
+			      contentover : "释放立即刷新",
+			      contentrefresh : "正在加载...",//可选，正在加载状态时，上拉加载控件上显示的标题内容
+			      contentnomore:'没有更多数据了',//可选，请求完毕若没有更多数据时显示的提醒内容；
+			      callback :pullfres //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+			    }
+			  }
+			});
+			
+			var mask = mui.createMask(callback);//callback为用户点击蒙版时自动执行的回调；
+//			mask.show();//显示遮罩
+//			mask.close();//关闭遮罩
+			function callback(){
+				console.log("打开遮罩")	
+			}
+			function callfunction(){
+//				$(".mui-pull-loading").css("display","none")
+				window.setTimeout(function(){
+					mui.toast('数据已更新')
+					mui(".mui-content").pullRefresh().endPulldownToRefresh()
+				},1000)
+			}
+			
+			function pullfres() {
+				window.setTimeout(function(){
+					mui.toast('数据已更新')
+					 mui(".mui-content").pullRefresh().endPullupToRefresh(false);
+				},1000)
+			}
+			
+		</script>
+	</body>
+</html>

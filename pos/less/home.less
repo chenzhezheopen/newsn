@@ -1,0 +1,120 @@
+@maincolor:#3093F0;
+@becolor:rgba(150,150,150,1);
+@down-block:rgba(220,220,220,1);
+@main-size:16px;
+@bodybac:rgba(237,241,244,1);
+
+.color(@value){
+    color: @value;
+}
+.background(@value){
+    background: @value;
+}
+.linear-grident(@start ,@end){
+    background: linear-gradient(45deg,@start,@end);
+}
+.flexc(){
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+     -ms-flex-align:center;
+    -webkit-box-align:center;
+    box-align:center;
+    -webkit-align-items:center;
+    align-items:center;
+    justify-content: center;
+    -webkit-justify-content: center;
+}
+.flexs(){
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+     -ms-flex-align:start;
+    -webkit-box-align:start;
+    box-align:center;
+    -webkit-align-items:flex-start;
+    align-items:flex-start;
+}
+.column(){
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+}
+body,html{
+    background: @bodybac;
+}
+
+.home-top-my-info{
+    background: #ffffff;
+    .flexc();
+    padding: 10px 3%;
+    .home-head-img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+        .flexc();
+    }
+    .home-company-info{
+        .column();
+        .flexs();
+        flex: 1;
+        margin-left: 10px;
+        ul{
+            li{
+                color: @becolor;
+                &:nth-child(1){
+                    .color(#000000);
+                }
+                margin: 5px 0;
+            }
+        }
+    }
+}
+.home-box{
+    background: #ffffff;
+    margin-top: 10px;
+    border-top: 1px @down-block solid;
+    border-bottom: 1px @down-block solid;
+    padding: 0 0%;
+    div{ 
+        .flexc();
+        padding: 0 3%;
+        div{
+            .flexc();
+            &:nth-child(1){
+                width: 25px;
+            }
+            &:nth-child(2){
+                margin-left: 15px;
+                padding: 0px 0;
+                flex: 1;
+                border-bottom: 1px @down-block solid;
+                a:nth-child(1){
+                    line-height: 62px;
+                    flex: 1;
+                    .color(#000000);
+                    font-size: @main-size;
+                }
+                a:nth-child(2){
+                    line-height: 62px;
+                    color:@becolor;
+                }
+                img{
+                    width: 20px;
+                }
+            }
+        }
+       
+    }
+     &{
+             div:last-child{
+                  div:nth-child(2){
+                    border-bottom: none;
+                }
+             }
+        }
+}
+.box2{
+    margin-top: 15px;
+}

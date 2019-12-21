@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>收支明细</title>
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link rel="stylesheet" type="text/css" href="css/all.css"/>
+	<link rel="stylesheet" type="text/css" href="css/top.css"/>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/echarts.js"></script>
+	
+	<style type="text/css">
+		input{
+			-webkit-user-select:auto;
+			-webkit-appearance:textfield;
+			/*-webkit-tap-highlight-color:none;*/
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+		}
+		a:active{
+			background: none;
+			
+		}
+		*{
+			padding: 0;
+			margin: 0;
+			font-weight: initial;
+		}
+		.font-co{
+			color: #F6F7FB;
+		}
+		html,body{
+			width: 100%;
+			background: #F6F7FB;
+			overflow-x: hidden !important;
+			font-family:"微软雅黑";
+    		-webkit-font-smoothing: antialiased;
+    		-webkit-overflow-scrolling: touch;
+		}
+		
+		body:before {
+			    content: ' ';
+			    position: fixed;
+			    z-index: -1;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0%;
+			    width: 100%;
+			    background: #F6F7FB;
+			    background-size: cover;
+			    padding-bottom: .5rem;
+			}
+			.aui-flex-box{
+				width: 94%;
+				margin-left: 3%;
+			}
+			.aui-flex-info{
+				width: 100%;
+				border-radius: 3px;
+				margin-top: 10px;
+				flex-direction: column;
+			}
+			
+			
+			.aui-flex-list{
+				width: 100%;
+				display: flex;
+				margin-top: 10px;
+				
+				padding: 10px 0;
+			}
+			.aui-flex-list>div{
+				width: 100%;
+				position: relative;
+				padding: 0 3%;
+			}
+			.aui-flex-list>div>div{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-bottom: 5px;
+			}
+			/*.aui-flex-list>div:first-child{
+				margin-left: 3%;
+			}*/
+			.aui-flex-list>div:first-child:before{
+				content: '';
+				width: 1px;
+				height: calc(100% - 10px);
+				top: 2.5px;
+				right: 0%;
+				position: absolute;
+				background: #000000;
+			}
+			.aui-flex-list>div>div>a:first-child{
+				font-size: 14px;
+				color: #000000;
+				flex: 1;
+			}
+			.aui-flex-list>div>div>a:last-child{
+				font-size: 14px;
+				color: #000000;
+			}
+			.aui-contain{
+				width: 100%;
+				background: #ffffff;
+				margin-top: 10px;
+				padding: 10px 0;
+			}
+			
+			
+			
+			
+			
+			
+			.aui-fold-info{
+							width: 100%;
+							padding: 10px 3%;
+							display: none;
+						}
+						.aui-fold-info>div{
+							width: 50%;
+							display: flex;
+							justify-content: space-between;
+							align-content: center;
+							flex-direction: column;
+							float: left;
+						}
+						.aui-fold-info>div>*{
+							margin: 5px 0;
+						}
+						.aui-fold-info>div>*:last-child{
+							color: rgba(120,120,120,1);
+						}
+						
+						
+						.canvas{
+							    width: 100%;
+							    height: 300px;
+							    padding: 0px;
+							    -webkit-tap-highlight-color: transparent;
+							    user-select: none;
+							    position: relative;
+						}
+						
+	</style>
+	
+</head>
+<body>
+	<section class="chart0" style="bottom: 0; flex: 1;">
+		<div class="page0">
+			<div class="aui-contain">
+				<div class="aui-flex-box">
+					<div>
+						<a class="font16">交易金额</a>
+					</div>
+					<div class="aui-flex-info flex">
+						<p  ><a class="money1" style="color: orange;font-size: 24px;">0.00</a>  <a style="color: orange;" class="font14">元</a></p>
+						<div style="height: 20px;padding: 8px 10px;background: #F6F7FB" class="flex btn-fold-info">
+							<img src="images/iconfont/xl.png" width="15px"/>
+							<a class="font14" style="white-space: normal;">展开查看详情</a>
+						</div>
+						<div class="aui-fold-info">
+							<div>
+								<p>4500</p>
+								<p>超级服务(元)</p>
+							</div>
+							<div>
+								<p>4500</p>
+								<p>普通服务(元)</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="aui-flex-list">
+					<div id="main" class="canvas"></div>
+				</div>
+			</div>
+			<div class="aui-contain">
+				<div class="aui-flex-box">
+					<div>
+						<a class="font16">收益</a>
+					</div>
+					<div class="aui-flex-info flex">
+						<p  ><a class="money2" style="color: orange;font-size: 24px;">155143.65</a>  <a style="color: orange;" class="font14">元</a></p>
+						<div style="height: 20px;padding: 8px 10px;background: #F6F7FB" class="flex btn-fold-info">
+							<img src="images/iconfont/xl.png" width="15px"/>
+							<a class="font14" style="white-space: normal;">展开查看详情</a>
+						</div>
+						<div class="aui-fold-info">
+							<div>
+								<p>4500</p>
+								<p>超级服务(元)</p>
+							</div>
+							<div>
+								<p>4500</p>
+								<p>普通服务(元)</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="aui-flex-list">
+					<div id="main2" class="canvas"></div>
+				</div>
+			</div>
+			<div class="aui-contain">
+				<div class="aui-flex-box">
+					<div>
+						<a class="font16">交易金额</a>
+					</div>
+					<div class="aui-flex-info flex">
+						<p  ><a class="money3" style="color: orange;font-size: 24px;">155143.65</a>  <a style="color: orange;" class="font14">元</a></p>
+						<div style="height: 20px;padding: 8px 10px;background: #F6F7FB" class="flex btn-fold-info">
+							<img src="images/iconfont/xl.png" width="15px"/>
+							<a class="font14" style="white-space: normal;">展开查看详情</a>
+						</div>
+						<div class="aui-fold-info">
+							<div>
+								<p>4500</p>
+								<p>超级服务(元)</p>
+							</div>
+							<div>
+								<p>4500</p>
+								<p>普通服务(元)</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="aui-flex-list">
+					<div id="main3" class="canvas"></div>
+				</div>
+			</div>
+			<div class="aui-contain">
+				<div class="aui-flex-box">
+					<div>
+						<a class="font16">交易金额</a>
+					</div>
+					<div class="aui-flex-info flex">
+						<p  ><a class="money4" style="color: orange;font-size: 24px;">155143.65</a>  <a style="color: orange;" class="font14">元</a></p>
+						<div style="height: 20px;padding: 8px 10px;background: #F6F7FB" class="flex btn-fold-info">
+							<img src="images/iconfont/xl.png" width="15px"/>
+							<a class="font14" style="white-space: normal;">展开查看详情</a>
+						</div>
+						<div class="aui-fold-info">
+							<div>
+								<p>4500</p>
+								<p>超级服务(元)</p>
+							</div>
+							<div>
+								<p>4500</p>
+								<p>普通服务(元)</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="aui-flex-list">
+					<div id="main4" class="canvas"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+
+	<script type="text/javascript">
+		var demofun =  function demo(){
+ 	alert("触发")
+ }
+var demo = "触发"
+		$(function(){
+			var count =  window.setInterval(function(){
+        		var bodyH = $('body').height();
+        	 	$('#myframe', parent.document).height(bodyH)
+        		console.log($('#myframe', parent.document).height())
+        		
+        		window.setTimeout(function(){
+        			if(document.readyState == "complete"){
+        	 		clearInterval(count)
+        		 }
+        		},1000)
+        	},1000)
+//			折叠按钮
+			$(".btn-fold-info").click(function(){
+				if($(".aui-fold-info").css("display")=="none"){
+					$(this).find("a").text("折叠详情")
+				}else{
+					$(this).find("a").text("展开查看详情")
+				}
+				$(".aui-fold-info").toggle()
+				
+				
+				
+			})
+			$("body").on("click",".gearDate",function(e){
+				console.log(e.clientY)
+				console.log($(this).offset().top)
+			
+			})
+//			按月按天查询切换
+			
+			$(".lcalendar_finish").click(function(){
+				$(".aui-navBar-fixed").css("position","fixed !important")
+			})
+			
+//			var count =  window.setInterval(function(){
+//      		var bodyH = $('body').height();
+//      	 	$('#myframe', parent.document).height(bodyH)
+//      		console.log(bodyH)
+//      		
+//      		window.setTimeout(function(){
+//      			if(document.readyState == "complete"){
+//      	 		clearInterval(count)
+//      		 }
+//      		},1000)
+//      	},1000)
+           
+		})
+	</script>
+
+<!--图表-->
+<script type="text/javascript" src="js/detail3.js"></script>
+
+</body>
+</html>

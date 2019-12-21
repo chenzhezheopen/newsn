@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0"/>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/all.css"/>
+		<link rel="stylesheet" type="text/css" href="css/top.css"/>
+		<script type="text/javascript" src="js/jquery.1.7.2.min.js"></script>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			body:before {
+			    content: ' ';
+			    position: fixed;
+			    z-index: -1;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0%;
+			    width: 100%;
+			    background: #EDF1F4;
+			    background-size: cover;
+			    padding-bottom: .5rem;
+			}
+			.aui-main{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				padding: 15px 3% 5px 3%;
+				height: 40px;
+				border-radius: 10px;
+				position: relative;
+			}
+			.search-lable{
+				line-height: 30px;
+				margin-left: 45px;
+			}
+			.search-container{
+				flex: 1;
+				padding: 0 10px;
+				border: none;
+				outline: none;
+				background: none;
+			}
+			.search{
+				flex: 1;
+				background: #ffffff;
+				display: flex;
+				align-items: center;
+				padding: 0 10px;
+				height: 30px;
+				border-radius: 15px;
+			}
+			.mui-menu{
+				display: flex;
+				flex-wrap: wrap;
+				margin-top: 30px;	
+			}
+			.mui-menu>div{
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: center;
+				width: 33%;
+				margin: 10px 0 30px 0;
+			}
+			.mui-menu>div>a{
+				font-size: 13px;
+				color: rgba(150,150,150,1);
+				margin-top: 20px;
+			}
+			.clean{
+				background: rgba(100,100,100,1);
+				border-radius: 50%;
+				width: 15px;
+				height: 15px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				visibility: hidden;
+			}
+			.mui-icon{
+				width: 25px;
+				height: 25px;
+				border-radius: 3px;
+				background: #8a8a8a;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		</style>
+	</head>
+	<body>
+		<section class="home">
+			<div class="aui-main">
+				<div class="search">
+					<img src="images/iconfont/search2.png" width="15px"/>
+					<input type="text" class="search-container" value="" />
+					<div class="clean">
+						<img src="images/iconfont/close.png" width="80%"/>
+					</div>
+					
+				</div>
+				<a onclick="history.back(-1)" style="margin-left: 14px;font-size: 14px;">取消</a>
+			</div>
+			<div class="mui-menu" style="width: 80%;margin-left: 10%;">
+				<div>
+					<div class="mui-icon">
+						<img src="images/iconfont/sjfx.png" width="60%"/>
+					</div>
+					
+					<a>数据分析</a>
+				</div>
+				<div>
+					<div class="mui-icon">
+						<img src="images/iconfont/gly.png" width="60%"/>
+					</div>
+					<a>管理员</a>
+				</div>
+				<div>
+					<div class="mui-icon">
+						<img src="images/iconfont/ywy.png" width="60%"/>
+					</div>
+					<a>业务员</a>
+				</div>
+				<div>
+					<div class="mui-icon">
+						<img src="images/iconfont/yy.png" width="60%"/>
+					</div>
+					<a>运营</a>
+				</div>
+				<div>
+					<div class="mui-icon">
+						<img src="images/iconfont/cw.png" width="60%"/>
+					</div>
+					<a>财务</a>
+				</div>
+				<div>
+					<div class="mui-icon">
+						<img src="images/iconfont/qb2.png" width="60%"/>
+					</div>
+					<a>全部</a>
+				</div>
+			</div>
+		</section>
+		<script type="text/javascript">
+			$(function(){
+				$(".search-container").on("input",function(){
+					if($(this).val!=""){
+						$(".clean").css("visibility","visible")
+					}else{
+						$(".clean").css("visibility","hidden")
+					}
+				})
+				$(".clean").click(function(e){
+					e.stopPropagation()
+					$(".search-container").val("")
+					$(this).css("visibility","hidden")
+				})
+			})
+		</script>
+	</body>
+</html>

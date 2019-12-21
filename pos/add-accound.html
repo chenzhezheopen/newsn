@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0"/>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/all.css"/>
+		<link rel="stylesheet" type="text/css" href="css/top.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="less/changepas.css"/>
+		<style type="text/css">
+			.mui-check-title{
+				background: #ffffff;
+				margin-top: 15px;
+				padding: 10px 3%;
+			}
+			.mui-check-title>a{
+				padding: 10px;
+				font-size: 14px;
+				color: #000000;
+			}
+			.mui-check-lable{
+				width: 100%;
+				
+				display: flex;
+				
+				/*justify-content: space-between;*/
+				flex-wrap: wrap;
+			}
+			.mui-check-lable>div{
+				padding: 5px 10px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: #2C98FB;
+				font-size: 12px;
+				background: #F4F9FF;
+				margin:5px 18px 0px 0px;
+				border-radius: 15.5px;
+			}
+			.input-container>a:nth-child(1){
+				width: 90px;
+			}
+			.sublim-btn{
+				background: #2C98FB !important;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<header class="aui-navBar aui-navBar-fixed" id="nav-wrap">
+				<a class="aui-navBar-item" >
+					<img src="images/iconfont/return.png" onclick="javascript:history.back(-1);" style="width: 20px;"/>
+				</a>
+				<div class="aui-center">
+					<span class="aui-center-title" style="color: #ffffff;font-size: 1rem;font-weight: bold;">消息</span>
+				</div>
+				<a class="aui-navBar-item" data-ydui-actionsheet="{target:'#actionSheet',closeElement:'#cancel'}">
+				</a>
+			</header>
+			<div style="height: 44px;"></div>
+			<section style="margin-top: 15px;">
+				<div class="from-menu">
+					<div class="input-container">
+						<a href="">员工账号前缀</a>
+						<input type="text" value="ztkj0000" readonly="readonly"/>
+					</div>
+					<div class="input-container">
+						<a href="">工号</a>
+						<input type="text" placeholder="请输入工号" />
+					</div>
+					<div class="input-container">
+						<a href="">密码</a>
+						<input type="text" placeholder="请输入密码" />
+					</div>
+					<div class="input-container">
+						<a href="">姓名</a>
+						<input type="text" placeholder="请输入姓名" />
+					</div>
+				</div>
+				<div class="mui-check-title">
+					<a>员工角色</a>
+					<div class="mui-check-lable">
+						<div>数据分析</div>
+						<div>管理员</div>
+						<div>业务员</div>
+						<div>运营</div>
+						<div>财务</div>
+					</div>
+				</div>
+				<div class="mui-check-title">
+					<a>品牌</a>
+					<div class="mui-check-lable">
+						<div>品牌</div>
+						<div>瑞银信Pro</div>
+					</div>
+				</div>
+				<input type="button" class="sublim-btn" value="确认修改" />
+			</section>
+		</section>
+		<script type="text/javascript" src="js/jquery.1.7.2.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(".mui-check-lable>div").toggle(
+					function(){
+						$(this).css({background:"#2C98FB",color:"#ffffff"})
+					},
+					function(){
+						$(this).css({background:"#F4F9FF",color:"#2C98FB"})
+					}
+					
+				)
+			})
+		</script>
+	</body>
+</html>

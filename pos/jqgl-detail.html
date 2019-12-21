@@ -1,0 +1,1059 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>收支明细</title>
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link rel="stylesheet" type="text/css" href="css/all.css"/>
+	<link rel="stylesheet" type="text/css" href="css/mui.css"/>
+	<link rel="stylesheet" type="text/css" href="less/changepas.css"/>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<style type="text/css">
+		input{
+			-webkit-user-select:auto;
+			-webkit-appearance:textfield;
+			/*-webkit-tap-highlight-color:none;*/
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+		}
+		a:active{
+			background: none;
+			
+		}
+		*{
+			padding: 0;
+			margin: 0;
+			font-weight: initial;
+		}
+		html,body{
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			font-family:"微软雅黑";
+    		-webkit-font-smoothing: antialiased;
+		}
+		
+		body:before {
+			    content: ' ';
+			    position: fixed;
+			    z-index: -1;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0%;
+			    width: 100%;
+			    background: #F6F7FB;
+			    background-size: cover;
+			    padding-bottom: .5rem;
+			}
+		.aui-scrollView{
+			position: fixed;
+			top: 0%;
+			left: 0%;
+			background: #2C98FB;
+			width: 100%;
+			height:199px;
+		}
+		
+		
+		
+		
+		
+		.aui-navBar {
+		    height: 44px;
+		    position: relative;
+		    display: -webkit-box;
+		    display: -webkit-flex;
+		    display: -ms-flexbox;
+		    display: flex;
+		    z-index: 1002;
+		    /*background: #f6f6f6;*/
+		}
+		
+		.aui-navBar-item {
+		    height: 44px;
+		    min-width: 25%;
+		    -webkit-box-flex: 0;
+		    -webkit-flex: 0 0 25%;
+		    -ms-flex: 0 0 25%;
+		    flex: 0 0 25%;
+		    padding: 0 0.9rem;
+		    display: -webkit-box;
+		    display: -webkit-flex;
+		    display: -ms-flexbox;
+		    display: flex;
+		    -webkit-box-align: center;
+		    -webkit-align-items: center;
+		    -ms-flex-align: center;
+		    align-items: center;
+		    font-size: 0.7rem;
+		    white-space: nowrap;
+		    overflow: hidden;
+		    color: #808080;
+		    position: relative;
+		}
+		
+		.aui-navBar-item:first-child {
+		    -webkit-box-ordinal-group: 2;
+		    -webkit-order: 1;
+		    -ms-flex-order: 1;
+		    order: 1;
+		    margin-right: -25%;
+		    font-size: 0.9rem;
+		    font-weight: bold;
+		}
+		
+		.aui-navBar-item:last-child {
+		    -webkit-box-ordinal-group: 4;
+		    -webkit-order: 3;
+		    -ms-flex-order: 3;
+		    order: 3;
+		    -webkit-box-pack: end;
+		    -webkit-justify-content: flex-end;
+		    -ms-flex-pack: end;
+		    justify-content: flex-end;
+		}
+		
+		.aui-center {
+		    -webkit-box-ordinal-group: 3;
+		    -webkit-order: 2;
+		    -ms-flex-order: 2;
+		    order: 2;
+		    display: -webkit-box;
+		    display: -webkit-flex;
+		    display: -ms-flexbox;
+		    display: flex;
+		    -webkit-box-pack: center;
+		    -webkit-justify-content: center;
+		    -ms-flex-pack: center;
+		    justify-content: center;
+		    -webkit-box-align: center;
+		    -webkit-align-items: center;
+		    -ms-flex-align: center;
+		    align-items: center;
+		    height: 44px;
+		    width: 50%;
+		    margin-left: 25%;
+		}
+		
+		.aui-center-title {
+		    text-align: center;
+		    width: 100%;
+		    white-space: nowrap;
+		    overflow: hidden;
+		    display: block;
+		    text-overflow: ellipsis;
+		    font-size: 0.95rem;
+		    color: #333;
+		}
+		.icon-return{
+			background: url(images/iconfont/return.png);
+		}
+		.icon-share{
+			background: url(images/iconfont/search.png);
+		}
+		.icon-ege{
+		}
+		.icon-egeout{
+		}
+		.icon-money{
+			background: url(images/iconfont/money.png);
+		}
+		.icon-go{
+			background: url(images/iconfont/go.png);
+		}
+		.icon {
+		        width: 20px;
+			    height: 20px;
+			    display: block;
+			    border: none;
+			    float: left;
+			    background-size: 20px;
+			    background-repeat: no-repeat;
+		}
+		.aui-theme-box{
+			padding: 5px;
+			background:#D2E7FC; 
+			display: flex;
+			align-items: center;
+			border-top-left-radius: 14.5px;
+			border-bottom-left-radius: 14.5px;
+			height: 29px;
+			box-sizing: border-box;
+		}
+		.tab-nav{
+			width: 94%;
+			margin-left: 3%;
+			display: flex;
+			align-items: flex-end;
+			height: 30px;
+			margin-top: 40px;
+			background: rgb(246, 247, 251);
+			margin-bottom: -1px;
+			position: absolute;
+    		bottom: 0;
+		}
+		.tab-nav *{
+			font-size: 14px;
+			font-weight: initial;
+		}
+		.tab-nav-item{
+			width: 33.333333333%;
+			float: left;
+			position: relative;
+			padding: 5px 0;
+			height: 40px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: #F6F7FB;
+		}
+		.b-line:before{
+			content: '';
+			position: absolute;
+			width: 1px;
+			height: 26px;
+			left: 0%;
+			top: 7px;
+			background: rgba(170,170,171,1);
+		}
+		.top_radius{
+			border-top-left-radius:4px;
+			border-top-right-radius:4px;
+			position: relative;
+			 position: relative;
+			 background:#ffffff;
+			 height: 50px;
+		}
+
+
+		.tab-nav>div:nth-child(2){
+			
+		}
+		.scrolltab-title{
+			width: 100%;
+			background: #ffffff;
+		}
+		.scrolltab-box{
+			width: 100%;
+			padding: 3px 3% 5px 3%;
+			transition: all 500ms ease;
+		    -moz-transition: all 500ms ease;
+		    -webkit-transition: all 500ms ease;
+			border-bottom: .1px #ccc solid;
+			display: flex;
+		}
+		.scrolltab-box>div:nth-child(1){
+			flex: 1;
+		}
+		.scrolltab-list{
+			margin: 7px 0;
+			display: flex;
+			align-items: center;
+		}
+		.scrolltab-list>*:first-child{
+			flex: 1;
+		}
+		.scrolltab-list *:first-child{
+			font-size: 14px;
+			font-weight: 500;
+		}
+		.scrolltab-list *:last-child{
+			font-size: 14px;
+			font-weight: 500;
+			color: #2C98FB;
+		}
+		.scrolltab-lable{
+			margin: 5px 0;
+			display: flex;
+			align-items: center;
+		}
+		.scrolltab-lable>*:first-child{
+			flex: 1;
+		}
+		.scrolltab-lable *{
+			color: #444444;
+			font-size: 12px;
+			font-weight: 100;
+		}
+		.vis-item1{
+			display: none;
+		}
+		.vis-item2{
+			display: none;
+		}
+		/*.aui-detail::-webkit-scrollbar{
+			display: none;
+		}*/
+		.aui-detail{
+			overflow-y:hidden ;
+			overflow-x: hidden;
+			-webkit-overflow-scrolling: touch;
+			/*position: absolute;*/
+			/*bottom: 0;*/
+			width: 100%;
+			/*height: 65%;*/
+			
+		}
+		
+		
+		.invite_nav{
+		    		width: 100%;
+		    		height: 2rem;
+		    		text-align: center;
+		    	}
+		    	.invite_nav>div{
+		    		    display: flex;
+		    		margin-top: .2rem;
+		    		width: 100%;
+		    		float: left;
+		    		/*line-height: 2rem;*/
+		    	}
+		    	.meuitwo{
+		    		/*background:linear-gradient(rgba(212,160,104,1),rgba(10,18,53,1))*/
+		    	}
+		    	.meuitwo>div{
+		    		width: 33%;
+		    		position: relative;
+		    		float: left;
+		    		/*line-height: .6rem;*/
+		    	}
+		    	.meuitwo>div:not(:last-child):after{
+		    		content: '';
+		    		width: 0px;
+		    		height: 40px;
+		    		left: 100%;
+		    		top: calc(50% - 20px);
+		    		position: absolute;
+		    		border: .5px #ffffff dashed;
+		    		/*background: red;*/
+		    	}
+		    	.content_invite{
+		    		width: 94%; 
+		    		padding: 20px 0;
+		    		border-radius: .2rem; 
+		    		overflow: hidden; 
+		    		margin: 1rem 0 0rem 3%; 
+		    	}
+		    	.invite_nav a{
+		    		font-size: 16px;
+		    		line-height: 32px;
+		    		color: #ffffff;
+		    	}
+				.vis-item3{
+					display: none;
+				}
+				.mui-check-container{
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+		.mui-check {
+    /*display: flex;*/
+    justify-content: center;
+    align-items: center;
+    margin:0 10px;
+    width: 25px !important;
+    height: 25px;
+    overflow: hidden;
+    border: 1px #000000 solid;
+    border-radius: 50%;
+    display: none;
+}
+.mui-check>img {
+    width: 70%;
+    display: none;
+}
+		/*详情css*/
+		.mui-title-detail{
+			width: 100%;
+			height: 100%;
+			background: #ffffff;
+			position: absolute;
+			bottom: -100%;
+			overflow:scroll;
+			-webkit-overflow-scrolling: touch;
+			padding-bottom: 50px;
+		}
+		.mui-title-down{
+			position: absolute;
+			left: 40px;
+			top: 20px;
+			width: 25px;
+			animation:mymove 1s infinite;
+		}
+		@keyframes mymove{
+			0%{top: 20px;}
+			50%{top: 30px;}
+			100%{top: 20px;}
+		}
+		.mui-xh{
+			width: 100%;
+			height: 150px;
+			background: linear-gradient(#007EFF,#1E8DFF,#6EB5FD,#D7E8FB) no-repeat;
+			box-shadow: 0px 5px 5px #D7E8FB;
+    		background-size: 100% 100%;
+    		display: flex;
+    		justify-content: center;
+    		align-items: center;
+    		color: #ffffff;
+    		font-weight: bold;
+    		font-size: 20px;
+    		white-space: nowrap;
+		}
+		.input-container a:nth-child(1){
+			width: 88px;
+		}
+		.input-container input[type="button"]{
+			height: 26px;
+			border-radius: 13px;
+		}
+		/*mui*/
+		.mui-content{
+			top: 199px;
+		}
+		.mui-container{
+			width: 100%;
+			/*display: none;*/
+		}
+	</style>
+</head>
+<body>
+	<section class="mui-container">
+		<section class="aui-scrollView" style="z-index: 999;">
+			<div>
+			<header class="aui-navBar aui-navBar-fixed" id="nav-wrap">
+				<a class="aui-navBar-item" >
+					<img src="images/iconfont/return.png" onclick="javascript:history.back(-1);" style="width: 20px;"/>
+				</a>
+				<div class="aui-center">
+					<span class="aui-center-title" style="color: #ffffff;font-size: 1rem;font-weight: bold;">瑞大宝</span>
+				</div>
+				<a class="aui-navBar-item" data-ydui-actionsheet="{target:'#actionSheet',closeElement:'#cancel'}">
+					<span class="aui-center-title2" style="color: #ffffff;font-size: 1rem;font-weight: bold;">划拨</span>
+				</a>
+			</header>
+			<div style="width: 98%;margin-left: 1%;">
+				<div class="content_invite">
+				    <div class="invite_nav">
+				    	<div class="meuitwo red font34">
+				    		<div><a class="wig">100</a><a class="font28">台</a><br /><a class="font54">未划拨</a></div>
+					    	<div><a class="wig">100</a><a class="font28">台</a><br /><a class="font54">已划拨</a></div>
+					    	<div><a class="wig">100</a><a class="font28">台</a><br /><a class="font54">未达标</a></div>
+					    	<div><a class="wig">100</a><a class="font28">台</a><br /><a class="font54">已激活</a></div>
+				    	</div>
+				    </div>
+			    </div>
+			</div>
+			<div class="tab-nav">
+				<div class="tab-nav-item top_radius" >
+					<h1>未划拨</h1>
+					<div class="linear-right"></div>
+				</div>
+				<div class="tab-nav-item title-change">
+					<h1>已划拨</h1>
+				</div>
+				<div class="tab-nav-item b-line">
+					<h1>未达标</h1>
+				</div>
+				<div class="tab-nav-item b-line">
+					<h1>已激活</h1>
+				</div>
+			</div>
+		</section>
+		<div class="cont">
+			
+			</div>
+		<section class="aui-detail mui-content mui-scroll-wrapper" style="background: #ffffff;">
+		<div class="mui-scroll">
+			
+			<!--未划拨列表-->
+			<div class="scrolltab-title vis-item0">
+				<div class="scrolltab-box" style="display: flex;">
+					<div class="flex1">
+						<div class="scrolltab-list">
+							<h1>机器sn编码</h1>
+							<h2>8841864684153454136</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>上级划拨时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+					</div>
+					<div class="mui-check-container">
+						<div class="mui-check"><img src="images/iconfont/gou.png"/></div>
+					</div>
+					
+				</div>
+				<div class="scrolltab-box" style="display: flex;">
+					<div class="flex1">
+						<div class="scrolltab-list">
+							<h1>机器sn编码</h1>
+							<h2>8841864684153454136</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>上级划拨时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+					</div>
+					
+					<div class="mui-check-container">
+						<div class="mui-check"><img src="images/iconfont/gou.png"/></div>
+					</div>
+				</div>
+				<div class="scrolltab-box" style="display: flex;">
+					<div class="flex1">
+						<div class="scrolltab-list">
+							<h1>机器sn编码</h1>
+							<h2>8841864684153454136</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>上级划拨时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+					</div>
+					
+					<div class="mui-check-container">
+						<div class="mui-check"><img src="images/iconfont/gou.png"/></div>
+					</div>
+				</div>
+				<div class="scrolltab-box" style="display: flex;">
+					<div class="flex1">
+						<div class="scrolltab-list">
+							<h1>机器sn编码</h1>
+							<h2>8841864684153454136</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>上级划拨时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+					</div>
+					
+					<div class="mui-check-container">
+						<div class="mui-check"><img src="images/iconfont/gou.png"/></div>
+					</div>
+				</div>
+			</div>
+			<!--已划拨列表-->
+			<div class="scrolltab-title vis-item1">
+				<div class="scrolltab-box" style="display: flex;">
+					<div class="flex1">
+						<div class="scrolltab-list">
+							<h1>机器sn编码</h1>
+							<h2>8841864684153454136</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>上级划拨时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>划拨下级时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>持有人姓名</h1>
+							<h2>张三</h2>
+						</div>
+					</div>
+				</div>
+				<div class="scrolltab-box" style="display: flex;">
+					<div class="flex1">
+						<div class="scrolltab-list">
+							<h1>机器sn编码</h1>
+							<h2>8841864684153454136</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>上级划拨时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>划拨下级时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>持有人姓名</h1>
+							<h2>张三</h2>
+						</div>
+					</div>
+				</div>
+				<div class="scrolltab-box" style="display: flex;">
+					<div class="flex1">
+						<div class="scrolltab-list">
+							<h1>机器sn编码</h1>
+							<h2>8841864684153454136</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>上级划拨时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>划拨下级时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>持有人姓名</h1>
+							<h2>张三</h2>
+						</div>
+					</div>
+				</div>
+				<div class="scrolltab-box" style="display: flex;">
+					<div class="flex1">
+						<div class="scrolltab-list">
+							<h1>机器sn编码</h1>
+							<h2>8841864684153454136</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>上级划拨时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>划拨下级时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>持有人姓名</h1>
+							<h2>张三</h2>
+						</div>
+					</div>
+				</div>
+				<div class="scrolltab-box" style="display: flex;">
+					<div class="flex1">
+						<div class="scrolltab-list">
+							<h1>机器sn编码</h1>
+							<h2>8841864684153454136</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>上级划拨时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>划拨下级时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>持有人姓名</h1>
+							<h2>张三</h2>
+						</div>
+					</div>
+				</div>
+				<div class="scrolltab-box" style="display: flex;">
+					<div class="flex1">
+						<div class="scrolltab-list">
+							<h1>机器sn编码</h1>
+							<h2>8841864684153454136</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>上级划拨时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>划拨下级时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>持有人姓名</h1>
+							<h2>张三</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--未达标列表-->
+			<div class="scrolltab-title vis-item2">
+				<div class="scrolltab-box" style="display: flex;">
+					<div class="flex1">
+						<div class="scrolltab-list">
+							<h1>机器sn编码</h1>
+							<h2>8841864684153454136</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>上级划拨时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>划拨下级时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class="scrolltab-list">
+							<h1>规定激活条件</h1>
+							<h2>(当月首次单笔刷满5000元)</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>用户注册时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>用户刷卡金额（元）</h1>
+							<h2>2017</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>还差激活金额（元）</h1>
+							<h2>2017</h2>
+						</div>
+					</div>
+				</div>
+				<div class="scrolltab-box" style="display: flex;">
+					<div class="flex1">
+						<div class="scrolltab-list">
+							<h1>机器sn编码</h1>
+							<h2>8841864684153454136</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>上级划拨时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>划拨下级时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class="scrolltab-list">
+							<h1>规定激活金额</h1>
+							<h2>(当月首次单笔刷满5000元)</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>用户注册时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>用户刷卡金额（元）</h1>
+							<h2>2017</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>还差激活金额（元）</h1>
+							<h2>2017</h2>
+						</div>
+					</div>
+				</div>
+				<div class="scrolltab-box" style="display: flex;">
+					<div class="flex1">
+						<div class="scrolltab-list">
+							<h1>机器sn编码</h1>
+							<h2>8841864684153454136</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>上级划拨时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>划拨下级时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class="scrolltab-list">
+							<h1>规定激活金额</h1>
+							<h2>(当月首次单笔刷满5000元)</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>用户注册时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>用户刷卡金额（元）</h1>
+							<h2>2017</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>还差激活金额（元）</h1>
+							<h2>2017</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--已激活列表-->			
+			<div class="scrolltab-title vis-item3">
+				<div class="scrolltab-box" style="display: flex;">
+					<div class="flex1">
+						<div class="scrolltab-list">
+							<h1>机器sn编码</h1>
+							<h2>8841864684153454136</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>上级划拨时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>划拨下级时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>用户激活时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+					</div>
+				</div>
+				<div class="scrolltab-box" style="display: flex;">
+					<div class="flex1">
+						<div class="scrolltab-list">
+							<h1>机器sn编码</h1>
+							<h2>8841864684153454136</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>上级划拨时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>划拨下级时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>用户激活时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+					</div>
+				</div>
+				<div class="scrolltab-box" style="display: flex;">
+					<div class="flex1">
+						<div class="scrolltab-list">
+							<h1>机器sn编码</h1>
+							<h2>8841864684153454136</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>上级划拨时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>划拨下级时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>用户激活时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+					</div>
+				</div>
+				<div class="scrolltab-box" style="display: flex;">
+					<div class="flex1">
+						<div class="scrolltab-list">
+							<h1>机器sn编码</h1>
+							<h2>8841864684153454136</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>上级划拨时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>划拨下级时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+						<div class=" scrolltab-lable">
+							<h1>用户激活时间</h1>
+							<h2>2017-11-25 14:53:34</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</section>
+	</section>
+	<!--详情内容-->
+	<section class="mui-title-detail">
+		<img src="images/iconfont/xlwhite.png" class="mui-title-down"/>
+		<div class="mui-xh">
+			型号：5415316564321645136
+		</div>
+		<div class="mui-info-menu">
+			<div class="from-menu">
+					<div class="input-container">
+						<a href="">持有人姓名</a>
+						<input type="text" placeholder="张三" disabled="disabled" />
+						<img src="image/QQ.png" style="width: 40px;"/>
+					</div>
+					<div class="input-container">
+						<a href="">持有人邮箱</a>
+						<input type="text" placeholder="525492485@qq.com"  disabled="disabled"/>
+					</div>
+					<div class="input-container">
+						<a href="">持有人手机号</a>
+						<input type="text" placeholder="13986683465" disabled="disabled"/>
+					</div>
+					<div class="input-container">
+						<a href="">持有人地址</a>
+						<input type="text" placeholder="江苏省苏州市" disabled="disabled" />
+					</div>
+					<div class="input-container">
+						<a href="">上级划拨时间</a>
+						<input type="text" placeholder="2019-12-12 12:12:12" disabled="disabled"/>
+					</div>
+					<div class="input-container">
+						<a href="">划拨下级时间</a>
+						<input type="text" placeholder="2019-12-12 12:12:12" disabled="disabled"/>
+					</div>
+					<div class="input-container">
+						<a href="">用户注册时间</a>
+						<input type="text" placeholder="2019-12-12 12:12:12" disabled="disabled"/>
+					</div>
+					<div class="input-container">
+						<a href="">规定激活条件</a>
+						<input type="text" placeholder="当月首次单笔刷满500元" disabled="disabled"/>
+					</div>
+					<div class="input-container">
+						<a href="">用户刷卡金额</a>
+						<input type="text" placeholder="201(万)" disabled="disabled"/>
+					</div>
+					<div class="input-container">
+						<a href="">还差激活金额</a>
+						<input type="text" placeholder="20(万)" disabled="disabled"/>
+					</div>
+					<div class="input-container" style="justify-content: flex-start;">
+						<a style="color: red;">如需修改信息请验证</a>
+					</div>
+					<div class="input-container">
+						<input type="text" placeholder="请输入验证码" />
+						<input type="button" value="获取验证码" />
+					</div>
+				</div>
+		</div>
+	</section>
+<script type="text/javascript" src="js/mui.js"></script>
+<script type="text/javascript">
+	$(".vis-item1 .scrolltab-box,.vis-item2 .scrolltab-box,.vis-item3 .scrolltab-box").on("tap",function(){
+		$(".mui-container").animate({"opacity":"0"},500)
+		$(".mui-title-detail").animate({"bottom":"0%"},500)
+	})
+	$(".mui-title-down").on("tap",function(){
+		$(".mui-container").animate({"opacity":"1"},500)
+		$(".mui-title-detail").animate({"bottom":"-100%"},500)
+	})
+</script>
+<script type="text/javascript">
+	$(".vis-item0 .scrolltab-box div:eq(0)").on("tap",function(){
+		location.href='jqgl-from.html'
+	})
+	
+	$(".aui-navBar-item").on("tap",function(){
+		
+		if($(".mui-check").css("display")=="none"){
+			$(".mui-check").css("display","flex")
+		}else{
+			$(".mui-check").css("display","none")
+		}
+	})
+
+	$(".mui-check-container").on("tap",function(e){
+		e.stopPropagation()
+		if($(this).find("img").css("display")=="block"){
+			$(this).find(".mui-check").css({background:"none",border:"1px #000000 solid"})
+				$(this).find("img").css("display","none")
+		}else{
+				$(this).find(".mui-check").css({background:"#2C98FB",border:"none"})
+				$(this).find("img").css("display","block")
+			}
+		})
+	mui(".mui-content").pullRefresh({
+		down:{
+			auto:true,
+			callback:fun1
+		},
+		up:{
+			callback:fun2
+		}
+	})
+	function fun1(){
+		window.setTimeout(function(){
+			mui(".mui-content").pullRefresh().endPulldownToRefresh()
+		},500)
+	}
+	function fun2(){
+		window.setTimeout(function(){
+			mui(".mui-content").pullRefresh().endPullupToRefresh()
+		},500)
+	}
+</script>
+<script type="text/javascript">
+//	document.body.addEventListener('touchmove', (e) => {
+//	  e.preventDefault();
+//	});
+	
+	$(function(){
+		$(".cont").height($(".aui-scrollView").height())
+		var index = 0;
+		var state = 0;
+		var num0 = $(".vis-item0>.scrolltab-box").length
+		var num1 = $(".vis-item1>.scrolltab-box").length
+		var num2 = $(".vis-item2>.scrolltab-box").length
+		window["num0"] = num0
+		window["num1"] = num1
+		window["num2"] = num2
+		function info(){
+			state = 0;
+			num0 = $(".vis-item0>.scrolltab-box").length
+			num1 = $(".vis-item1>.scrolltab-box").length
+			num2 = $(".vis-item2>.scrolltab-box").length
+			window["num0"] = num0
+			window["num1"] = num1
+			window["num2"] = num2
+		}
+		info()
+		$(".tab-nav-item").click(function(){
+//			删除全选圈
+			$(".mui-check").css("display","none")
+//			隐藏划拨按钮只有在点击未划拨时显示
+			$(".aui-center-title2").css("display","none")
+			$(".mui-scroll").css("transform","translate3d(0px, 0px, 0px) translateZ(0px)")
+			$(".tab-nav-item").css("background","#F6F7FB")
+			index = $(this).index()
+			$(".scrolltab-title").hide()
+			$(this).css("background","#ffffff")
+			$(".tab-nav-item").removeClass("b-line")
+			$(".tab-nav-item").stop()
+			$(".tab-nav-item").removeClass("b-line")
+			$(".tab-nav-item").removeClass("top_radius")
+			$(".tab-nav-item").animate({height:"40px"},0)
+			$(this).animate({height:"50px"},300)
+			$(this).addClass("top_radius")
+			console.log($(this).index())
+			if($(this).index()==0){
+				$(".tab-nav-item:eq(2)").addClass("b-line")
+				$(".tab-nav-item:eq(3)").addClass("b-line")
+				$(".aui-center-title2").css("display","block")
+			}
+			if($(this).index()==1){
+				$(".tab-nav-item:eq(3)").addClass("b-line")
+				
+			}
+			if($(this).index()==2){
+				$(".tab-nav-item:eq(1)").addClass("b-line")
+			}
+			if($(this).index()==3){
+				$(".tab-nav-item:eq(1)").addClass("b-line")
+				$(".tab-nav-item:eq(2)").addClass("b-line")
+			}
+			$(".vis-item"+$(this).index()+"").show(200)
+			
+			
+			
+			console.log($(".aui-detail").scrollHeight)
+		})
+
+		function count(index){
+			var name = "num" + index
+			console.log(window[name])
+			console.log($(".vis-item"+index+">.scrolltab-box").length)
+			if($(".vis-item"+index+">.scrolltab-box").length>window[name]){
+				$(".flex").remove()
+				state = 0;
+				info()
+				console.log(window["name"])
+			}
+		}
+//		count(0)
+
+	})
+	$("input").blur(function(){
+		$(window).scrollTop(0)
+		$(window).height(window.screen.availHeight)
+	})
+</script>
+<style type="text/css">
+	.flex{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 30px;
+		width: 100%;
+	}
+	
+</style>
+</body>
+</html>

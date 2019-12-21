@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>收支明细</title>
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link rel="stylesheet" type="text/css" href="css/all.css"/>
+	<link rel="stylesheet" type="text/css" href="css/top.css"/>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="LCalendar/css/LCalendar.css" />
+	<link rel="stylesheet" type="text/css" href="LCalendar/css/mobileSelect.css">
+	<style type="text/css">
+		input{
+			-webkit-user-select:auto;
+			-webkit-appearance:textfield;
+			/*-webkit-tap-highlight-color:none;*/
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+		}
+		a:active{
+			background: none;
+		}
+		*{
+			padding: 0;
+			margin: 0;
+			font-weight: initial;
+		}
+		.font-co{
+			color: #F6F7FB;
+		}
+		html,body{
+			height: 100%;
+			background: #F6F7FB;
+			overflow-x: hidden !important;
+			font-family:"微软雅黑";
+    		-webkit-font-smoothing: antialiased;
+		}
+		
+		body:before {
+			    content: ' ';
+			    position: fixed;
+			    z-index: -1;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0%;
+			    width: 100%;
+			    background: #F6F7FB;
+			    background-size: cover;
+			    padding-bottom: .5rem;
+			}
+			
+			
+			
+			
+			/*顶部*/
+			.aui-top-select{
+				width: 150%; 
+				height: 25px;
+				border-radius: 12.5px; 
+				border: 1px #3093F0 solid;
+				position: relative;
+			}
+			.lan{
+				position: absolute;
+				left: -1%;
+				top: 0%;
+				width: 50%;
+				height: 25px;
+				border-radius: 12.5px;
+				background: #3093F0;
+				z-index: -1;
+			}
+			.aui-top-select>div{
+				float: left;
+				width: 50%;
+				height: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.fff{
+				color: #ffffff;
+			}
+			.fontmainc{
+				color: #3093F0;
+			}
+			.aui-top-select>div *{
+				font-size: 12px;
+			}
+			/*上方选择栏*/
+			.aui-data-title{
+				position: fixed;
+				top: 44px;
+				width: 100%;
+				background: #F6F7FB;
+				z-index: 99;
+			}
+			.aui-data-title>div{
+				width: 33.33%;
+				padding: 15px 0 20px 0;
+				text-align: center;
+			}
+			.aui-title-active:before{
+				position: absolute;
+				width: 100%;
+				height: 2px;
+				background: #3093F0;
+				bottom: -15px;
+				right: 0px;
+				content: '';
+			}
+			.fontmainc{
+				color: #3093F0;
+			}
+			.aui-data-title>div>*{
+				font-size: 14px;
+				
+				position: relative;
+			}
+			
+			
+			.aui-detail::-webkit-scrollbar{
+				display: none;
+			}
+	</style>
+	<style type="text/css">
+		/*数据详情上方选择栏*/
+			.aui-data-title{
+				position: fixed;
+				top: 44px;
+				width: 100%;
+				background: #F6F7FB;
+				height: 50px;
+				z-index: 99;
+			}
+			.aui-data-title>div{
+				width: 33.33%;
+				padding: 15px 0 20px 0;
+				text-align: center;
+			}
+			.aui-title-active:before{
+				position: absolute;
+				width: 100%;
+				height: 2px;
+				background: #3093F0;
+				bottom: -15px;
+				right: 0px;
+				content: '';
+			}
+			.fontmainc{
+				color: #3093F0;
+			}
+			.aui-data-title>div>*{
+				font-size: 14px;
+				
+				position: relative;
+			}
+			.title2{
+				display: none;
+			}
+			/*时间选择*/
+			.aui-check-time{
+				width: 100%;
+				padding:10px 3%; 
+				background: #ffffff;
+				margin-top: 50px;
+				justify-content: flex-start;
+			}
+			.aui-check-time>*{
+				margin-right: 9px;
+			}
+			.time-check{
+				justify-content: flex-start; 
+				width: 33%; 
+				padding:5px ; 
+				height: 20px;
+				background: #F6F7FB;
+				border-radius: 2px;
+				position: relative;
+			}
+			.time-check>input{
+				border: none;
+				outline: none;
+				
+				height: 100%;
+				width: 100%;
+				background: none;
+			}
+			.time-check:before{
+				content: '';
+				width: 20px;
+				height: 20px;
+				top: 5px;
+				right: 1px;
+				position: absolute;
+				background: url(images/iconfont/rl.png) no-repeat;
+				background-size: 20px 20px;
+			}
+			.page0{
+				width: 100%;
+				/*position: absolute;*/
+			}
+	</style>
+</head>
+<body>
+		<header class="aui-navBar aui-navBar-fixed" id="nav-wrap" style="background: #ffffff;">
+			<a class="aui-navBar-item font-black" style="font-weight: 100;font-size: 14px;flex: 0 0 20% !important;min-width: auto;">
+				 <img src="images/iconfont/out.png" onclick="javascript:history.back(-1);" style="width: 20px;"/>
+			</a>
+			<div class="aui-center">
+				<div class="aui-top-select">
+					<div><a class="fff data-detail">数据详情</a></div>
+					<div><a class="fontmainc data-chart">数据图表</a></div>
+					<div class="lan"></div>
+				</div>
+			</div>
+			<a class="aui-navBar-item" href="#" style="flex: 0 0 20% !important;min-width: auto;">
+				渠道数据
+			</a>
+		</header>
+		
+		<div class="aui-data-title title1 flex">
+			<div><a class="aui-title-active fontmainc">按天查询</a></div>
+			<div><a>按月查询</a></div>
+			<div><a>查询所有</a></div>
+		</div>
+		
+		<div class="title2" style="position: fixed;top: 44px;background: #ffffff;z-index: 999;">
+			<div class="aui-data-title   flex">
+				<div><a class="aui-title-active fontmainc">按天查询</a></div>
+				<div><a>按月查询</a></div>
+			</div>
+			<div class="flex aui-check-time">
+				<a>查询</a>
+				<div class="time-check"><input type="text" value="开始时间" readonly="readonly" class="flex start-time " id="jz_date"/></div>
+				<a>至</a>
+				<div class="time-check"><input type="text" value="结束时间" readonly="readonly" class="flex end-time " id="car_date"/></div>
+			</div>
+		</div>
+		<div class="fold" style="height:100px;">
+			
+		</div>
+		<div class="flex loading" style="height: calc(100% - 150px);width: 100%;display: none; background: #ffffff; z-index: 88;">
+			<img src="image/5-121204193R0.gif"/>
+		</div>
+	<iframe src="" width="100%" id="myframe"  style="border: none;display: none;height: calc(100% - 150px);"></iframe>
+	<iframe src="" class="aui-detail" style="border: none;overflow: hidden; width: 100%; height: calc(100% - 100px);"></iframe>
+<script src="LCalendar/js/LCalendar.js"></script><!--日期控件-->
+<script src="LCalendar/js/mobileSelect.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+//			$("#myframe").height(window.screen.height)
+			$(".aui-detail").attr("src","detail1.html")
+			var id = 0;
+			$(".data-chart").click(function(){
+				$(".data-detail").removeClass("fff")
+				$(".data-detail").addClass("fontmainc")
+				$(this).removeClass("fontmainc")
+				$(this).addClass("fff")
+				$(".lan").animate({left:"51%"},100)
+				
+				$(".title1").css("display","none")
+				$(".title2").css("display","block")
+				$(".fold").css("height","150px")
+				$(".loading").show()
+				
+				window.setTimeout(function(){
+					$(".aui-detail").css("display","none")
+					$("#myframe").css("display","block")
+					$("#myframe").attr("src","detail2.html")
+					$(".aui-detail").attr("src"," ")
+					
+				},200)
+				
+			})
+			$(".data-detail").click(function(){
+				$(this).removeClass("fontmainc")
+				$(this).addClass("fff")
+				$(".data-chart").removeClass("fff")
+				$(".data-chart").addClass("fontmainc")
+				$(".lan").animate({left:"-1%"},100)
+				
+				$(".title2").css("display","none")
+				$(".title1").css("display","flex")
+				$(".fold").css("height","100px")
+				
+				window.setTimeout(function(){
+					$(".aui-detail").css("display","block")
+					$("#myframe").css("display","none")
+					$("#myframe").attr("src","")
+					$(".aui-detail").attr("src","detail1.html")
+				},200)
+			})
+			$("#myframe").load(function(){
+				$(".loading").hide()
+			})
+		})
+</script>
+	<script type="text/javascript">
+		var calendar = new lCalendar();
+			calendar.init({
+				'trigger': '#jz_date',
+				'type': 'date',
+				'minDate':'2015-1-1',//最小日期 注意：该值会覆盖标签内定义的日期范围
+    			'maxDate':'2020-12-31'//最大日期 注意：该值会覆盖标签内定义的日
+			});
+		var calendar = new lCalendar();
+			calendar.init({
+				'trigger': '#car_date',
+				'type': 'date',
+				'minDate':'2015-1-1',//最小日期 注意：该值会覆盖标签内定义的日期范围
+    			'maxDate':'2020-12-31'//最大日期 注意：该值会覆盖标签内定义的日
+			});
+		//时间选择
+		var numArr1=['10时','11时','12时','13时','14时','15时','16时','17时','18时'];
+		var numArr2=['01分','02分','03分','04分','05分','06分','07分','08分','09分','10分','11分','12分','13分','14分','15分','16分','17分','18分','19分','20分','21分','22分','23分','24分','25分','26分','27分','28分','29分','30分','31分','32分','33分','34分','35分','36分','37分','38分','39分','40分','41分','42分','43分','44分','45分','46分','47分','48分','49分','50分','51分','52分','53分','54分','55分','56分','57分','58分','59分','60分'];
+		var mobileSelect3 = new MobileSelect({
+			trigger: '#car_houer_date',
+			title: '选择时间',
+			wheels: [
+						{data: numArr1},
+						{data: numArr2},
+					],
+			position:[0, 0, 0],
+			//transitionEnd:function(indexArr, data){
+			//    console.log(data);
+			//},
+			callback:function(indexArr, data){
+				//$("#trigger3").html("ccccccccccccccccccccc");
+				
+			}
+		});
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0"/>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/all.css"/>
+		<link rel="stylesheet" type="text/css" href="css/top.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="less/changepas.css"/>
+	</head>
+	<body>
+		<section>
+			<header class="aui-navBar aui-navBar-fixed" id="nav-wrap">
+				<a class="aui-navBar-item" >
+					<img src="images/iconfont/return.png" onclick="javascript:history.back(-1);" style="width: 20px;"/>
+				</a>
+				<div class="aui-center">
+					<span class="aui-center-title" style="color: #ffffff;font-size: 1rem;font-weight: bold;">更换手机号</span>
+				</div>
+				<a class="aui-navBar-item" data-ydui-actionsheet="{target:'#actionSheet',closeElement:'#cancel'}">
+				</a>
+			</header>
+			<div style="height: 44px;"></div>
+			<section style="margin-top: 15px;">
+				<div class="from-menu">
+					<div class="input-container">
+						<a href="">手机号</a>
+						<input type="text" readonly="readonly" value="13986683465" />
+					</div>
+					<div class="input-container">
+						<a>验证码</a>
+						<input type="text" placeholder="请输入验证码" />
+						<input type="button" value="获取验证码" />
+					</div>
+				</div>
+				<input type="button" class="sublim-btn" value="下一步" />
+			</section>
+		</section>
+	</body>
+</html>

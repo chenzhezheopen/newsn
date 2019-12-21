@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>收支明细</title>
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	
+	<link rel="stylesheet" type="text/css" href="css/mui.css"/>
+	<link rel="stylesheet" type="text/css" href="css/all.css"/>
+	<link rel="stylesheet/less" type="text/css" href="less/changepas.less"/>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/less.js"></script>
+	<style type="text/css">
+		input{
+			-webkit-user-select:auto;
+			-webkit-appearance:textfield;
+			/*-webkit-tap-highlight-color:none;*/
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+		}
+		a:active{
+			background: none;
+			
+		}
+		body,html{
+			width: 100%;
+		}
+		body:before {
+			    content: ' ';
+			    position: fixed;
+			    z-index: -1;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0%;
+			    width: 100%;
+			    background: #ffffff;
+			    background-size: cover;
+			    padding-bottom: .5rem;
+			}
+		*{
+			padding: 0;
+			margin: 0;
+			font-weight: initial;
+		}
+		html,body{
+			font-family:"微软雅黑";
+    		-webkit-font-smoothing: antialiased;
+		}
+		
+		a:active{
+			-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+		}
+		.aui-scrollView{
+			position: absolute;
+			top: 0%;
+			left: 0%;
+			background:  linear-gradient(#007EFF,#1E8DFF,#6EB5FD,#D7E8FB,#ffffff) no-repeat;
+			background-size: 100% 400px;
+			width: 100%;
+			min-height: 400px;
+			/*height: 33%;*/
+		}
+		
+		
+		
+		
+		
+		.aui-navBar {
+		    height: 44px;
+		    position: relative;
+		    display: -webkit-box;
+		    display: -webkit-flex;
+		    display: -ms-flexbox;
+		    display: flex;
+		    z-index: 1002;
+		    /*background: #f6f6f6;*/
+		}
+		
+		.aui-navBar-item {
+		    height: 44px;
+		    min-width: 25%;
+		    -webkit-box-flex: 0;
+		    -webkit-flex: 0 0 25%;
+		    -ms-flex: 0 0 25%;
+		    flex: 0 0 25%;
+		    padding: 0 0.9rem;
+		    display: -webkit-box;
+		    display: -webkit-flex;
+		    display: -ms-flexbox;
+		    display: flex;
+		    -webkit-box-align: center;
+		    -webkit-align-items: center;
+		    -ms-flex-align: center;
+		    align-items: center;
+		    font-size: 0.7rem;
+		    white-space: nowrap;
+		    overflow: hidden;
+		    color: #808080;
+		    position: relative;
+		}
+		
+		.aui-navBar-item:first-child {
+		    -webkit-box-ordinal-group: 2;
+		    -webkit-order: 1;
+		    -ms-flex-order: 1;
+		    order: 1;
+		    margin-right: -25%;
+		    font-size: 0.9rem;
+		    font-weight: bold;
+		}
+		
+		.aui-navBar-item:last-child {
+		    -webkit-box-ordinal-group: 4;
+		    -webkit-order: 3;
+		    -ms-flex-order: 3;
+		    order: 3;
+		    -webkit-box-pack: end;
+		    -webkit-justify-content: flex-end;
+		    -ms-flex-pack: end;
+		    justify-content: flex-end;
+		}
+		
+		.aui-center {
+		    -webkit-box-ordinal-group: 3;
+		    -webkit-order: 2;
+		    -ms-flex-order: 2;
+		    order: 2;
+		    display: -webkit-box;
+		    display: -webkit-flex;
+		    display: -ms-flexbox;
+		    display: flex;
+		    -webkit-box-pack: center;
+		    -webkit-justify-content: center;
+		    -ms-flex-pack: center;
+		    justify-content: center;
+		    -webkit-box-align: center;
+		    -webkit-align-items: center;
+		    -ms-flex-align: center;
+		    align-items: center;
+		    height: 44px;
+		    width: 50%;
+		    margin-left: 25%;
+		}
+		
+		.aui-center-title {
+		    text-align: center;
+		    width: 100%;
+		    white-space: nowrap;
+		    overflow: hidden;
+		    display: block;
+		    text-overflow: ellipsis;
+		    font-size: 0.95rem;
+		    color: #333;
+		}
+		.aui-box>div{
+			background:#ffffff ;
+			box-shadow: 0rem 0rem 1rem #BEDEFA;
+		}
+		.aui-icon-money{
+			width: 16px;
+			margin-right: 3px;
+		}
+		.aui-contain{
+			width: 90%;
+			border-radius: 6px;
+			margin:10px 5% 10px 5%; 
+			padding:10px;
+			box-sizing: border-box;
+		}
+		.aui-contain-btn{
+			background: #ffffff; 
+			-webkit-appearance: none; 
+			border: 1px #0082F9 solid;
+			color: #0082F9;
+			height: 28px;
+			border-radius: 14px; 
+			padding: 2px 14px; 
+			font-size: 12px;
+		}
+		
+		.aui-contain h2{
+			font-size: 16px;
+		}
+		.huabo{
+			display: flex;
+		}
+		.huabo>*:first-child{
+			flex: 1;
+		}
+		.jis{
+			color:#FB893F ;
+		}
+		.aui-contain-btn{
+			height: auto;
+			padding: 6px 14px;
+		}
+		/*mui*/
+		.mui-content{
+		}
+		.mui-pull-loading {
+			    display: none !important;
+			}
+		.mui-pull *{
+			color: #ffffff;
+		}
+		.mui-pull-top-pocket *{
+			color: #ffffff;
+		}
+	</style>
+</head>
+<body>
+	
+	<section class="aui-scrollView mui-content mui-scroll-wrapper" style="z-index: 999;">
+		<div class="mui-scroll" style="width: 100%;">
+			<header class="aui-navBar aui-navBar-fixed" id="nav-wrap">
+				<a class="aui-navBar-item" >
+					<img src="images/iconfont/return.png" onclick="javascript:history.back(-1);" style="width: 20px;"/>
+				</a>
+				<div class="aui-center">
+					<span class="aui-center-title" style="color: #ffffff;font-size: 1rem;font-weight: bold;">选择渠道</span>
+				</div>
+				<a class="aui-navBar-item" data-ydui-actionsheet="{target:'#actionSheet',closeElement:'#cancel'}">
+				</a>
+			</header>
+				
+					<div style="width: 100%;padding:0 5%;">
+						<p style="color:#ffffff;">我的渠道</p>
+						<div class="input-container" style="background: #ffffff;border-radius: 27.5px;padding: 0 20px 0 5px;">
+							<img src="images/iconfont/search2.png" style="width: 20px;margin-right: 15px;"/>
+							<input type="text" placeholder="请输入手机号或渠道名称" />
+							<a href="">确定</a>
+						</div>
+					</div>
+					<div style="width: 100%;" class="aui-box">
+						<div class="aui-contain">
+							<div style="margin: 5px 0; display: flex;align-items: center;">
+								<img class="aui-icon-money" src="images/iconfont/pp.png"/>
+								<a style="font-size: 16px;">张三</a>
+							</div>
+							<div style="display: flex;align-items: center;">
+								<h2 style="color:#FB893F ;margin: 5px 0;flex: 1;">手机号：<a  class="jis">13986683465</a></h2>
+								<input type="button"  value="确认选择" class="aui-contain-btn" />
+							</div>
+							<div class="huabo">
+								<a style="color: rgba(150,150,150,1);font-size: 12px;">收件地址：艾弗森隔热给二hers然后儿啊和任何二和人和认识和</a>
+							</div>
+						</div>
+				</div>
+		</div>
+	</section>
+	<script type="text/javascript" src="js/jquery.1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/mui.js"></script>
+	<script type="text/javascript">
+		mui.init({
+			pullRefresh:{
+				container:".mui-content",
+				down:{
+					height:60,
+					auto:false,
+//					contentdown:"<img src='image/5-121204193R0.gif'/>",
+//					contentover:"<img src='image/5-121204193R0.gif'/>",
+//					contentrefresh:"songla",
+					contentnomore:"没有更多数据",
+					callback:callfun
+				}
+			}
+		})
+		function callfun(){
+			window.setTimeout(function(){
+				mui(".mui-content").pullRefresh().endPulldownToRefresh()
+				location.href='terminal-xzqd.html'
+				},500)
+		}
+	</script>
+	<img src="image/5-121204193R0.gif"/>
+</body>
+</html>

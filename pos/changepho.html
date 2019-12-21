@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0"/>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/all.css"/>
+		<link rel="stylesheet" type="text/css" href="css/top.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="less/security.css"/>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="aui-navBar aui-navBar-fixed" id="nav-wrap">
+			<a class="aui-navBar-item" >
+				<img src="images/iconfont/return.png" onclick="javascript:history.back(-1);" style="width: 20px;"/>
+			</a>
+			<div class="aui-center">
+				<span class="aui-center-title" style="color: #ffffff;font-size: 1rem;font-weight: bold;">账户安全</span>
+			</div>
+			<a class="aui-navBar-item" data-ydui-actionsheet="{target:'#actionSheet',closeElement:'#cancel'}">
+			</a>
+		</header>
+		<div style="height: 44px;"></div>
+		<section class="home">
+			<div class="home-box">
+				<div class="item" onclick="location.href='chpho.html'">
+					<div>
+						<a>登录手机号可用</a>
+					</div>
+					<img src="images/iconfont/go.png"/>
+				</div>
+			</div>
+			
+			
+			<div class="home-box">
+				<div class="item" onclick="location.href='disablepho.html'">
+					<div>
+						<a>登录手机号不可用</a>
+					</div>
+					<img src="images/iconfont/go.png"/>
+				</div>
+			</div>
+		</section>
+		<script type="text/javascript" src="js/mui.js"></script>
+	</body>
+</html>

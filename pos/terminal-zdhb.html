@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0"/>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="css/all.css"/>
+		<link rel="stylesheet" type="text/css" href="css/top.css"/>
+		<link rel="stylesheet/less" type="text/css" href="less/terminal-zdhb.less"/>
+		<script src="js/less.js" ></script>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.aui-navBar-item{
+				overflow: visible;
+			}
+			.aui-navBar-item{
+				min-width: 30%;
+			}
+			.demo{
+				border: none;
+			}
+			
+			/*划拨区间*/
+			.mui-about{
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				width: 100%;
+				
+			}
+			.mui-scan{
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				width: 100%;
+				display: none;
+			}
+			/*mui*/
+			.mui-backdrop{
+				/*background: rgba(0,0,0,0);*/
+			}
+			.mui-content{
+				background: #ffffff;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<section class="main">
+			<header class="aui-navBar aui-navBar-fixed" id="nav-wrap" style="background: #ffffff;position: relative;">
+				<a class="aui-navBar-item" >
+					<img src="images/iconfont/out.png" onclick="javascript:history.back(-1);" style="width: 20px;"/>
+				</a>
+				<div class="aui-center">
+					<span class="aui-center-title" style="font-size: 1rem;font-weight: bold;">终端划拨</span>
+				</div>
+				<a class="aui-navBar-item" href="terminal-jbjl.html" data-ydui-actionsheet="{target:'#actionSheet',closeElement:'#cancel'}">
+					<span class="aui-center-title" style="font-size: 1rem;">划拨记录</span>
+				</a>
+			</header>
+			<div class="mui-nav">
+				<div class="mui-nav-box mui-nav-box-active"><a>区间划拨</a></div>
+				<div class="mui-nav-box"><a>选择划拨</a></div>
+				<div class="mui-nav-box"><a>扫码划拨</a></div>
+			</div>
+			<div class="home-box">
+				<div class="item" onclick="location.href='terminal-xzqd.html'">
+					<div>
+						<a>选择渠道</a>
+					</div>
+					<img src="images/iconfont/go.png"/>
+				</div>
+			</div>
+			<!--选择划拨出现-->
+			<div class="mui-sc">
+				<div class="input-container">
+					<img src="images/iconfont/search2.png" style="width: 20px;"/>
+					<input type="text" placeholder="请输入终端号" />
+					<a>确定</a>
+				</div>
+				<p style="margin: 5px 0;">请选择要设置的终端ID（多选）</p>
+			</div>
+			
+			
+			<!--切换内容-->
+			<section class="terminal-zdhb">
+				<!--划拨区间-->
+				<div class="mui-about">
+					<div class="home-box">
+						<div class="item">
+							<input type="number" class="demo" readonly="readonly" placeholder="请输入划拨终端起始ID" value="888888888" />
+						</div>
+					</div>
+					<div class="home-box">
+						<div class="item">
+							<input type="number" class="demo" readonly="readonly" placeholder="请输入划拨终端结束ID" value="88888" />
+						</div>
+					</div>
+					<div class="home-box">
+						<div class="item">
+							<input type="number" class="demo" readonly="readonly" placeholder="请输入划拨数量（非必填）" value="88888888888" />
+						</div>
+					</div>
+				</div>
+				<!--选择划拨-->
+				<div class="mui-scroll-wrapper mui-content">
+					<div class="mui-scroll">
+						<div class="mui-id-box">
+							<a>888888888888888888888888</a>
+							<div class="btn-count">
+								<div><img src="images/iconfont/gou.png"/></div>
+							</div>
+						</div>
+						<div class="mui-id-box">
+							<a>888888888888888888888888</a>
+							<div class="btn-count">
+								<div><img src="images/iconfont/gou.png"/></div>
+							</div>
+						</div>
+						<div class="mui-id-box">
+							<a>888888888888888888888888</a>
+							<div class="btn-count">
+								<div><img src="images/iconfont/gou.png"/></div>
+							</div>
+						</div>
+						<div class="mui-id-box">
+							<a>888888888888888888888888</a>
+							<div class="btn-count">
+								<div><img src="images/iconfont/gou.png"/></div>
+							</div>
+						</div>
+						<div class="mui-id-box">
+							<a>888888888888888888888888</a>
+							<div class="btn-count">
+								<div><img src="images/iconfont/gou.png"/></div>
+							</div>
+						</div>
+						<div class="mui-id-box">
+							<a>888888888888888888888888</a>
+							<div class="btn-count">
+								<div><img src="images/iconfont/gou.png"/></div>
+							</div>
+						</div>
+						<div class="mui-id-box">
+							<a>888888888888888888888888</a>
+							<div class="btn-count">
+								<div><img src="images/iconfont/gou.png"/></div>
+							</div>
+						</div>
+						<div class="mui-id-box">
+							<a>888888888888888888888888</a>
+							<div class="btn-count">
+								<div><img src="images/iconfont/gou.png"/></div>
+							</div>
+						</div>
+						<div class="mui-id-box">
+							<a>888888888888888888888888</a>
+							<div class="btn-count">
+								<div><img src="images/iconfont/gou.png"/></div>
+							</div>
+						</div>
+						<div class="mui-id-box">
+							<a>888888888888888888888888</a>
+							<div class="btn-count">
+								<div><img src="images/iconfont/gou.png"/></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--扫码划拨-->
+				<div class="mui-scan">
+					<div class="scan">
+						<img src="images/iconfont/sm.png"/>
+						<a>扫一扫</a>
+					</div>
+				</div>
+			</section>
+		</section>
+		
+		<footer class="keycode">
+			<div class="mui-menu">
+				<div class="mui-code">
+					<div>1</div>
+					<div></div>
+				</div>
+				<div class="mui-code">
+					<div>2</div>
+					<div>ABC</div>
+				</div>
+				<div class="mui-code">
+					<div>2</div>
+					<div>ABC</div>
+				</div>
+			</div>
+			<div class="mui-menu">
+				<div class="mui-code">
+					<div>1</div>
+					<div></div>
+				</div>
+				<div class="mui-code">
+					<div>2</div>
+					<div>ABC</div>
+				</div>
+				<div class="mui-code">
+					<div>2</div>
+					<div>ABC</div>
+				</div>
+			</div>
+			<div class="mui-menu">
+				<div class="mui-code">
+					<div>1</div>
+					<div></div>
+				</div>
+				<div class="mui-code">
+					<div>2</div>
+					<div>ABC</div>
+				</div>
+				<div class="mui-code">
+					<div>2</div>
+					<div>ABC</div>
+				</div>
+			</div>
+			<div class="mui-menu">
+				<div class="mui-code-kong">
+					<div></div>
+					<div></div>
+				</div>
+				<div class="mui-code">
+					<div>2</div>
+					<div>ABC</div>
+				</div>
+				<div id="mui-code-delete">
+					<img src="images/iconfont/hs.png" width="35px"/>
+				</div>
+			</div>
+			
+		</footer>
+		<footer class="foot-hb">
+			划拨
+		</footer>
+		<script type="text/javascript" src="js/jquery.1.7.2.min.js"></script>
+		<script type="text/javascript" src="js/mui.js"></script>
+		<!--选择划拨滑动-->
+		<script type="text/javascript">
+			mui(".mui-content").pullRefresh({
+				down:{
+					heigth:60,
+					callback:down
+				},
+				up:{
+					heigth:60,
+					callback:up
+				}
+			})
+			function down(){
+				window.setTimeout(function(){
+					mui(".mui-content").pullRefresh().endPulldownToRefresh()
+				},500)
+			}
+			function up(){
+				window.setTimeout(function(){
+					mui(".mui-content").pullRefresh().endPullupToRefresh()
+				},500)
+			}
+			
+//			切换
+			$(".mui-nav .mui-nav-box").click("tap",function(){
+				$(".mui-nav .mui-nav-box").removeClass("mui-nav-box-active")
+				$(this).addClass("mui-nav-box-active")
+				$(".terminal-zdhb>div").css("display","none")
+				$(".terminal-zdhb>div").eq($(this).index()).css("display","block")
+				if($(this).index()==1){
+					$(".mui-sc").css("display","block")
+				}else{
+					$(".mui-sc").css("display","none")
+				}
+			})
+			
+//			选中
+			$(".btn-count").on("tap",function(){
+				if($(this).find("img").css("opacity")==0){
+					$(this).find("div").css({"background":"red","border":"none"})
+					$(this).find("img").animate({opacity:"1"},200)
+				}else{
+					$(this).find("div").css({"background":"none","border":"1px #dcdcdc solid"})
+					$(this).find("img").animate({opacity:"0"},200)
+				}
+				console.log("Aaa")
+				
+			})
+		</script>
+		<script type="text/javascript">
+			$(function(){
+				var i =0 ;
+				var key = true;
+				$(".demo").click(function(event){
+					i = $('.demo').index(this);
+					console.log(i)
+					var u = navigator.userAgent, app = navigator.appVersion;
+					var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; // Android
+					var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); // ios
+					if (isAndroid) {
+//						confirm("检测为安卓系统直接调用系统键盘");
+					  $(this).removeAttr("readOnly");
+					}
+					if (isIOS) {
+//					  confirm("检测为ios系统创建虚拟键盘");
+						key=false
+					  $(".keycode").animate({"bottom":"0px"},500)
+					}
+					
+				})
+				$(".main").click(function(e){
+					$(".keycode").animate({"bottom":"-224px"},500)
+				})
+				
+				$(".keycode,.demo,.mui-backdrop").click(function(event){
+					event.stopPropagation()
+				})
+				$(".mui-code").click(function(){
+					$(".demo").eq(i).val($(".demo").eq(i).val()+$(this).find("div:eq(0)").html())
+				})
+				$(".mui-code").on("touchstart",function(){
+					$(this).css("background","#B5C2D2")
+					$(".mui-code").on("touchend",function(){
+						$(this).css("background","#ffffff")
+					})
+				})
+				$(".mui-code,.terminal-zdhb,.mui-nav,.aui-navBar").on("touchmove",function(e){
+					if(!key){
+						e.preventDefault()
+					}
+				})
+				$(".mui-code").on("touchend",function(){
+					$(this).css("background","#ffffff")
+				})
+				$("#mui-code-delete").click(function(){
+					var arr = $(".demo").eq(i).val().split("")
+					arr.pop()
+					console.log(arr)
+					$(".demo").eq(i).val(arr.join(""))
+				})
+				$("*").on("doubletap",function(e){
+					e.preventDefault()
+				})
+				function callback(){
+						console.log("打开遮罩")	
+				}
+			})
+			
+		</script>
+	</body>
+</html>

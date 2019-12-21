@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0"/>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/all.css"/>
+		<link rel="stylesheet" type="text/css" href="css/top.css"/>
+		<link rel="stylesheet" type="text/css" href="less/message.css"/>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			body:before {
+			    content: ' ';
+			    position: fixed;
+			    z-index: -1;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0%;
+			    width: 100%;
+			    background: #EDF1F4;
+			    background-size: cover;
+			    padding-bottom: .5rem;
+			}
+			.location-menu{
+				display: flex;
+				padding: 5px 3%;
+				width: 100%;
+				box-sizing: border-box;
+				border-bottom: 1px rgba(180,180,180,1) solid;
+				background: #ffffff;
+			}
+			.location-info-box{
+				flex: 1;
+			}
+			.location-info-box p{
+				margin: 3px 0;
+				font-size: 14px;
+			}
+			.location-info-box p:nth-child(n+2){
+				color: rgba(150,150,150,1);
+				font-size: 12px;
+			}
+			.location-info-box p:nth-child(3){
+				width: 90%;
+				text-overflow: ellipsis;
+			    display: -webkit-box;
+			    -webkit-box-orient: vertical;
+			    -webkit-line-clamp: 1;
+			    overflow: hidden;
+				
+			}
+			.loaction-comile{
+				display: inline-block;
+				position: relative;
+			}
+			.loaction-comile>div{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 55px;
+				height: 100%;
+				color: #2C98FB;
+				font-size: 14px;
+			}
+			.loaction-comile:before{
+				content: '';
+				width: 1px;
+				height: 40%;
+				top: 30%;
+				left: 0;
+				position: absolute;
+				background:rgba(150,150,150,1) ;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="aui-navBar aui-navBar-fixed" id="nav-wrap">
+			<a class="aui-navBar-item" >
+				<img src="images/iconfont/return.png" onclick="javascript:history.back(-1);" style="width: 20px;"/>
+			</a>
+			<div class="aui-center">
+				<span class="aui-center-title" style="color: #ffffff;font-size: 1rem;font-weight: bold;">地址管理</span>
+			</div>
+			<a class="aui-navBar-item" href="addlocation.html" data-ydui-actionsheet="{target:'#actionSheet',closeElement:'#cancel'}">
+				<img src="images/iconfont/jia.png" class="aui-navBar-item2" style="width: 20px;"/>
+			</a>
+		</header>
+		<div style="height: 44px;"></div>
+		<section class="home">
+			<div class="location-menu">
+				<div class="location-info-box">
+					<p>姓名</p>
+					<p>139****3465</p>
+					<p>地址</p>
+				</div>
+				<a class="loaction-comile" href="addlocation.html">
+					<div>
+						编辑
+					</div>
+				</a>
+			</div>
+			<div class="location-menu">
+				<div class="location-info-box">
+					<p>姓名</p>
+					<p>139****3465</p>
+					<p>地址</p>
+				</div>
+				<a class="loaction-comile" href="addlocation.html">
+					<div>
+						编辑
+					</div>
+				</a>
+			</div>
+			<div class="location-menu">
+				<div class="location-info-box">
+					<p>姓名</p>
+					<p>139****3465</p>
+					<p>地址</p>
+				</div>
+				<a class="loaction-comile" href="addlocation.html">
+					<div>
+						编辑
+					</div>
+				</a>
+			</div>
+			<div class="location-menu">
+				<div class="location-info-box">
+					<p>姓名</p>
+					<p>139****3465</p>
+					<p>地址</p>
+				</div>
+				<a class="loaction-comile" href="addlocation.html">
+					<div>
+						编辑
+					</div>
+				</a>
+			</div>
+			<div class="location-menu">
+				<div class="location-info-box">
+					<p>姓名</p>
+					<p>139****3465</p>
+					<p>地址</p>
+				</div>
+				<a class="loaction-comile" href="addlocation.html">
+					<div>
+						编辑
+					</div>
+				</a>
+			</div>
+			<div class="location-menu">
+				<div class="location-info-box">
+					<p>姓名</p>
+					<p>139****3465</p>
+					<p>地址</p>
+				</div>
+				<a class="loaction-comile" href="addlocation.html">
+					<div>
+						编辑
+					</div>
+				</a>
+			</div>
+		</section>
+	</body>
+</html>

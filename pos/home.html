@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0"/>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/all.css"/>
+		<link rel="stylesheet" type="text/css" href="less/home.css"/>
+		<link rel="stylesheet" type="text/css" href="css/top.css"/>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			body:before {
+			    content: ' ';
+			    position: fixed;
+			    z-index: -1;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0%;
+			    width: 100%;
+			    background: #edf1f4;
+			    background-size: cover;
+			    padding-bottom: .5rem;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<section class="home">
+			<div class="home-top-my-info" onclick="location.href='companyinfo.html'">
+				<div class="home-head-img"><img src="images/head.jpg" width="100%"/></div>
+				<div class="home-company-info">
+					<ul>
+						<li>河南中拓信息科技有限公司</li>
+						<li>186****7665</li>
+					</ul>
+				</div>
+				<div class="home-top-go">
+					<img src="images/iconfont/go.png" width="20"/>
+				</div>
+			</div>
+			<div class="home-box">
+				<div class="item" onclick="location.href='user.html'">
+					<div><img src="images/iconfont/money2.png"width="100%"/></div>
+					<div >
+						<a>收益账户</a>
+						<a class="look-money">******</a>
+						<img src="images/iconfont/go.png"/>
+					</div>
+				</div>
+				<div class="item" onclick="location.href='message.html'">
+					<div><img src="images/iconfont/xx.png"width="100%"/></div>
+					<div>
+						<a>我的消息</a>
+						<a></a>
+						<img src="images/iconfont/go.png"/>
+					</div>
+				</div>
+				<div class="item"  onclick="location.href='companyinfo.html'">
+					<div><img src="images/iconfont/sj.png"width="100%"/></div>
+					<div>
+						<a>用户认证</a>
+						<a></a>
+						<img src="images/iconfont/go.png"/>
+					</div>
+				</div>
+				<div class="item" onclick="location.href='location.html'">
+					<div><img src="images/iconfont/dz.png"width="100%"/></div>
+					<div>
+						<a>地址管理</a>
+						<a></a>
+						<img src="images/iconfont/go.png"/>
+					</div>
+				</div>
+				<div class="item" onclick="location.href='tel:13986683465'">
+					<div><img src="images/iconfont/dh.png"width="100%"/></div>
+					<div>
+						<a>我的客服</a>
+						<a>4001177777</a>
+						<img src="images/iconfont/go.png"/>
+					</div>
+				</div>
+				<div class="item">
+					<div><img src="images/iconfont/fx.png"width="100%"/></div>
+					<div>
+						<a>分享</a>
+						<img src="images/iconfont/go.png"/>
+					</div>
+				</div>
+			</div>
+			
+			<div class="home-box box2" >
+				<div class="item" onclick="location.href='position.html'">
+					<div><img src="images/iconfont/yjfk.png"width="100%"/></div>
+					<div>
+						<a>意见反馈</a>
+						<img src="images/iconfont/go.png"/>
+					</div>
+				</div>
+				<div class="item" onclick="location.href='setting.html'">
+					<div><img src="images/iconfont/sz.png"width="100%"/></div>
+					<div>
+						<a>设置</a>
+						<img src="images/iconfont/go.png"/>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div style="height: 60px;"></div>
+		<footer class="aui-footer aui-footer-fixed">
+	
+			<a href="index.html" class="aui-tabBar-item ">
+	                <span class="aui-tabBar-item-icon">
+	                    <i class="icon icon-ions"></i>
+	                </span>
+				<span class="aui-tabBar-item-text" style="color: #3480fa;">首页</span>
+			</a>
+			<a href="mengyou.html" class="aui-tabBar-item ">
+	                <span class="aui-tabBar-item-icon">
+	                    <i class="icon icon-info"></i>
+	                </span>
+				<span class="aui-tabBar-item-text">盟友</span>
+			</a>
+			<a href="jus.html" class="aui-tabBar-item ">
+	                <span class="aui-tabBar-item-icon">
+	                    <i class="icon icon-shouyi"></i>
+	                </span>
+				<span class="aui-tabBar-item-text">收益</span>
+			</a>
+			<a href="home.html" class="aui-tabBar-item ">
+	                <span class="aui-tabBar-item-icon">
+	                    <i class="icon icon-mine"></i>
+	                </span>
+				<span class="aui-tabBar-item-text">我的</span>
+			</a>
+		</footer>
+	</body>
+	<script type="text/javascript" src="js/jquery.1.7.2.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+				$(".look-money").toggle(
+					function(e){
+						e.stopPropagation()
+						$(this).text("54321.00(元)")
+						$(this).parents(".item").css("background","rgba(255,255,255,1)")
+					},
+					function(e){
+						e.stopPropagation()
+						$(this).text("******")
+						$(this).parents(".item").css("background","rgba(255,255,255,1)")
+					}
+				)
+				$(".look-money").on("touchstart",function(e){
+					e.stopPropagation()
+				})
+				$(".home-box .item").on("touchstart",function(){
+					$(this).css("background","rgba(217,217,217,1)")
+					$(".home-box .item").on("touchend",function(){
+						$(this).css("background","rgba(255,255,255,1)")
+					})
+				})
+			
+			
+		})
+	</script>
+</html>

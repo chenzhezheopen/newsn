@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>收支明细</title>
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link href="css/recomment/style.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="css/bottom.css"/>
+	<link rel="stylesheet" type="text/css" href="css/all.css"/>
+	<link rel="stylesheet" type="text/css" href="css/top.css"/>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<style type="text/css">
+		input{
+			-webkit-user-select:auto;
+			-webkit-appearance:textfield;
+			/*-webkit-tap-highlight-color:none;*/
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+		}
+		a:active{
+			background: none;
+			
+		}
+		*{
+			padding: 0;
+			margin: 0;
+			font-weight: initial;
+		}
+		.font-co{
+			color: #C0C0C0;
+		}
+		html,body{
+			background: #F6F7FB;
+			overflow-x: hidden;
+			font-family:"微软雅黑";
+    		-webkit-font-smoothing: antialiased;
+		}
+		
+		body:before {
+			    content: ' ';
+			    position: fixed;
+			    z-index: -1;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0%;
+			    width: 100%;
+			    background: #F6F7FB;
+			    background-size: cover;
+			    padding-bottom: .5rem;
+			}
+		.aui-price-info{
+			padding: 5px 3%;
+			justify-content: flex-start;
+			background: #ffffff;
+			margin-top: 10px;
+		}
+		.aui-info-title>*{
+			margin: 5px 0;
+		}
+		.btn-style{
+			border: none;
+			background: #F0F0F0;
+			outline: none;
+			padding: 1px 12px;
+			height: 25px;
+			border-radius: 12.5px;
+		}
+		.aui-sy-money>*{
+			margin: 5px 0;
+		}
+		.cha{
+			display: none;
+			position: absolute;
+			width: 20px;
+			right: 0%;
+			top: calc(50% - 10px);
+		}
+		
+		.money{
+			flex: 1;
+			min-width: 90%; 
+			height: 100%;
+			border: none;
+			outline: none;
+			background: none;
+			font-size: 40px;
+			text-indent: 10px;
+		}
+		.password{
+			height: 30px;
+			border: none;
+			outline: none;
+			background: none;
+			width: 100%;
+			font-size: 18px;
+			line-height: 30px;
+			padding: 0 3%;
+		}
+	</style>
+</head>
+<body>
+		<header class="aui-navBar aui-navBar-fixed" id="nav-wrap">
+			<a class="aui-navBar-item" >
+				<img src="images/iconfont/return.png" onclick="javascript:history.back(-1);" style="width: 20px;"/>
+			</a>
+			<div class="aui-center">
+				<span class="aui-center-title" style="color: #ffffff;font-size: 1rem;font-weight: bold;">钱包流水</span>
+			</div>
+			<a class="aui-navBar-item" href="tx.html" data-ydui-actionsheet="{target:'#actionSheet',closeElement:'#cancel'}">
+				<img src="images/iconfont/search.png" class="aui-navBar-item2" style="width: 20px;"/>
+			</a>
+		</header>
+<div style="height:44px;">
+			
+		</div>
+	
+	<section class="aui-detail" style="bottom: 0; flex: 1;">
+		
+		<div class="aui-price-info flex">
+			<div><img src="images/iconfont/qy.png" style="width: 30px;margin-right: 5px;"/></div>
+			<div class="flex" style="flex: 1;">
+				<div class="aui-info-title" style="flex: 1;padding-right: 5px;">
+					<p class="font14">中国建设银行股份有限公司三门峡经贸区支行</p>
+					<p class="font12" style="color: #C0C0C0;">尾号03031储蓄卡</p>
+				</div>
+				<div>
+					<img src="images/iconfont/go.png" style="width: 13px;"/>
+				</div>
+			</div>
+		</div>
+		<div class="aui-price-info flex">
+			<div><img src="images/iconfont/gr.png" style="width: 30px;margin-right: 5px;"/></div>
+			<div class="flex" style="flex: 1;">
+				<div class="aui-info-title" style="flex: 1;padding-right: 5px;">
+					<p class="font14">中国建设银行股份有限公司三门峡经贸区支行</p>
+					<p class="font12" style="color: #C0C0C0;">尾号03031储蓄卡</p>
+				</div>
+				<div>
+					<img src="images/iconfont/go.png" style="width: 13px;"/>
+				</div>
+			</div>
+		</div>
+		<style type="text/css">
+			.aui-number{
+				padding: 10px 3%;
+				width: 100%;
+				background: #ffffff;
+				margin-top: 10px;
+			}
+		</style>
+		<div class="aui-number">
+			<div style="width: 94%;">
+				<div class="flex" style="width: 100%;">
+					<a class="font14 font-co" style="flex: 1;" >代收3%税点</a>
+					<input type="button" class="maincolor font14 btn-style" value="发票注意事项!" />
+				</div>
+				<div class="flex" style="height: 50px;position: relative; margin-top: 10px;padding: 5px 0 3px 0; border-bottom:1px #C0C0C0 solid">
+					<h1 style="font-size: 40px;">￥</h1>
+					<input type="number" class="money"  value="" />
+					<img src="images/iconfont/close.png" class="cha"/>
+				</div>
+				<div class="aui-sy-money">
+					<p class="font14">账户余额</p>
+					<p><a class="font14 btn-count">2273.82</a><a class="font14">(元)</a></p> 
+					<input type="button" class="btn-style maincolor font14 btn-tx" value="全部提现" />
+				</div>
+			</div>
+		</div>
+		<div class="flex" style="background: #ffffff;width: 100%; padding-bottom: 2px; height: 50px;margin-top: 10px;">
+			<input type="password" class="password" placeholder="请输入支付密码" />
+		</div>
+		<div class="flex mainbac" style="border-radius: 4px;width: 50%;height: 45px;margin-left: 3%;color: #ffffff;margin: 30px 3%;">
+			开票结算
+		</div>
+		<div class="flex" style="border-radius: 4px;background: #CCCCCC; width: 94%;height: 45px;margin-left: 3%;color: #ffffff;margin: 0px 3% 10px 3%;">
+			结算
+		</div>
+		<div style="text-align: center; width: 100%; padding: 0 3%;" >
+			<h3 class="fonthide font12 " style="width: 94%;">温馨提示:请在十天内将发票提供给我司，以免影响您的正常使用</h3>
+		</div>
+		<div style="height: 50px;">
+			
+		</div>
+	</section>
+	<script type="text/javascript">
+		$(".money").on("input",function(){
+			if($(this).val()!=""){
+				$(".cha").show()
+			}else{
+				$(".cha").hide()
+			}
+		})
+		$(".money").focus(function(){
+			if($(this).val()!=""){
+				$(".cha").show()
+			}else{
+				$(".cha").hide()
+			}
+		})
+		$(".money").blur(function(){
+			event.stopPropagation()
+//			$(".cha").hide()
+		})
+		$(".cha").click(function(event){
+			event.stopPropagation()
+			$(".money").val(" ")
+			$(this).hide()
+		})
+		$(".btn-tx").click(function(){
+			$(".money").val($(".btn-count").text())
+		})
+		
+	</script>
+</body>
+</html>

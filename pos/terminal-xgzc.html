@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0"/>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/all.css"/>
+		<link rel="stylesheet" type="text/css" href="css/top.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.css"/>
+		<link rel="stylesheet/less" type="text/css" href="less/terminal-xgzc.less"/>
+		<script type="text/javascript" src="js/jquery.1.7.2.min.js"></script>
+		
+		
+		<style type="text/css">
+			.input-container a:nth-child(1){
+				width: 85px;
+			}
+			.sublim-btn{
+				background: #2C98FB !important;
+			}
+			select{
+			    flex: 1;
+			    display: -webkit-box;
+			    display: -webkit-flex;
+			    display: -ms-flexbox;
+			    -ms-flex-align: center;
+			    -webkit-box-align: center;
+			    box-align: center;
+			    -webkit-align-items: center;
+			    align-items: center;
+			    justify-content: center;
+			    -webkit-justify-content: center;
+			    align-items: flex-start;
+			    background: none;
+			    border: none;
+			    outline: none;
+			    font-size: 14px;
+			    margin: 0 !important;
+			    width: calc(100% - 80px) !important;
+			    padding: 2px 0 !important;
+			    
+			}
+			.input-container{
+				position: relative;
+				height: 55px;
+			}
+			.android-btn{
+				color: #000000;
+				font-size: 14px;
+				flex: 1;
+			}
+			.android-btn-img{
+				width: 25px;
+				position: absolute;
+				top: calc(50% - 12.5px);
+				right: 20px;
+				
+			}
+			.aui-navBar-item{
+				overflow: visible;
+			}
+			.aui-navBar-item{
+				min-width: 30%;
+			}
+			/*android*/
+			
+		</style>
+	</head>
+	<body>
+		<section class="main">
+			<header class="aui-navBar aui-navBar-fixed" id="nav-wrap" style="background: #ffffff;">
+				<a class="aui-navBar-item" >
+					<img src="images/iconfont/out.png" onclick="javascript:history.back(-1);" style="width: 20px;"/>
+				</a>
+				<div class="aui-center">
+					<span class="aui-center-title" style="font-size: 1rem;font-weight: bold;">批量修改政策</span>
+				</div>
+				<a class="aui-navBar-item" href="terminal-jbjl.html" data-ydui-actionsheet="{target:'#actionSheet',closeElement:'#cancel'}">
+					<span class="aui-center-title" style="font-size: 1rem;font-weight: bold;">修改记录</span>
+				</a>
+			</header>
+			<div style="height: 44px;"></div>
+			<section style="margin-top: 15px;">
+				<div class="from-menu">
+					<div class="input-container">
+						<a>终端起始ID</a>
+						<input type="text" placeholder="请输入终端起始ID" value="88888888" />
+					</div>
+					<div class="input-container">
+						<a>终端结束ID</a>
+						<input type="text" placeholder="请输入终端结束ID" value="88701010" />
+					</div>
+					<div class="input-container">
+						<a>选择终端政策</a>
+						<a class="android-btn">请选择终端政策</a>
+						<select style="flex: 1;" >
+							<option value="瑞银信Pro订购版">请选择终端政策</option>
+							<option value="瑞银信Pro订购版">瑞银信Pro订购版</option>
+							<option value="瑞银信Pro交易激活版">瑞银信Pro交易激活版</option>
+							<option value="">瑞银信Pro 18元激活版</option>
+							<option value="">瑞银信Pro 48元激活版</option>
+						</select>
+						<img src="images/iconfont/xl.png" class="android-btn-img"/>
+					</div>
+				</div>
+				<input type="button" class="sublim-btn" value="下一步" />
+			</section>
+		</section>
+		<section class="android">
+			<div class="mui-android-title"><a>选择终端政策</a></div>
+			<div class="mui-android-lable"><a>激活政策</a></div>
+			<div class="mui-android-menu">
+				<div class="mui-android-box">
+					<div class="mui-android-store">
+						<div class="quan" data-appid = "0"><img src="images/iconfont/gou.png"/></div>
+						<div><a>瑞银信Pro 订购版</a></div>
+					</div>
+					<div class="mui-android-info"><a>确认绑定后即可激活</a></div>
+				</div>
+				<div class="mui-android-box">
+					<div class="mui-android-store">
+						<div class="quan" data-appid = "1"><img src="images/iconfont/gou.png"/></div>
+						<div><a>瑞银信Pro交易激活版</a></div>
+					</div>
+					<div class="mui-android-info"><a>入网当月刷卡交易满足活动条件后激活</a></div>
+				</div>
+				<div class="mui-android-box">
+					<div class="mui-android-store">
+						<div class="quan" data-appid = "2"><img src="images/iconfont/gou.png"/></div>
+						<div><a>瑞银信Pro 18元激活版</a></div>
+					</div>
+					<div class="mui-android-info"><a>支付18元激活，激活反88元固定手续费优惠劵，45天有效期.</a></div>
+				</div>
+				<div class="mui-android-box">
+					<div class="mui-android-store">
+						<div class="quan" data-appid = "3"><img src="images/iconfont/gou.png"/></div>
+						<div><a>瑞银信Pro 48元激活版</a></div>
+					</div>
+					<div class="mui-android-info"><a>支付48元激活，激活反198元固定手续费优惠劵，75天有效期.</a></div>
+				</div>
+				<div class="mui-android-box">
+					<div class="mui-android-store">
+						<div class="quan" data-appid = "4"><img src="images/iconfont/gou.png"/></div>
+						<div><a>瑞银信Pro 98元激活版</a></div>
+					</div>
+					<div class="mui-android-info"><a>支付98元激活，激活反388元固定手续费优惠劵，120天有效期.</a></div>
+				</div>
+				<div class="mui-android-box">
+					<div class="mui-android-store">
+						<div class="quan" data-appid = "5"><img src="images/iconfont/gou.png"/></div>
+						<div><a>瑞银信Pro 128元激活版</a></div>
+					</div>
+					<div class="mui-android-info"><a>支付128元激活，激活反699元固定手续费优惠劵，180天有效期.</a></div>
+				</div>
+				<div class="mui-android-box">
+					<div class="mui-android-store">
+						<div class="quan" data-appid = "6"><img src="images/iconfont/gou.png"/></div>
+						<div><a>瑞银信Pro 158元激活版</a></div>
+					</div>
+					<div class="mui-android-info"><a>支付158元激活，激活反899元固定手续费优惠劵，180天有效期.</a></div>
+				</div>
+				<div class="mui-android-box">
+					<div class="mui-android-store">
+						<div class="quan" data-appid = "7"><img src="images/iconfont/gou.png"/></div>
+						<div><a>瑞银信Pro 198元激活版</a></div>
+					</div>
+					<div class="mui-android-info"><a>支付198元激活，激活反1199元固定手续费优惠劵，180天有效期.</a></div>
+				</div>
+				<div class="mui-android-box">
+					<div class="mui-android-store">
+						<div class="quan" data-appid = "8"><img src="images/iconfont/gou.png"/></div>
+						<div><a>瑞银信Pro 1218元激活版</a></div>
+					</div>
+					<div class="mui-android-info"><a>支付1218元激活，激活反1399元固定手续费优惠劵，180天有效期.</a></div>
+				</div>
+			</div>
+			<div style="height: 80px;">
+				
+			</div>
+			<footer class="mui-android-btn">
+				<div class="cli-btn">
+					<a>确认</a>
+				</div>
+			</footer>
+		</section>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/less.js"></script>
+		<script type="text/javascript">
+				var i =0 ;
+				var key = true;
+					i = $(this).index();
+					var u = navigator.userAgent, app = navigator.appVersion;
+					var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; // Android
+					var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); // ios
+					if (isAndroid) {
+						console.log("安卓")
+						$("select").css("display","none")
+					}
+					if (isIOS) {
+						console.log("ios系统")
+						  $(".android-btn").css("display","none")
+					}
+		</script>
+		<script type="text/javascript">
+			var i =0;
+			$(".android-btn").click(function(){
+				console.log("Aaaaaaaaa")
+				$(".android").css("display","block")
+				$(".main").animate({"opacity":"0"},500)
+				$(".android").animate({"left":"0%"},500)
+			})
+			$(".cli-btn").click(function(){
+				$(".android").css("display","none")
+				$(".main").animate({"opacity":"1"},500)
+				$(".android").animate({"left":"100%"},500)
+				$(".android-btn").text($(".mui-android-store").eq(i).find("a").text())
+				
+			})
+			$(".quan").click(function(){
+				i=$(this).data("appid")
+				console.log(i)
+				$(".quan").css({border:"1px #000000 solid",background:"none"})
+				$(".quan").find("img").css("display","none")
+				$(this).css({border:"none",background:"blue"})
+				$(this).find("img").css("display","block")
+			})
+		</script>
+	</body>
+</html>

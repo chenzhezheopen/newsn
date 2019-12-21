@@ -1,0 +1,535 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>商务管理</title>
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link href="css/shangnwu/style.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" type="text/css" href="css/top.css"/>
+	<link rel="stylesheet" type="text/css" href="css/all.css"/>
+    <script type="text/javascript" src="js/jquery.1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/shangwu/tab.js"></script>
+	<style type="text/css">
+		.content{
+		    		margin-top: 1rem;
+		    		/*border: 1px #0d1730 solid;*/
+		    	}
+		    	.white{
+		    		color: white;
+		    	}
+		    	.red{
+		    		color: red;
+		    	}
+		    	.hui{
+		    		color: rgba(125,125,125,1);
+		    	}
+		    	.font28{
+		    		font-size: 16px;
+		    		margin-top: 20px;
+		    	}
+		    	.invite_nav{
+		    		width: 100%;
+		    		height: 2rem;
+		    		text-align: center;
+		    	}
+		    	.invite_nav>div{
+		    		margin-top: .2rem;
+		    		width: 100%;
+		    		float: left;
+		    		/*line-height: 2rem;*/
+		    	}
+		    	.meuitwo{
+		    		/*background:linear-gradient(rgba(212,160,104,1),rgba(10,18,53,1))*/
+		    	}
+		    	.meuitwo>div{
+		    		width: 33%;
+		    		position: relative;
+		    		float: left;
+		    		/*line-height: .6rem;*/
+		    	}
+		    	.meuitwo>div:not(:last-child):after{
+		    		content: '';
+		    		width: 0px;
+		    		height: 40px;
+		    		left: 100%;
+		    		top: calc(50% - 20px);
+		    		position: absolute;
+		    		border: .5px #ffffff dashed;
+		    		/*background: red;*/
+		    	}
+		    	.content_invite{
+		    		width: 94%; 
+		    		padding: 20px 0;
+		    		border-radius: .2rem; 
+		    		overflow: hidden; 
+		    		margin: 1rem 0 0rem 3%; 
+		    	}
+		    	.invite_nav a{
+		    		font-size: 16px;
+		    		line-height: 32px;
+		    		color: #ffffff;
+		    	}
+		    	body:before {
+				    content: ' ';
+				    position: fixed;
+				    z-index: -1;
+				    top: 0;
+				    right: 0;
+				    bottom: 50%;
+				    left: 0%;
+				    width: 100%;
+				    background: #2C98FB;
+				    background-size: cover;
+				    padding-bottom: .5rem;
+				}
+				body:after{
+				    content: ' ';
+				    position: fixed;
+				    z-index: -1;
+				    top: 50%;
+				    right: 0;
+				    bottom: 0;
+				    left: 0%;
+				    width: 100%;
+				    background: #2C98FB;
+				    background-size: cover;
+				    padding-bottom: .5rem;
+				}
+				.wig{
+					font-size: 20px !important;
+					font-weight: 550;
+				}
+				.zaizhi{
+					position: relative;
+				}
+				.title-box{
+					color: #ffffff;
+					position: absolute;
+					width: 20px;
+					height: 20px;
+					top: -8px;
+					left: -8px;
+					background: rgba(130,130,130,1);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					border-radius: 50%;
+				}
+				.title-box2{
+					color: #ffffff;
+					position: absolute;
+					width: 20px;
+					height: 20px;
+					top: -8px;
+					left: -8px;
+					background: rgba(130,130,130,1);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					border-radius: 50%;
+				}
+				.title-box3{
+					color: #ffffff;
+					position: absolute;
+					width: 32px;
+				    height: 32px;
+				    top: -15px;
+				    left: -12px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+				.title-box3 img{
+					width: 100% !important;
+					height: auto !important;
+				}
+				.title-box4{
+					color: #ffffff;
+					position: absolute;
+					width: 20px;
+					height: 20px;
+					top: -8px;
+					left: -8px;
+					background: rgba(130,130,130,1);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					border-radius: 50%;
+				}
+	</style>
+</head>
+<body>
+<section class="aui-flexView">
+		<header class="aui-navBar aui-navBar-fixed" id="nav-wrap">
+						<a class="aui-navBar-item" >
+							<img src="images/iconfont/return.png" onclick="javascript:history.back(-1);" style="width: 20px;"/>
+						</a>
+						<div class="aui-center">
+							<span class="aui-center-title" style="color: #ffffff;font-size: 1rem;font-weight: bold;">商务管理</span>
+						</div>
+						<a class="aui-navBar-item" data-ydui-actionsheet="{target:'#actionSheet',closeElement:'#cancel'}">
+						</a>
+					</header>
+					<div style="height: 44px;"></div>
+					 <div class="content_invite">
+					    <div class="invite_nav">
+					    	<div class="meuitwo red font34">
+					    		<div><a class="wig">100</a><a class="font28">人</a><br /><a class="font54">总人数</a></div>
+						    	<div><a class="wig">100</a><a class="font28">人</a><br /><a class="font54">在职人数</a></div>
+						    	<div><a class="wig">100</a><a class="font28">人</a><br /><a class="font54">离职人数</a></div>
+					    	</div>
+					    </div>
+				    </div>
+            <section class="aui-scrollView" style="margin-top: 20px;background: #2C98FB;">
+                <div class="aui-banner">
+                    <!--<img src="images/shangwu/banner.png" alt="">-->
+                </div>
+                <div class="aui-shift-box">
+                    <div class="aui-tab" data-ydui-tab>
+                        <ul class="tab-nav">
+                            <li class="tab-nav-item tab-active">
+                                <a href="javascript:;">
+                                    <span><img src="images/iconfont/zz.png" alt=""></span>
+                                    <span>在职</span>
+                                </a>
+                            </li>
+                            <li class="tab-nav-item">
+                                <a href="javascript:;">
+                                    <span><img src="images/iconfont/lz.png" alt=""></span>
+                                    <span>离职</span>
+                                </a>
+                            </li>
+                            <li class="tab-nav-item">
+                                <a href="javascript:;">
+                                    <span><img src="images/iconfont/ph.png" alt=""></span>
+                                    <span>排行</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-panel">
+                        	<!--在职-->
+                            <div class="tab-panel-item tab-active">
+                                <a href="ygdetail.html" class="aui-flex b-line">
+                                    <div class="aui-shift-img zaizhi">
+                                    	<div class="title-box">
+                                    		1
+                                    	</div>
+                                        <img src="images/shangwu/icon-item-01.png" alt="">
+                                    </div>
+                                    <div class="aui-flex-box">
+                                        <h2>张三（组长）</h2>
+                                        <h3>客户人数： <em>2019</em></h3>
+                                        <h3>入职时间： <em>2019-12-12</em></h3>
+                                        <!--<p>入职时间 <em>2019-12-12</em></p>-->
+                                    </div>
+                                    <div class="aui-shift-button">
+                                        <button>详情</button>
+                                        <!--<p>业绩 <em>5000</em></p>-->
+                                    </div>
+                                </a>
+                               <a href="ygdetail.html" class="aui-flex b-line">
+                                    <div class="aui-shift-img zaizhi">
+                                    	<div class="title-box">
+                                    		1
+                                    	</div>
+                                        <img src="images/shangwu/icon-item-01.png" alt="">
+                                    </div>
+                                    <div class="aui-flex-box">
+                                        <h2>张三（组长）</h2>
+                                        <h3>客户人数： <em>2019</em></h3>
+                                        <h3>入职时间： <em>2019-12-12</em></h3>
+                                        <!--<p>入职时间 <em>2019-12-12</em></p>-->
+                                    </div>
+                                    <div class="aui-shift-button">
+                                        <button>详情</button>
+                                        <!--<p>业绩 <em>5000</em></p>-->
+                                    </div>
+                                </a>
+                                <a href="ygdetail.html" class="aui-flex b-line">
+                                    <div class="aui-shift-img zaizhi">
+                                    	<div class="title-box">
+                                    		1
+                                    	</div>
+                                        <img src="images/shangwu/icon-item-01.png" alt="">
+                                    </div>
+                                    <div class="aui-flex-box">
+                                        <h2>张三（组长）</h2>
+                                        <h3>客户人数： <em>2019</em></h3>
+                                        <h3>入职时间： <em>2019-12-12</em></h3>
+                                        <!--<p>入职时间 <em>2019-12-12</em></p>-->
+                                    </div>
+                                    <div class="aui-shift-button">
+                                        <button>详情</button>
+                                        <!--<p>业绩 <em>5000</em></p>-->
+                                    </div>
+                                </a>
+                                <a href="ygdetail.html" class="aui-flex b-line">
+                                    <div class="aui-shift-img zaizhi">
+                                    	<div class="title-box">
+                                    		1
+                                    	</div>
+                                        <img src="images/shangwu/icon-item-01.png" alt="">
+                                    </div>
+                                    <div class="aui-flex-box">
+                                        <h2>张三（组长）</h2>
+                                        <h3>客户人数： <em>2019</em></h3>
+                                        <h3>入职时间： <em>2019-12-12</em></h3>
+                                        <!--<p>入职时间 <em>2019-12-12</em></p>-->
+                                    </div>
+                                    <div class="aui-shift-button">
+                                        <button>详情</button>
+                                        <!--<p>业绩 <em>5000</em></p>-->
+                                    </div>
+                                </a>
+                                <a href="ygdetail.html" class="aui-flex b-line">
+                                    <div class="aui-shift-img zaizhi">
+                                    	<div class="title-box">
+                                    		1
+                                    	</div>
+                                        <img src="images/shangwu/icon-item-01.png" alt="">
+                                    </div>
+                                    <div class="aui-flex-box">
+                                        <h2>张三（组长）</h2>
+                                        <h3>客户人数： <em>2019</em></h3>
+                                        <h3>入职时间： <em>2019-12-12</em></h3>
+                                        <!--<p>入职时间 <em>2019-12-12</em></p>-->
+                                    </div>
+                                    <div class="aui-shift-button">
+                                        <button>详情</button>
+                                        <!--<p>业绩 <em>5000</em></p>-->
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <!--离职-->
+                            <div class="tab-panel-item">
+                                <a href="ygdetail.html" class="aui-flex b-line">
+                                    <div class="aui-shift-img zaizhi">
+                                    	<div class="title-box2">
+                                    		1
+                                    	</div>
+                                        <img src="images/shangwu/icon-item-01.png" alt="">
+                                    </div>
+                                   <div class="aui-flex-box">
+                                        <h2>张三（组长）</h2>
+                                        <h3>客户人数： <em>2019</em></h3>
+                                        <h3>入职时间： <em>2019-10-12</em></h3>
+                                        <h3>离职时间： <em>2019-12-12</em></h3>
+                                        <!--<p>入职时间 <em>2019-12-12</em></p>-->
+                                    </div>
+                                    <div class="aui-shift-button">
+                                        <button>详情</button>
+                                        <!--<p>业绩 <em>5000</em></p>-->
+                                    </div>
+                                </a>
+                                <a href="ygdetail.html" class="aui-flex b-line">
+                                    <div class="aui-shift-img zaizhi">
+                                    	<div class="title-box2">
+                                    		1
+                                    	</div>
+                                        <img src="images/shangwu/icon-item-01.png" alt="">
+                                    </div>
+                                   <div class="aui-flex-box">
+                                        <h2>张三（组长）</h2>
+                                        <h3>客户人数： <em>2019</em></h3>
+                                        <h3>入职时间： <em>2019-10-12</em></h3>
+                                        <h3>离职时间： <em>2019-12-12</em></h3>
+                                        <!--<p>入职时间 <em>2019-12-12</em></p>-->
+                                    </div>
+                                    <div class="aui-shift-button">
+                                        <button>详情</button>
+                                        <!--<p>业绩 <em>5000</em></p>-->
+                                    </div>
+                                </a>
+                                <a href="ygdetail.html" class="aui-flex b-line">
+                                    <div class="aui-shift-img zaizhi">
+                                    	<div class="title-box2">
+                                    		1
+                                    	</div>
+                                        <img src="images/shangwu/icon-item-01.png" alt="">
+                                    </div>
+                                   <div class="aui-flex-box">
+                                        <h2>张三（组长）</h2>
+                                        <h3>客户人数： <em>2019</em></h3>
+                                        <h3>入职时间： <em>2019-10-12</em></h3>
+                                        <h3>离职时间： <em>2019-12-12</em></h3>
+                                        <!--<p>入职时间 <em>2019-12-12</em></p>-->
+                                    </div>
+                                    <div class="aui-shift-button">
+                                        <button>详情</button>
+                                        <!--<p>业绩 <em>5000</em></p>-->
+                                    </div>
+                                </a>
+                                <a href="ygdetail.html" class="aui-flex b-line">
+                                    <div class="aui-shift-img zaizhi">
+                                    	<div class="title-box2">
+                                    		1
+                                    	</div>
+                                        <img src="images/shangwu/icon-item-01.png" alt="">
+                                    </div>
+                                   <div class="aui-flex-box">
+                                        <h2>张三（组长）</h2>
+                                        <h3>客户人数： <em>2019</em></h3>
+                                        <h3>入职时间： <em>2019-10-12</em></h3>
+                                        <h3>离职时间： <em>2019-12-12</em></h3>
+                                        <!--<p>入职时间 <em>2019-12-12</em></p>-->
+                                    </div>
+                                    <div class="aui-shift-button">
+                                        <button>详情</button>
+                                        <!--<p>业绩 <em>5000</em></p>-->
+                                    </div>
+                                </a>
+                                <a href="ygdetail.html" class="aui-flex b-line">
+                                    <div class="aui-shift-img zaizhi">
+                                    	<div class="title-box2">
+                                    		1
+                                    	</div>
+                                        <img src="images/shangwu/icon-item-01.png" alt="">
+                                    </div>
+                                   <div class="aui-flex-box">
+                                        <h2>张三（组长）</h2>
+                                        <h3>客户人数： <em>2019</em></h3>
+                                        <h3>入职时间： <em>2019-10-12</em></h3>
+                                        <h3>离职时间： <em>2019-12-12</em></h3>
+                                        <!--<p>入职时间 <em>2019-12-12</em></p>-->
+                                    </div>
+                                    <div class="aui-shift-button">
+                                        <button>详情</button>
+                                        <!--<p>业绩 <em>5000</em></p>-->
+                                    </div>
+                                </a>
+                            </div>
+                            
+                           	<!--排行-->
+                            <div class="tab-panel-item">
+                                <a href="ygdetail.html" class="aui-flex b-line">
+                                   <div class="aui-shift-img zaizhi">
+                                    	<div class="title-box3">
+                                    		<img src="images/iconfont/gj.png"/>
+                                    	</div>
+                                        <img src="images/shangwu/icon-item-01.png" alt="">
+                                    </div>
+                                    <div class="aui-flex-box">
+                                        <h2>张三</h2>
+                                        <h3>客户人数： <em>2019</em></h3>
+                                        <h3>本月交易： <em>201.9（万元）</em></h3>
+                                        <h3>总交易量： <em>201.9（百万）</em></h3>
+                                    </div>
+                                    <div class="aui-shift-button">
+                                        <button>详情</button>
+                                    </div>
+                                </a>
+                                <a href="ygdetail.html" class="aui-flex b-line">
+                                   <div class="aui-shift-img zaizhi">
+                                    	<div class="title-box3">
+                                    		<img src="images/iconfont/yj.png"/>
+                                    	</div>
+                                        <img src="images/shangwu/icon-item-01.png" alt="">
+                                    </div>
+                                  <div class="aui-flex-box">
+                                        <h2>张三</h2>
+                                        <h3>客户人数： <em>2019</em></h3>
+                                        <h3>本月交易： <em>201.9（万元）</em></h3>
+                                        <h3>总交易量： <em>201.9（百万）</em></h3>
+                                    </div>
+                                    <div class="aui-shift-button">
+                                        <button>详情</button>
+                                    </div>
+                                </a>
+                                <a href="ygdetail.html" class="aui-flex b-line">
+                                  <div class="aui-shift-img zaizhi">
+                                    	<div class="title-box3">
+                                    		<img src="images/iconfont/jj.png"/>
+                                    	</div>
+                                        <img src="images/shangwu/icon-item-01.png" alt="">
+                                    </div>
+                                   <div class="aui-flex-box">
+                                        <h2>张三</h2>
+                                        <h3>客户人数： <em>2019</em></h3>
+                                        <h3>本月交易： <em>201.9（万元）</em></h3>
+                                        <h3>总交易量： <em>201.9（百万）</em></h3>
+                                    </div>
+                                    <div class="aui-shift-button">
+                                        <button>详情</button>
+                                    </div>
+                                </a>
+                                <a href="ygdetail.html" class="aui-flex b-line">
+                                   <div class="aui-shift-img zaizhi">
+                                    	<div class="title-box4">
+                                    		<img src="image/QQ.png"/>
+                                    	</div>
+                                        <img src="images/shangwu/icon-item-01.png" alt="">
+                                    </div>
+                                  <div class="aui-flex-box">
+                                        <h2>张三</h2>
+                                        <h3>客户人数： <em>2019</em></h3>
+                                        <h3>本月交易： <em>201.9（万元）</em></h3>
+                                        <h3>总交易量： <em>201.9（百万）</em></h3>
+                                    </div>
+                                    <div class="aui-shift-button">
+                                        <button>详情</button>
+                                    </div>
+                                </a>
+                                <a href="ygdetail.html" class="aui-flex b-line">
+                                    <div class="aui-shift-img zaizhi">
+                                    	<div class="title-box4">
+                                    		<img src="image/QQ.png"/>
+                                    	</div>
+                                        <img src="images/shangwu/icon-item-01.png" alt="">
+                                    </div>
+                                    <div class="aui-flex-box">
+                                        <h2>张三</h2>
+                                        <h3>客户人数： <em>2019</em></h3>
+                                        <h3>本月交易： <em>201.9（万元）</em></h3>
+                                        <h3>总交易量： <em>201.9（百万）</em></h3>
+                                    </div>
+                                    <div class="aui-shift-button">
+                                        <button>详情</button>
+                                    </div>
+                                </a>
+                                <a href="ygdetail.html" class="aui-flex b-line">
+                                    <div class="aui-shift-img zaizhi">
+                                    	<div class="title-box4">
+                                    		<img src="image/QQ.png"/>
+                                    	</div>
+                                        <img src="images/shangwu/icon-item-01.png" alt="">
+                                    </div>
+                                    <div class="aui-flex-box">
+                                        <h2>张三</h2>
+                                        <h3>客户人数： <em>2019</em></h3>
+                                        <h3>本月交易： <em>201.9（万元）</em></h3>
+                                        <h3>总交易量： <em>201.9（百万）</em></h3>
+                                    </div>
+                                    <div class="aui-shift-button">
+                                        <button>详情</button>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+</section>
+<script type="text/javascript">
+	for(let i =0 ;i< $(".title-box").length;i++){
+		console.log(i)
+		$(".title-box").eq(i).html(i+1)
+	}
+	for(let i =0 ;i< $(".title-box2").length;i++){
+		console.log(i)
+		$(".title-box2").eq(i).html(i+1)
+	}
+	for(let i =0 ;i< $(".title-box4").length;i++){
+		console.log(i)
+		$(".title-box4").eq(i).html(i+4)
+	}
+</script>
+</body>
+</html>

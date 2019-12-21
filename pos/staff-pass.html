@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0"/>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/all.css"/>
+		<link rel="stylesheet" type="text/css" href="css/top.css"/>
+		<link rel="stylesheet" type="text/css" href="less/message.css"/>
+		<script type="text/javascript" src="js/jquery.1.7.2.min.js"></script>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			body:before {
+			    content: ' ';
+			    position: fixed;
+			    z-index: -1;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0%;
+			    width: 100%;
+			    background: #EDF1F4;
+			    background-size: cover;
+			    padding-bottom: .5rem;
+			}
+			.location-menu{
+				display: flex;
+				padding: 5px 3%;
+				width: 100%;
+				box-sizing: border-box;
+				border-bottom: 1px rgba(180,180,180,1) solid;
+				background: #ffffff;
+			}
+			.location-menu>div:nth-child(1){
+				flex: 1;
+			}
+			.location-menu>div:nth-child(2){
+				display: flex;
+				align-items: flex-end;
+				flex-direction: column;
+			}
+			.location-info-box p{
+				margin: 3px 0;
+				font-size: 14px;
+			}
+			.location-info-box p:nth-child(n+2){
+				color: rgba(150,150,150,1);
+				font-size: 12px;
+			}
+			.location-info-box p:nth-child(3){
+				width: 90%;
+				text-overflow: ellipsis;
+			    display: -webkit-box;
+			    -webkit-box-orient: vertical;
+			    -webkit-line-clamp: 1;
+			    overflow: hidden;
+				
+			}
+			.loaction-comile{
+				display: inline-block;
+				position: relative;
+			}
+			.loaction-comile>div{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 55px;
+				height: 100%;
+				color: #2C98FB;
+				font-size: 14px;
+			}
+			#nav-wrap{
+				background: #ffffff;
+			}
+			.search{
+				width: 94%;
+				height: 30px;
+				border-radius: 10px;
+				background: #ffffff;
+				margin: 10px 3%;
+				position: relative;
+			}
+			.search:before{
+				content: '';
+				background: url(images/iconfont/search2.png);
+				background-size: 20px;
+				width: 20px;
+				height: 20px;
+				left: 10px;
+				top: 5px;
+				position: absolute;
+			}
+			.search-lable{
+				line-height: 30px;
+				margin-left: 45px;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="aui-navBar aui-navBar-fixed" id="nav-wrap">
+			<a class="aui-navBar-item" >
+				<img src="images/iconfont/out.png" onclick="javascript:history.back(-1);" style="width: 20px;"/>
+			</a>
+			<div class="aui-center">
+				<span class="aui-center-title" style="font-size: 1rem;font-weight: bold;">员工账号</span>
+			</div>
+			<a class="aui-navBar-item" href="add-accound.html" data-ydui-actionsheet="{target:'#actionSheet',closeElement:'#cancel'}">
+				<img src="images/iconfont/jia2.png" class="aui-navBar-item2" style="width: 20px;"/>
+			</a>
+		</header>
+		<div style="height: 44px;"></div>
+		<section class="home">
+			<div class="search">
+				<a class="search-lable"></a>
+			</div>
+			<div class="location-menu">
+				<div class="location-info-box">
+					<p>工号id</p>
+					<p>张三</p>
+				</div>
+				<div class="location-info-box">
+					<p>运营</p>
+					<p>瑞银信Pro</p>
+				</div>
+			</div>
+			<div class="location-menu">
+				<div class="location-info-box">
+					<p>工号id</p>
+					<p>张三</p>
+				</div>
+				<div class="location-info-box">
+					<p>运营</p>
+					<p>瑞银信Pro</p>
+				</div>
+			</div>
+			<div class="location-menu">
+				<div class="location-info-box">
+					<p>工号id</p>
+					<p>张三</p>
+				</div>
+				<div class="location-info-box">
+					<p>运营</p>
+					<p>瑞银信Pro</p>
+				</div>
+			</div>
+		</section>
+		<script type="text/javascript">
+			$(function(){
+				$(".location-menu").click(function(){
+					location.href='detail-add-accound.html'
+				})
+				$(".search").click(function(){
+					location.href='staff-search.html'
+				})
+			})
+		</script>
+	</body>
+</html>

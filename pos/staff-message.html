@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0"/>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/all.css"/>
+		<link rel="stylesheet" type="text/css" href="css/top.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.css"/>
+		<style type="text/css">
+			*{
+				box-sizing: border-box;
+			}
+			#nav-wrap{
+				background: none;
+			}
+			.sublim-btn{
+				width: 94%;
+				margin-left: 3%;
+				height: 36px;
+				margin-top: 40px;
+				color: #ffffff;
+				font-size: 14px;
+				border-radius: 18px;
+				background: #2C98FB !important;
+			}
+			.mui-box{
+				width: 100%;
+				border-top-left-radius:15px;
+				border-top-right-radius: 15px;
+				background: #ffffff;
+				padding-top: 40px;
+				position: absolute;
+				margin-top: 100px;
+				top: 51px;
+				bottom: 0;
+			}
+			.mui-scroll>*:not(img){
+				padding-left: 3%;
+			}
+			.detail-pass{
+				width: 100px;
+				height: 80px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				
+				justify-content: space-between;
+			}
+			.mui-scroll{
+				    top: 0;
+				    min-height: 100%;
+				    background: #ffffff;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<header class="aui-navBar aui-navBar-fixed" id="nav-wrap">
+				<a class="aui-navBar-item" >
+					<img src="images/iconfont/out.png" onclick="javascript:history.back(-1);" style="width: 20px;"/>
+				</a>
+				<div class="aui-center">
+					<span class="aui-center-title" style="font-size: 1rem;font-weight: bold;">员工管理</span>
+				</div>
+				<a class="aui-navBar-item" data-ydui-actionsheet="{target:'#actionSheet',closeElement:'#cancel'}">
+				</a>
+			</header>
+			<div style="height: 44px;"></div>
+			<section class="mui-scroll-wrapper mui-content ">
+				<div class="mui-scroll">
+					<img src="images/user-logo.jpg" style="position: absolute;width: 100%;top: 0;z-index: -1;"/>
+					<p style="margin-top: 50px;">员工数量</p>
+					<h2>1</h2>
+					<div class="mui-box" style="width: 100%;">
+						<div class="detail-pass" onclick="location.href='staff-pass.html'">
+							<img src="images/iconfont/tjxx.png" width="50%"/>
+							<a style="color: #000000;">员工账号</a>
+						</div>
+						<input type="button" onclick="location.href='add-accound.html'" class="sublim-btn" value="创建员工账号" />
+					</div>
+					
+				</div>
+			</section>
+		</section>
+		<script type="text/javascript" src="js/jquery.1.7.2.min.js"></script>
+		<script type="text/javascript" src="js/mui.js"></script>
+		<script type="text/javascript">
+			mui.init({
+			  pullRefresh : {
+			    container:".mui-content",//待刷新区域标识，querySelector能定位的css选择器均可，比如：id、.class等
+			    down : {
+			      height:50,//可选.默认50.触发上拉加载拖动距离
+			      auto:true,//可选,默认false.自动上拉加载一次
+			      contentdown : "<div style='color:red;>aaaaaaaaaaa</div>",//可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容
+			      contentover : "释放立即刷新",
+			      contentrefresh : "正在加载...",//可选，正在加载状态时，上拉加载控件上显示的标题内容
+			      contentnomore:'没有更多数据了',//可选，请求完毕若没有更多数据时显示的提醒内容；
+			      callback :pullfres //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+			    }
+			  }
+			});
+			
+			
+			function pullfres() {
+				window.setTimeout(function(){
+					mui.toast('数据已更新')
+					 mui(".mui-content").pullRefresh().endPulldownToRefresh();
+				},1000)
+			}
+			$(".detail-pass").on("tap",function(){
+				location.href='staff-pass.html'
+			})
+		</script>
+	</body>
+</html>

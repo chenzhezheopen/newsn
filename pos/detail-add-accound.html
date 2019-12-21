@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0"/>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/all.css"/>
+		<link rel="stylesheet" type="text/css" href="css/top.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="less/changepas.css"/>
+		<style type="text/css">
+			.mui-check-title{
+				background: #ffffff;
+				margin-top: 15px;
+				padding: 10px 3%;
+			}
+			
+			.input-container>a:nth-child(1){
+				width: 90px;
+			}
+			.input-container>a:nth-child(2){
+				flex: 1;
+			}
+			.sublim-btn{
+				background: #2C98FB !important;
+			}
+			.input-container input{
+				background: none;
+				border: none;
+			}
+			#nav-wrap{
+				background: #ffffff;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<header class="aui-navBar aui-navBar-fixed" id="nav-wrap">
+				<a class="aui-navBar-item" >
+					<img src="images/iconfont/out.png" onclick="javascript:history.back(-1);" style="width: 20px;"/>
+				</a>
+				<div class="aui-center">
+					<span class="aui-center-title" style="font-size: 1rem;font-weight: bold;">员工账号详情</span>
+				</div>
+				<a class="aui-navBar-item" data-ydui-actionsheet="{target:'#actionSheet',closeElement:'#cancel'}">
+					<span class="aui-center-title2" style="font-size:12px;">冻结</span>
+				</a>
+			</header>
+			<div style="height: 44px;"></div>
+			<section style="margin-top: 15px;">
+				<div class="from-menu">
+					<div class="input-container">
+						<a href="">员工工号</a>
+						<a href="">65465a4s6f5</a>
+					</div>
+					<div class="input-container">
+						<a href="">姓名</a>
+						<a href="">张三</a>
+					</div>
+					<div class="input-container">
+						<a href="">角色</a>
+						<a href="">运营</a>
+					</div>
+					<div class="input-container">
+						<a href="">品牌</a>
+						<a href="">瑞银信Pro</a>
+					</div>
+					<div class="input-container">
+						<a href="">账号状态</a>
+						<a href="">正常</a>
+					</div>
+					<div class="input-container">
+						<a href="">创建时间</a>
+						<a href="">2019-12-16 12:04:40</a>
+					</div>
+				</div>
+				<input type="button" onclick="location.href='add-accound.html'" class="sublim-btn" value="修改" />
+			</section>
+		</section>
+		<script type="text/javascript" src="js/jquery.1.7.2.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(".mui-check-lable>div").toggle(
+					function(){
+						$(this).css({background:"#2C98FB",color:"#ffffff"})
+					},
+					function(){
+						$(this).css({background:"#F4F9FF",color:"#2C98FB"})
+					}
+					
+				)
+				$(".aui-center-title2").toggle(
+					function(){
+						if(confirm("是否继续冻结")==true){
+							$(this).text("解冻")
+						}
+					},
+					function(){
+						if(confirm("是否解冻")==true){
+							$(this).text("冻结")
+						}
+					}
+				)
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0"/>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/all.css"/>
+		<link rel="stylesheet" type="text/css" href="css/top.css"/>
+		<script type="text/javascript" src="js/jquery.1.7.2.min.js"></script>
+		<style type="text/css">
+			body,html{
+				background: #edf1f4;
+			}
+			.type{
+				padding: 5px 10px;	
+				flex: 1;
+				border: 1px rgba(0,0,0,.5) solid;
+				border-radius: 2px;
+				font-size: 12px;
+    			white-space: nowrap;
+			}
+			.left{
+				margin-left: 10px;
+			}
+			.sublim-lable{
+				resize: none;
+				width: 100%;
+				border: none;
+				height: 100px;
+				outline: none;
+				line-height: 10px;
+				line-height: 28px;
+    			font-size: 14px;
+			}
+			
+			.mui-file{
+				border: 1px rgba(0,0,0,.5) dashed; 
+				width: calc(20% - 10px);
+				margin-right: 8px;
+				position: relative;
+				overflow: hidden;
+			}
+			.mui-i{
+				position: absolute;
+				width: 32%;
+				height: 2px;
+				background: rgba(0,0,0,.5);
+				left: 34%;
+				top: calc(50% - 1px);
+			}
+			.mui-p{
+				position: absolute;
+				height: 32%;
+				width: 2px;
+				background: rgba(0,0,0,.5);
+				top: 34%;
+				left: calc(50% - 1px);
+			}
+			.top{
+				margin-top: 10px;
+			}
+			.add-mui-btn {
+			  width: 90%;
+			  margin: 40px 0% 0 5%;
+			  height: 40px;
+			  font-size: 16px;
+			  background: #2C98FB;
+			  border-radius: 20px;
+			  color: #ffffff;
+			  border: none;
+			}
+			.file-contain{
+				display: flex;
+			}
+			.hint{
+				position: absolute;
+				top: 6px; 
+				left: 0px;
+				font-size:13px;
+				color: rgba(0,0,0,.4);
+			}
+		</style>
+	</head>
+	<body>
+		<section class="position">
+			<header class="aui-navBar aui-navBar-fixed" id="nav-wrap" style="background: #ffffff;">
+				<a class="aui-navBar-item" >
+					<img src="images/iconfont/out.png" onclick="javascript:history.back(-1);" style="width: 20px;"/>
+				</a>
+				<div class="aui-center">
+					<span class="aui-center-title" style="font-size: 1rem;font-weight: bold;">意见反馈</span>
+				</div>
+				<a class="aui-navBar-item" data-ydui-actionsheet="{target:'#actionSheet',closeElement:'#cancel'}">
+				</a>
+			</header>
+			<div style="height: 44px;"></div>
+			
+			<section class="top" style="padding: 5px 3% 20px 3%; background: #ffffff;">
+				<p style="color: rgba(0,0,0,.5);    font-size: 14px;">温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示</p>
+				<p>400-117-77777</p>
+				<p class="top">反馈问题类型</p>
+				<div class="top" style="display: flex;">
+					<div class="flex type">功能建议</div>
+					<div class="flex type left">功能异常</div>
+					<div class="flex type left">体验问题</div>
+					<div class="flex type left">其他问题</div>
+				</div>
+				<div class="top" style="position: relative;">
+					<textarea class="sublim-lable"></textarea>
+					<a class="hint">请描述您的问题</a>
+				</div>
+				<a style="float: right;">0/200</a><br />
+				<hr style="margin: 5px;" />
+				<div class="top">
+					<a >上传图片(</a>
+					<a class="index">0</a>
+					<a>/5)</a>
+				</div>
+				<div class="top file-contain">
+					<div class="mui-file flex">
+						<div class="mui-i"></div>
+						<div class="mui-p"></div>
+						<img src="" class="mui-file-img" style="width: 100%;z-index: 99;"/>
+						<input type="file" class="myfile" style="width: 100%;height: 100%;opacity: 0;position: absolute; z-index: 120;" />
+					</div>
+				</div>
+			</section>
+			<input type="button" class="add-mui-btn"  value="提交反馈" />
+		</section>
+		<script type="text/javascript">
+			
+				$(function(){
+					var i = 0;
+					var j = 0;
+					$(".mui-file").height($(".mui-file").width())
+				
+					$("div").on("click",".mui-file",function(){
+						
+						i=$(this).index()
+						console.log(i)
+						$(this).find("input").change(function(){
+						
+							var file = this.files[0];
+							var readfile = new FileReader();
+							readfile.readAsDataURL(file)
+							if (this.files && this.files[0]) {
+								readfile.onload =function(e){
+									
+//									判断有多少张图片
+									if(j<i){
+										j=i
+									}
+									$(".mui-file-img").eq(i).attr("src",e.target.result)
+									if($(".mui-file").length<5&&i==$(".mui-file").length-1){
+										var html = '<div class="mui-file flex"><div class="mui-i"></div><div class="mui-p"></div><img src="" class="mui-file-img" style="width: 100%;z-index: 99;"/><input type="file" class="myfile" style="width: 100%;z-index: 120;position: absolute;height: 100%;opacity: 0;" /></div>'
+										$(".file-contain").append(html)
+									}
+									$(".index").text(j+1)
+								}.bind(this)
+							}
+							$(".mui-file").height($(".mui-file").eq(0).height())
+						})
+						
+					})
+					
+					$(".sublim-lable").on("input",function(){
+						if($(this).val()!=""){
+							$(".hint").css("display","none")
+						}else{
+							$(".hint").css("display","block")
+						}
+					})
+				})
+				
+		</script>
+	</body>
+</html>

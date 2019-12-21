@@ -1,0 +1,212 @@
+@maincolor:#3093F0;
+@down-color:rgba(200,200,200,1);
+@down-block:rgba(220,220,220,1);
+@main-size:16px;
+@bodybac:rgba(237,241,244,1);
+.color(@value){
+    color: @value;
+}
+.background(@value){
+    background: @value;
+}
+.linear-grident(@start ,@end){
+    background: linear-gradient(45deg,@start,@end);
+}
+.flexc(){
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+     -ms-flex-align:center;
+    -webkit-box-align:center;
+    box-align:center;
+    -webkit-align-items:center;
+    align-items:center;
+    justify-content: center;
+    -webkit-justify-content: center;
+}
+.flexs(){
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+     -ms-flex-align:start;
+    -webkit-box-align:start;
+    box-align:center;
+    -webkit-align-items:flex-start;
+    align-items:flex-start;
+}
+.column(){
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+}
+body,html{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg,#2C98FB,#2A98FA) !important;
+}
+header{
+    background: none !important;
+}
+section{
+    width: 100%;
+}
+.mui-navbar-fixed{
+    width: 100%;
+    position: fixed;
+    min-height: 200px;
+    top: 44px;
+    .mui-column{
+        display: flex;
+        width: 100%;
+        padding: 10px 0 20px 0;
+        div{
+            .flexc();
+            width: 50%;
+            p{
+                color: #ffffff;
+                position: relative;
+            }
+        }
+    }
+    .mui-navbar-list{
+        .flexc();
+        width: 100%;
+        div{
+            .flexc();
+            .column();
+            position: relative;
+            width:50%;
+            p:first-child{
+                color: @down-color;
+                font-size: 12px;
+            }
+            p:nth-child(2){
+                color: #ffffff;
+                font-size: 16px;
+            }
+             p:nth-child(3){
+                a{font-size: 12px;}
+                a:nth-child(1){
+                    color:@down-color;
+                }
+                a:nth-child(2){
+                    color: #ffffff;
+                }
+            }
+            &:nth-child(1):before{
+                content: '';
+                width: 1px;
+                height: 50%;
+                position: absolute;
+                right: 0;
+                top: 25%;
+                background: @down-color;
+            }
+            &:nth-child(3){
+               
+                
+                
+            }
+        }
+    }
+}
+.mui-navbar-active:before{
+    content: '';
+    width: 90%;
+    height: 1px;
+    position: absolute;
+    right: 5%;
+    bottom:-5px;
+    background: #ffffff;
+}
+
+.content1{
+    background: #EFEFF4;
+    position: absolute;
+    z-index: 2;
+    top: 150px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    .content1-tab{
+        height: 103px;
+        position: absolute;
+        border-radius: 5px;
+        background: #ffffff;
+        z-index: 1000;
+        width: 96%;
+        top: -50px;
+        left: 2%;
+        padding: 5px 0;
+        .flexc();
+        .column();
+         div{
+            width: 94%;
+            border-radius: 3px;
+            background: #ffffff;
+            .flexc();
+            .mui-fixed-search{
+                width: 80%;
+                border: none;
+                background: none;
+                outline: none;
+                margin: 0;
+            }
+        }
+    }
+}
+.content2{
+    background: #EFEFF4;
+    position: absolute;
+    z-index: 2;
+    top: 99px;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    .search{
+        .flexc();
+        padding: 5px 0;
+        
+         div{
+            width: 94%;
+            border-radius: 3px;
+            background: #ffffff;
+            position: relative;
+            .flexc();
+            img{
+                margin: 0 10px 0 20px;
+            }
+            a{
+                margin: 0 20px 0 20px;
+                color: #000000;
+                font-size: 14px;
+            }
+            .mui-fixed-search{
+                flex: 1;
+                border: none;
+                background: none;
+                outline: none;
+                margin: 0;
+            }
+            .close{
+                width: 14px;
+                height: 14px;
+                
+                border-radius: 50%;
+                background: rgba(100,100,100,1);
+                .flexc();
+                display: none;
+                position: absolute;
+                right: 60px;
+                top: 13px;
+                img{
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+.scroll2{
+    top: 50px !important;
+}

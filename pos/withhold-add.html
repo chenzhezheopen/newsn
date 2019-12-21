@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0"/>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/all.css"/>
+		<link rel="stylesheet" type="text/css" href="css/top.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="LCalendar/css/LCalendar.css" />
+		<link rel="stylesheet" type="text/css" href="LCalendar/css/mobileSelect.css">
+		<link rel="stylesheet" type="text/css" href="less/changepas.css"/>
+		<style type="text/css">
+			.input-container{
+				border: none;	
+			}
+			.input-container>a:nth-child(1){
+				width: 75px;
+			}
+			.from-menu{
+				padding-right: 15px;
+			}
+			.sublim-btn{
+				background: #2C98FB !important;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<header class="aui-navBar aui-navBar-fixed" id="nav-wrap">
+				<a class="aui-navBar-item" >
+					<img src="images/iconfont/return.png" onclick="javascript:history.back(-1);" style="width: 20px;"/>
+				</a>
+				<div class="aui-center">
+					<span class="aui-center-title" style="color: #ffffff;font-size: 1rem;font-weight: bold;">新建渠道代扣</span>
+				</div>
+				<a class="aui-navBar-item" data-ydui-actionsheet="{target:'#actionSheet',closeElement:'#cancel'}">
+				</a>
+			</header>
+			<div style="height: 44px;"></div>
+			<section style="margin-top: 15px;padding-bottom: 50px;">
+				<div class="from-menu">
+					<div class="input-container">
+						<a href="">渠道名称：</a>
+						<input type="text" placeholder="请选择渠道" readonly="readonly" />
+						<img src="images/iconfont/go.png" style="width: 20px;"/>
+					</div>
+					<div class="input-container">
+						<a href="">代扣金额：</a>
+						<input type="text" placeholder="请输入代扣金额" />
+					</div>
+					<div class="input-container" id="picker1">
+						<a>代扣期数：</a>
+						<input type="text" placeholder="选择代扣期数" />
+						<img src="images/iconfont/xl.png" style="width: 20px;"/>
+					</div>
+					<div class="input-container" id="picker2">
+						<a href="">计算方式：</a>
+						<input type="text" readonly="readonly" value="等额" />
+						<img src="images/iconfont/xl.png" style="width: 20px;"/>
+					</div>
+					<div class="input-container">
+						<a href="">生效日期：</a>
+						<input type="text" id="jz_date" placeholder="请选择生效日期" readonly="readonly" />
+						<img src="images/iconfont/xl.png" style="width: 20px;"/>
+					</div>
+					<div class="input-container">
+						<a href="">备注：</a>
+						<input type="text" placeholder="请输入备注,50字以内" />
+					</div>
+				</div>
+				<div class="mui-check-menu">
+					<div class="mui-check-title">
+						<p>代扣来源：</p>
+					</div>
+					<div class="mui-check-box">
+						<div>
+							<div class="mui-check"><img src="images/iconfont/gou.png"/></div>
+							<a>交易分润</a>
+						</div>
+						<div>
+							<div class="mui-check"><img src="images/iconfont/gou.png"/></div>
+							<a>代扣货款</a>
+						</div>
+						<div>
+							<div class="mui-check"><img src="images/iconfont/gou.png"/></div>
+							<a>激活返利</a>
+						</div>
+					</div>
+				</div>
+				<div class="mui-check-menu">
+					<div class="mui-check-box">
+						<div>
+							<div class="mui-check"><img src="images/iconfont/gou.png"/></div>
+							<a style="color: #2C98FB;">交易分润</a>
+						</div>
+					</div>
+				</div>
+				<style type="text/css">
+					.mui-check-title p{
+						color: #000000;
+						font-size: 13px;
+					}
+					.mui-check-menu{
+						width: 100%;
+						display: flex;
+						padding: 10px 3% 0px 3%;
+					}
+					.mui-check-box{
+						flex: 1;
+						display: flex;
+						flex-wrap: wrap;
+					}
+					.mui-check-box>div{
+						width: 49%;
+						display: flex;
+						margin-bottom: 15px;
+						align-items: center;
+					}
+					.mui-check-box>div>a{
+						font-size: 13px;
+						color: #000000;
+					}
+					.mui-check{
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						margin-right: 10px;
+						width: 15px;
+						height: 15px;
+						overflow: hidden;
+						border: 1px #000000 solid;
+						border-radius: 50%;
+					}
+					.mui-check>img{
+						width: 70%;
+						display: none;
+					}
+				</style>
+				<input type="button" class="sublim-btn" value="确认创建" />
+			</section>
+		</section>
+		<script type="text/javascript" src="js/jquery.1.7.2.min.js"></script>
+		<script type="text/javascript" src="js/city/picker.min.js"></script>
+		<script src="LCalendar/js/LCalendar.js"></script><!--日期控件-->
+		<script src="LCalendar/js/mobileSelect.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(".mui-check").toggle(
+					function(){
+						$(this).css({background:"#2C98FB",border:"none"})
+						$(this).find("img").css("display","block")
+					},
+					function(){
+						$(this).css({background:"none",border:"1px #000000 solid"})
+						$(this).find("img").css("display","none")
+					}
+				)
+			})
+		</script>
+		<!--代扣期数-->
+		<script type="text/javascript" src="js/withhold-add.js"></script>
+		<script type="text/javascript">
+			var date=new Date;
+			var y = date.getFullYear()
+			var m = date.getMonth() + 1
+			var d = date.getDate()
+			var calendar = new lCalendar();
+				calendar.init({
+					'trigger': '#jz_date',
+					title: '选择时间',
+					'type': 'date',
+					'minDate': '2015-1-1',//最小日期 注意：该值会覆盖标签内定义的日期范围
+	    			'maxDate':''+y+'-'+m+'-'+d+''//最大日期 注意：该值会覆盖标签内定义的日
+				});
+	</script>
+	</body>
+</html>

@@ -1,0 +1,240 @@
+body,
+html {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #2C98FB, #2A98FA) !important;
+}
+header {
+  background: none !important;
+}
+section {
+  width: 100%;
+}
+.mui-navbar-fixed {
+  width: 100%;
+  position: fixed;
+  min-height: 200px;
+  top: 44px;
+}
+.mui-navbar-fixed .mui-column {
+  display: flex;
+  width: 100%;
+  padding: 10px 0 20px 0;
+}
+.mui-navbar-fixed .mui-column div {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  width: 50%;
+}
+.mui-navbar-fixed .mui-column div p {
+  color: #ffffff;
+  position: relative;
+}
+.mui-navbar-fixed .mui-navbar-list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  width: 100%;
+}
+.mui-navbar-fixed .mui-navbar-list div {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  position: relative;
+  width: 50%;
+}
+.mui-navbar-fixed .mui-navbar-list div p:first-child {
+  color: #c8c8c8;
+  font-size: 12px;
+}
+.mui-navbar-fixed .mui-navbar-list div p:nth-child(2) {
+  color: #ffffff;
+  font-size: 16px;
+}
+.mui-navbar-fixed .mui-navbar-list div p:nth-child(3) a {
+  font-size: 12px;
+}
+.mui-navbar-fixed .mui-navbar-list div p:nth-child(3) a:nth-child(1) {
+  color: #c8c8c8;
+}
+.mui-navbar-fixed .mui-navbar-list div p:nth-child(3) a:nth-child(2) {
+  color: #ffffff;
+}
+.mui-navbar-fixed .mui-navbar-list div:nth-child(1):before {
+  content: '';
+  width: 1px;
+  height: 50%;
+  position: absolute;
+  right: 0;
+  top: 25%;
+  background: #c8c8c8;
+}
+.mui-navbar-active:before {
+  content: '';
+  width: 90%;
+  height: 1px;
+  position: absolute;
+  right: 5%;
+  bottom: -5px;
+  background: #ffffff;
+}
+.content1 {
+  background: #EFEFF4;
+  position: absolute;
+  z-index: 2;
+  top: 150px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.content1 .content1-tab {
+  height: 103px;
+  position: absolute;
+  border-radius: 5px;
+  background: #ffffff;
+  z-index: 1000;
+  width: 96%;
+  top: -50px;
+  left: 2%;
+  padding: 5px 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+}
+.content1 .content1-tab div {
+  width: 94%;
+  border-radius: 3px;
+  background: #ffffff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+.content1 .content1-tab div .mui-fixed-search {
+  width: 80%;
+  border: none;
+  background: none;
+  outline: none;
+  margin: 0;
+}
+.content2 {
+  background: #EFEFF4;
+  position: absolute;
+  z-index: 2;
+  top: 99px;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+}
+.content2 .search {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  padding: 5px 0;
+}
+.content2 .search div {
+  width: 94%;
+  border-radius: 3px;
+  background: #ffffff;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+.content2 .search div img {
+  margin: 0 10px 0 20px;
+}
+.content2 .search div a {
+  margin: 0 20px 0 20px;
+  color: #000000;
+  font-size: 14px;
+}
+.content2 .search div .mui-fixed-search {
+  flex: 1;
+  border: none;
+  background: none;
+  outline: none;
+  margin: 0;
+}
+.content2 .search div .close {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #646464;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  display: none;
+  position: absolute;
+  right: 60px;
+  top: 13px;
+}
+.content2 .search div .close img {
+  margin: 0;
+}
+.scroll2 {
+  top: 50px !important;
+}

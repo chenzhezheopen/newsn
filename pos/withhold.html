@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0"/>
+		<title>代扣货款</title>
+		<link rel="stylesheet" type="text/css" href="css/all.css"/>
+		<link rel="stylesheet" type="text/css" href="css/top.css"/>
+		<link rel="stylesheet" type="text/css" href="less/withhold.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.css"/>
+		<style type="text/css">
+			/*mui*/
+			.content2{
+				top: 199px;
+			}
+			.mui-scroll{
+			    z-index: 2;
+			    width: 100%;
+			    background: #ffffff;
+			}
+			.mui-content{
+				/*background: linear-gradient(red,blue) !important;*/
+				background: #F5F5F5;
+			}
+			.mui-scroll>div{
+				background: #F5F5F5;
+				/*background: linear-gradient(red,blue) !important;*/
+				height: 900px !important; 
+				height: 100%;
+			}
+			.scroll1{
+				top: 60px;
+			}
+			.content1-tab>p:nth-child(2){
+				font-size: 22px;
+			}
+			.content1-tab *:nth-child(1){
+				color: rgba(150,150,150,1);
+			}
+			.content1-tab *:nth-child(2){
+				color: #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<header class="aui-navBar aui-navBar-fixed" id="nav-wrap">
+				<a class="aui-navBar-item" >
+					<img src="images/iconfont/return.png" onclick="javascript:history.back(-1);" style="width: 20px;"/>
+				</a>
+				<div class="aui-center">
+					<span class="aui-center-title" style="color: #ffffff;font-size: 1rem;font-weight: bold;">代扣货款</span>
+				</div>
+				<a class="aui-navBar-item" data-ydui-actionsheet="{target:'#actionSheet',closeElement:'#cancel'}">
+					<span style="color:#ffffff;font-size: 14px;">瑞银信Pro</span>
+				</a>
+			</header>
+			<div class="mui-navbar-fixed">
+				<div class="mui-column">
+					<div class="menu1"><p class="mui-navbar-active">上级扣款</p></div>
+					<div class="menu2"><p>渠道代扣</p></div>
+				</div>
+				<div class="mui-navbar-list" style="display: none;">
+					<div>
+						<p>代扣总金额</p>
+						<p>0.00元</p>
+						<p><a>已履行：</a><a>0.00%</a></p>
+					</div>
+					<div>
+						<p>代扣协议数</p>
+						<p>0份</p>
+						<p><a>已完成协议：</a><a>0.00%</a></p>
+					</div>
+				</div>
+			</div>
+			
+			<section class="content1">
+				<div class="content1-tab">
+					<p>代扣总金额</p>
+					<p>0.00元</p>
+					<p><a>已履行：</a><a>0.00%</a></p>
+				</div>
+				<section class="mui-scroll-wrapper mui-content scroll1">
+					<div class="mui-scroll">
+						<div>
+							
+						</div>
+					</div>
+				</section>
+			</section>
+			
+			<section class="content2" style="display: none;">
+				<div class="search">
+					<div>
+						<img src="images/iconfont/search2.png" width="20px"/>
+						<input type="text" class="mui-fixed-search"  placeholder="请输入渠道名称" />
+						<a>确认</a>
+						<div class="close"><img src="images/iconfont/close.png" width="70%"/></div>
+					</div>
+				</div>
+				<section class="mui-scroll-wrapper mui-content scroll2">
+					<div class="mui-scroll">
+						<div>
+							
+						</div>
+					</div>
+				</section>
+			</section>
+			<footer class="aui-footer aui-footer-fixed" style="background: #2C98F7;display: none;">
+				<a href="withhold-add.html" class="aui-tabBar-item ">
+					<span class="aui-tabBar-item-text" style="color: #ffffff;">新建渠道代扣</span>
+				</a>
+			</footer>
+		</section>
+		<script type="text/javascript" src="js/jquery.1.7.2.min.js"></script>
+		<script type="text/javascript" src="js/mui.js"></script>
+		<script type="text/javascript">
+			$(".mui-fixed-search").on("input",function(){
+				if($(".mui-fixed-search").val()!=""){
+					$(".close").css("display","flex")
+				}else{
+					$(".close").css("display","none")
+				}
+			})
+			$(".close").click(function(){
+				$(".mui-fixed-search").val("")
+				$(this).css("display","none")
+			})
+			mui(".scroll2").pullRefresh({
+				down:{
+					height:60,
+					auto:true,
+					contentdown:"上拉刷新",
+					contentover:"松开刷新",
+					contentrefresh:"正在刷新",
+					callback:callfun2
+				}
+			})
+			function callfun2(){
+				window.setTimeout(function(){
+					mui.toast('数据更新完成')
+					mui(".scroll2").pullRefresh().endPulldownToRefresh()
+//					mui(".mui-content").pullRefresh().endPullupToRefresh(false);
+				},500)
+				
+			}
+			
+			mui(".scroll1").pullRefresh({
+				down:{
+					height:60,
+					auto:true,
+					contentdown:"上拉刷新",
+					contentover:"松开刷新",
+					contentrefresh:"正在刷新",
+					callback:callfun1
+				}
+			})
+			
+			function callfun1(){
+				window.setTimeout(function(){
+					mui.toast('数据更新完成')
+					mui(".scroll1").pullRefresh().endPulldownToRefresh()
+//					mui(".mui-content").pullRefresh().endPullupToRefresh(false);
+				},500)
+				
+			}
+			$(function(){
+				$(".menu1").click(function(){
+					$(".content2").css("display","none")
+					$(".mui-navbar-list").css("display","none")
+					$(".content1").css("display","block")
+					$(".aui-footer").css("display","none")
+				})
+				$(".menu2").click(function(){
+					$(".content2").css("display","block")
+					$(".mui-navbar-list").css("display","flex")
+					$(".content1").css("display","none")
+					$(".aui-footer").css("display","flex")
+				})
+				
+				$(".mui-column>div").click(function(){
+					$(".mui-column>div p").removeClass("mui-navbar-active")
+					$(".mui-column>div p").eq($(this).index()).addClass("mui-navbar-active")
+				})
+				$(".mui-navbar-fixed").on("touchmove",function(e){
+					e.preventDefault()
+				})
+				$(".content1-tab").on("touchmove",function(e){
+					e.preventDefault()
+				})
+				$(".search").on("touchmove",function(e){
+					e.preventDefault()
+				})
+			})
+		</script>
+	</body>
+</html>

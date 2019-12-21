@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<meta content="telephone=no" name="format-detection" />
+		<link rel="stylesheet" type="text/css" href="LCalendar/css/LCalendar.css" />
+		<link rel="stylesheet" type="text/css" href="LCalendar/css/mobileSelect.css">
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<!--<script src="js/rem.js"></script>-->
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			body{
+				position: relative;
+			}
+			body:before {
+			    content: ' ';
+			    position: fixed;
+			    z-index: -1;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0%;
+			    width: 100%;
+			    background: #ffffff;
+			    background-size: cover;
+			    padding-bottom: .5rem;
+			}
+		</style>
+		<style type="text/css">
+			#a{
+				float: left;
+			width: 15%;
+			height: 100%;
+			}
+		.aui-fixed-login{
+			/*float: right;*/
+			/*width: 85%;*/
+			/*height: 100%;*/
+			box-sizing: border-box;
+			right: 0%;
+			top: 0%;
+			position: relative;
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: flex;
+			flex-direction: column;
+			-ms-flex-direction: column;
+			-webkit-flex-direction: column;
+			background: #ffffff;
+			
+		}
+		
+		.aui-fixed-sublim>div{
+			display: -webkit-box;
+    		display: -webkit-flex;
+    		display: flex;
+    		align-items: center;
+    		justify-content: center;
+    		width: calc(45.5% - 2px);
+    		height: calc(100% - 2px);
+    		border: 1px #2C98FB solid;
+    		float: left;
+    		border-radius: 20px;
+		}
+		.aui-fixed-sublim>div:nth-child(2){
+			background:#2C98FB;
+			margin-left: 3%;
+		}
+		.aui-fixed-sublim>div:nth-child(1) *{
+			font-size: 14px;
+			color: #000000;
+		}
+		.aui-fixed-sublim>div:nth-child(2) *{
+			font-size: 14px;
+			color: #ffffff;
+		}
+		.aui-fixed-contain{
+		    -webkit-box-flex: 1;
+		    
+    		-webkit-flex: 1;
+    		flex: 1;
+    		padding: 0 3%;
+    		overflow-y: scroll;
+    		overflow-x: hidden;
+    		-webkit-overflow-scrolling: touch;
+    	}
+    	
+    	.aui-fixed-d{
+    		width: 96%;
+    	}
+    	.aui-fixed-d *{
+    		font-size: 14px;
+    		margin: 10px 0;
+    	}
+    	.aui-fixed-input1 input{
+    		width: 100%;
+    		padding:9px 3px ;
+    		height: 20px;
+    		border-radius: 1px;
+    		background: #F6F7FB;
+    		outline: none;
+    		border: none;
+    		position: relative;
+    	}
+    	.form_sel{
+    		width: 102%;
+    		padding:9px 3px ;
+    		height: 40px;
+    		border-radius: 1px;
+    		background: #F6F7FB;
+    		outline: none;
+    		border: none;
+    		position: relative;
+    		-webkit-appearance:button;
+    	}
+    	.aui-fixed-box {
+    		display: -webkit-box;
+    		display: -webkit-flex;
+    		display: flex;
+    		align-items: center;
+    		justify-content: space-between;
+    	}
+    	.aui-fixed-input2 input{
+    		width: 42%;
+    		padding:9px 3px ;
+    		height: 20px;
+    		border-radius: 1px;
+    		background: #F6F7FB url(images/iconfont/rl.png) no-repeat;
+    		background-position-x: calc(100% - 3px);
+    		background-position-y: calc(100% - 10px);
+    		background-size: 16px 16px;
+    		outline: none;
+    		border: none;
+    		position: relative;
+    	}
+    	.aui-fixed-rightbe:before{
+    		content: '';
+    		position: absolute;
+    		top: 0%;
+    		right: 0%;
+    		width:16px;
+    		height: 16px;
+    		background: url(images/iconfont/rightg.png) no-repeat;
+    		background-size: 16px 16px;
+    	}
+    	.aui-fixed-rightimg{
+    		background: #F6F7FB url(images/iconfont/rightg.png) no-repeat !important;
+    		background-position-x: calc(95% - 16px) !important;
+    		background-position-y: calc(100% - 8px) !important;
+    		background-size: 16px 16px !important;
+    	}
+    	.aui-fixed-sublim{
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			height: 40px;
+			background: #ffffff;
+			display: flex;
+    		justify-content: center;
+		}
+		.form_sel{
+			background: #F6F7FB url(images/iconfont/rightg.png) no-repeat !important;
+    		background-position-x: calc(95% - 16px) !important;
+    		background-position-y: calc(100% - 10px) !important;
+    		background-size: 16px 16px !important;
+		}
+	</style>
+	</head>
+	<body>
+		
+		<div class="aui-fixed-login">
+			<div class="aui-fixed-contain">
+				<img src="images/iconfont/close.png" onclick="javascript:location.href='reword.html'" style="margin-right: 20px;width: 20px;float: right;margin-top: 20px;" />
+				<h3 style="font-weight: 550;margin-top: 40px;" >删选条件</h3>
+				<div class="aui-fixed-d aui-fixed-input1">
+					<p>品牌名称</p>
+					<div class="form_input float-l">
+		            	<select class="form_sel">
+		            		<option>选择品牌名称</option>
+		                	<option>瑞银行pro</option>
+		                	<option>快益刷</option>
+		                	<option>银盛大</option>
+		                </select>
+		            </div>
+				</div>
+				<div class="aui-fixed-d aui-fixed-input1">
+					<p>交易类型</p>
+					<div class="form_input float-l">
+		            	<select class="form_sel">
+		                	<option>选择交易类型</option>
+		                	<option>普通服务</option>
+		                	<option>超级服务</option>
+		                	<option>云闪付</option>
+		                </select>
+		            </div>
+				</div>
+				<div class="aui-fixed-d aui-fixed-input1">
+					<p>终端号</p>
+					<div class="form_input float-l">
+		            	<select class="form_sel">
+		            		<option>选择终端号</option>
+		                	<option>111111111111</option>
+		                	<option>2222222222</option>
+		                	<option>333333333333</option>
+		                </select>
+		            </div>
+				</div>
+				<div class="aui-fixed-d aui-fixed-input1">
+					<p>返现金额</p>
+					<div class="form_input float-l">
+		            	<select class="form_sel">
+		            		<option>选择返现金额</option>
+		                	<option>￥199</option>
+		                	<option>￥299</option>
+		                	<option>￥399</option>
+		                </select>
+		            </div>
+				</div>
+				<div class="aui-fixed-d aui-fixed-input2">
+					<p>交易日期</p>
+					<div class="aui-fixed-box">
+						<input type="text" readonly="readonly" id="jz_date" value="选择开始时间" />
+						<a>至</a>
+						<input type="text" readonly="readonly"  id="car_date" value="选择结束时间" />
+					</div>
+				</div>
+			</div>
+			<div class="aui-fixed-sublim">
+				<div onclick="location.href='sublim.html'"><h1>重置</h1></div>
+				<div><h1>确认</h1></div>
+			</div>
+			<div style="height: 60px;">
+				
+			</div>
+		</div>
+	</body>
+	<script src="js/style.js"></script>
+<script src="LCalendar/js/LCalendar.js"></script><!--日期控件-->
+<script src="LCalendar/js/mobileSelect.min.js"></script>
+<script type="text/javascript" src="js/bottom.js"></script>
+	<script type="text/javascript">
+		
+		$(function(){
+			 $("input").blur(function(){
+//			 	$(window).height(window.screen.availHeight)
+			 	$(window).scrollTop($(this).offset().top-200)
+			 	$(".aui-fixed-sublim").css("bottom","0")
+			  })
+			$("input").focus(function(){
+//			 	$(window).height(window.screen.availHeight)
+			 	$(window).scrollTop($(this).offset().top-200)
+			 	$(".aui-fixed-sublim").css("bottom","0")
+			})
+			$(".form_sel").blur(function(){
+//			 	$(window).height(window.screen.availHeight)
+			 	$(window).scrollTop($(this).offset().top-200)
+			 	$(".aui-fixed-sublim").css("bottom","0")
+			  })
+			$(".form_sel").focus(function(){
+//			 	$(window).height(window.screen.availHeight)
+			 	$(window).scrollTop($(this).offset().top-200)
+			 	$(".aui-fixed-sublim").css("bottom","0")
+			})
+			
+			
+		})
+	</script>
+	<script type="text/javascript">
+	</script>
+	<script type="text/javascript">
+		var calendar = new lCalendar();
+			calendar.init({
+				'trigger': '#jz_date',
+				'type': 'date',
+				'minDate':'2015-1-1',//最小日期 注意：该值会覆盖标签内定义的日期范围
+    			'maxDate':'2020-12-31'//最大日期 注意：该值会覆盖标签内定义的日
+			});
+		var calendar = new lCalendar();
+			calendar.init({
+				'trigger': '#car_date',
+				'type': 'date',
+				'minDate':'2015-1-1',//最小日期 注意：该值会覆盖标签内定义的日期范围
+    			'maxDate':'2020-12-31'//最大日期 注意：该值会覆盖标签内定义的日
+			});
+		//时间选择
+		var numArr1=['10时','11时','12时','13时','14时','15时','16时','17时','18时'];
+		var numArr2=['01分','02分','03分','04分','05分','06分','07分','08分','09分','10分','11分','12分','13分','14分','15分','16分','17分','18分','19分','20分','21分','22分','23分','24分','25分','26分','27分','28分','29分','30分','31分','32分','33分','34分','35分','36分','37分','38分','39分','40分','41分','42分','43分','44分','45分','46分','47分','48分','49分','50分','51分','52分','53分','54分','55分','56分','57分','58分','59分','60分'];
+		var mobileSelect3 = new MobileSelect({
+			trigger: '#car_houer_date',
+			title: '选择时间',
+			wheels: [
+						{data: numArr1},
+						{data: numArr2},
+					],
+			position:[0, 0, 0],
+			//transitionEnd:function(indexArr, data){
+			//    console.log(data);
+			//},
+			callback:function(indexArr, data){
+				//$("#trigger3").html("ccccccccccccccccccccc");
+				
+			}
+		});
+</script>
+</html>
